@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "页面内容"
+    files:
+      - label: "首页"
+        name: "home"
+        file: "index.html"
+        fields:
+          - { label: "页面标题", name: "title", widget: "string" }
+          - { label: "页面内容", name: "body", widget: "markdown" }
+      - label: "关于我们"
+        name: "about"
+        file: "about-us/index.html"
+        fields:
+          - { label: "页面标题", name: "title", widget: "string" }
+          - { label: "页面内容", name: "body", widget: "markdown" }
+      - label: "联系我们"
+        name: "contact"
+        file: "contact-us/index.html"
+        fields:
+          - { label: "页面标题", name: "title", widget: "string" }
+          - { label: "页面内容", name: "body", widget: "markdown" }
