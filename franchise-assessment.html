@@ -368,16 +368,14 @@
   .success-p { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); max-width: 380px; line-height: 1.85; margin-bottom: 32px; font-weight: 300; }
   .success-back { font-family: var(--sans); font-size: 0.65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); background: none; border: none; border-bottom: 1px solid rgba(139,106,56,.3); padding-bottom: 3px; cursor: pointer; }
 
-  /* lang hide/show — scoped to avoid affecting select/option rendering */
-  .lang-en { display: none; }
+  /* lang hide/show */
   .lang-zh { display: none; }
-  body.en .lang-en { display: inline; }
-  body.en .lang-block-en { display: block; }
+  .lang-en { display: inline; }
+  body.zh .lang-en { display: none; }
   body.zh .lang-zh { display: inline; }
-  body.zh .lang-block-zh { display: block; }
 </style>
 </head>
-<body>
+<body class="en">
 
 <div class="prog"><div class="prog-fill" id="pFill"></div></div>
 
@@ -760,7 +758,7 @@ let lang = 'en';
 
 function setLang(l) {
   lang = l;
-  document.body.classList.toggle('zh', l === 'zh');
+  document.body.className = l;
   document.getElementById('btnEN').classList.toggle('on', l === 'en');
   document.getElementById('btnZH').classList.toggle('on', l === 'zh');
   document.querySelectorAll('[data-ph-en]').forEach(el => {
