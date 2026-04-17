@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BizchainChina | Franchise Feasibility Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Franklin:wght@200;300;400;500&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Exact variables from bizchainchina.com ── */
+  :root {
+    --bg:        #F8F7F3;
+    --bg2:       #EEECE5;
+    --ink:       #0F0F0D;
+    --ink-soft:  rgba(15,15,13,0.82);
+    --ink-muted: rgba(15,15,13,0.55);
+    --rule:      rgba(15,15,13,0.12);
+    --gold:      #8B6A38;
+    --gold-bright:#B8874A;
+    --gold-dim:  #A88850;
+    --gold-glow: rgba(139,106,56,0.18);
+    --serif:     'Cormorant Garamond','Noto Serif SC',Georgia,serif;
+    --sans:      'Libre Franklin','Noto Sans SC',sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    font-weight: 300;
+  }
+
+  /* grain overlay — same as website */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    opacity: 0.028;
+  }
+
+  /* ── Progress ── */
+  .prog { position:fixed; top:0; left:0; right:0; height:2px; z-index:300; background:var(--rule); }
+  .prog-fill { height:100%; background:var(--gold); width:0%; transition:width .3s; }
+
+  /* ── Nav — matches website nav ── */
+  .nav {
+    position: sticky; top: 2px; z-index: 200;
+    background: rgba(248,247,243,0.95);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 1px 0 var(--rule);
+    padding: 0 40px;
+  }
+  .nav-inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; align-items: center;
+    justify-content: space-between; height: 62px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.15rem; font-weight: 500;
+    letter-spacing: 0.38em; color: var(--gold);
+    text-decoration: none; text-transform: uppercase;
+  }
+  .nav-right { display: flex; align-items: center; gap: 18px; }
+
+  /* Language toggle — exact copy from website */
+  .lang-toggle { display: flex; border: 1px solid var(--gold); overflow: hidden; }
+  .lang-b {
+    padding: 5px 13px;
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.06em; background: transparent;
+    border: none; cursor: pointer; color: var(--ink-muted);
+    transition: all .3s;
+  }
+  .lang-b.on { background: var(--gold); color: #fff; }
+  .lang-b:not(.on):hover { color: var(--gold); }
+
+  .nav-pct {
+    font-size: 0.62rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .nav-pct b { color: var(--gold); }
+
+  /* ── Header ── */
+  .header {
+    background: linear-gradient(175deg, var(--bg) 0%, var(--bg2) 100%);
+    padding: 80px 40px 72px;
+    border-bottom: 1px solid var(--rule);
+    position: relative; z-index: 1;
+  }
+  .header-inner { max-width: 900px; margin: 0 auto; }
+
+  /* eyebrow — exact style from website */
+  .eyebrow {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 26px;
+  }
+  .eyebrow::before {
+    content: ''; width: 40px; height: 1px;
+    background: var(--gold-bright); flex-shrink: 0;
+  }
+  .eyebrow-txt {
+    font-family: var(--sans);
+    font-size: 0.62rem; font-weight: 400;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold-bright);
+  }
+
+  /* Hero title — matches website h1 style */
+  .hero-h {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 300; line-height: 1.08;
+    color: var(--ink); margin-bottom: 0;
+  }
+  .hero-h em {
+    font-style: italic; color: var(--gold-bright);
+    display: block;
+    position: relative;
+  }
+  .hero-h em::after {
+    content: ''; display: block;
+    width: 80px; height: 1px;
+    background: linear-gradient(90deg, var(--gold-bright), transparent);
+    margin-top: 18px; margin-bottom: 10px;
+  }
+
+  .header-desc {
+    font-family: var(--sans);
+    font-size: 0.9rem; line-height: 1.9;
+    color: var(--ink-soft); max-width: 500px;
+    font-weight: 300;
+  }
+
+  /* ── Main ── */
+  .main {
+    position: relative; z-index: 1;
+    max-width: 900px; margin: 0 auto;
+    padding: 72px 40px 80px;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 72px; }
+  .sec-head {
+    display: flex; align-items: flex-start; gap: 18px;
+    margin-bottom: 36px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .sec-num {
+    font-family: var(--serif);
+    font-size: 3rem; font-weight: 300;
+    color: var(--gold); opacity: 0.28;
+    line-height: 1; flex-shrink: 0; padding-top: 4px;
+  }
+  .sec-label-wrap {}
+  .sec-label {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--sans);
+    font-size: 0.58rem; font-weight: 400;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 6px;
+  }
+  .sec-label::before { content:''; width:24px; height:1px; background:var(--gold-dim); }
+  .sec-title {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 400; color: var(--ink); line-height: 1.2;
+  }
+
+  /* ── Grid ── */
+  .grid { display: grid; gap: 26px; }
+  .grid.two { grid-template-columns: 1fr 1fr; }
+
+  @media(max-width:600px){
+    .grid.two { grid-template-columns: 1fr; }
+    .nav, .header, .main { padding-left: 20px; padding-right: 20px; }
+    .header { padding-top: 52px; }
+    .nav-logo { font-size: 0.9rem; letter-spacing: 0.28em; }
+  }
+
+  /* ── Field ── */
+  .fg { display: flex; flex-direction: column; gap: 7px; }
+  .fl {
+    font-family: var(--sans);
+    font-size: 0.58rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .fl .req { color: var(--gold-bright); margin-left: 2px; }
+  .fh {
+    font-family: var(--sans);
+    font-size: 0.72rem; color: var(--ink-muted);
+    line-height: 1.65; font-weight: 300; font-style: italic;
+  }
+
+  /* ── Inputs ── */
+  input[type=text], input[type=email], input[type=tel],
+  input[type=url], input[type=number], select, textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid var(--rule);
+    border-bottom: 1.5px solid rgba(15,15,13,0.22);
+    padding: 11px 14px;
+    font-family: var(--sans); font-size: 0.88rem;
+    color: var(--ink); font-weight: 300;
+    outline: none; border-radius: 0; appearance: none;
+    transition: border-color .2s, background .2s, box-shadow .2s;
+  }
+  ::placeholder { color: var(--ink-muted); font-size: 0.82rem; font-weight: 300; }
+  input:focus, select:focus, textarea:focus {
+    background: rgba(255,255,255,0.9);
+    border-bottom-color: var(--gold);
+    box-shadow: 0 3px 14px var(--gold-glow);
+  }
+  input.err, select.err, textarea.err { border-bottom-color: #A0352A !important; }
+  textarea { resize: vertical; min-height: 110px; line-height: 1.7; }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%238B6A38' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center;
+    padding-right: 38px; cursor: pointer;
+    background-color: rgba(255,255,255,0.7);
+  }
+  .err-msg { font-size: 0.68rem; color: #A0352A; display: none; font-family: var(--sans); }
+  .err-msg.on { display: block; }
+
+  /* address block */
+  .addr { border: 1px solid var(--rule); }
+  .addr input {
+    border: none; border-bottom: 1px solid var(--rule);
+    background: rgba(255,255,255,0.7);
+  }
+  .addr input:focus { border-bottom-color: var(--gold); box-shadow: none; background: rgba(255,255,255,0.9); }
+  .addr .row { display: grid; grid-template-columns: 2fr 1fr 1fr; }
+  .addr .row > * { border-right: 1px solid var(--rule); }
+  .addr .row > *:last-child { border-right: none; }
+  .addr > *:last-child, .addr .row:last-child > * { border-bottom: none; }
+
+  /* ── Radio / Checkbox ── */
+  .choices { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ch { position: relative; }
+  .ch input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .ch label {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--rule);
+    font-family: var(--sans); font-size: 0.8rem;
+    font-weight: 300; color: var(--ink-soft);
+    cursor: pointer; transition: all .18s;
+    background: rgba(255,255,255,0.5);
+  }
+  .ch label::before {
+    content: ''; width: 10px; height: 10px;
+    border: 1px solid rgba(15,15,13,0.25); border-radius: 50%;
+    flex-shrink: 0; transition: all .18s;
+  }
+  .ch.cb label::before { border-radius: 0; }
+  .ch input:checked + label {
+    border-color: var(--gold-dim); color: var(--ink);
+    background: rgba(139,106,56,0.07);
+  }
+  .ch input:checked + label::before { background: var(--gold); border-color: var(--gold); }
+
+  /* ── Upload ── */
+  .upload {
+    border: 1px dashed rgba(15,15,13,0.2); padding: 28px; text-align: center;
+    cursor: pointer; position: relative;
+    background: rgba(255,255,255,0.4); transition: border-color .2s, background .2s;
+  }
+  .upload:hover { border-color: var(--gold-dim); background: rgba(139,106,56,0.05); }
+  .upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
+  .up-icon { font-size: 18px; opacity: 0.18; margin-bottom: 8px; }
+  .up-txt { font-family: var(--sans); font-size: 0.78rem; color: var(--ink-muted); line-height: 1.8; font-weight: 300; }
+  .up-txt strong { color: var(--gold); font-weight: 400; }
+  .file-ok { font-size: 0.75rem; color: var(--gold); margin-top: 8px; font-weight: 400; }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px; margin: 56px 0;
+    background: linear-gradient(90deg, var(--gold-bright) 0%, var(--rule) 40%, transparent 100%);
+    opacity: 0.4;
+  }
+
+  /* ── Submit block ── */
+  .submit-block {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    padding: 60px 44px; text-align: center;
+  }
+  .sub-eye {
+    font-family: var(--sans);
+    font-size: 0.58rem; font-weight: 400;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 18px;
+  }
+  .sub-h2 {
+    font-family: var(--serif);
+    font-size: 2.4rem; font-weight: 300;
+    color: var(--ink); margin-bottom: 8px; line-height: 1.1;
+  }
+  .sub-h2 em { font-style: italic; color: var(--gold-bright); }
+  .sub-desc {
+    font-family: var(--sans);
+    font-size: 0.82rem; color: var(--ink-soft);
+    line-height: 1.9; margin-bottom: 36px; font-weight: 300;
+  }
+  .consent-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    max-width: 480px; margin: 0 auto 30px; text-align: left;
+  }
+  .consent-row input[type=checkbox] {
+    width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px;
+    accent-color: var(--gold); cursor: pointer;
+  }
+  .consent-txt { font-family: var(--sans); font-size: 0.72rem; color: var(--ink-muted); line-height: 1.75; font-weight: 300; }
+  .consent-txt a { color: var(--gold); text-decoration: none; }
+
+  /* Gold button — exact match website .btn-gold */
+  .btn-submit {
+    background: var(--gold); border: none; color: #fff;
+    padding: 14px 48px;
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    cursor: pointer; transition: background .22s; position: relative; overflow: hidden;
+  }
+  .btn-submit::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg,rgba(255,255,255,0.15),transparent);
+  }
+  .btn-submit:hover { background: var(--gold-bright); }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--bg2); border-top: 1px solid var(--rule);
+    padding: 24px 40px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: var(--serif); font-size: 1rem; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+  }
+  .footer-copy { font-family: var(--sans); font-size: 0.68rem; color: var(--ink-muted); font-weight: 300; }
+
+  /* ── Success ── */
+  .success {
+    display: none; position: fixed; inset: 0;
+    background: var(--bg); z-index: 999;
+    align-items: center; justify-content: center;
+    flex-direction: column; text-align: center; padding: 40px;
+  }
+  .success.on { display: flex; }
+  .success-ring {
+    width: 64px; height: 64px; border: 1px solid var(--gold); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: var(--gold); margin-bottom: 26px;
+    animation: pop .45s cubic-bezier(.34,1.56,.64,1) both;
+  }
+  @keyframes pop { from{transform:scale(.2);opacity:0} to{transform:scale(1);opacity:1} }
+  .success-h { font-family: var(--serif); font-size: 2.8rem; font-weight: 300; color: var(--ink); margin-bottom: 14px; }
+  .success-p { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); max-width: 380px; line-height: 1.85; margin-bottom: 32px; font-weight: 300; }
+  .success-back { font-family: var(--sans); font-size: 0.65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); background: none; border: none; border-bottom: 1px solid rgba(139,106,56,.3); padding-bottom: 3px; cursor: pointer; }
+
+  /* lang hide/show */
+  [data-zh] { display: none; }
+  body.zh [data-en] { display: none; }
+  body.zh [data-zh] { display: block; }
+  span[data-zh] { display: none; }
+  body.zh span[data-en] { display: none; }
+  body.zh span[data-zh] { display: inline; }
+</style>
+</head>
+<body>
+
+<div class="prog"><div class="prog-fill" id="pFill"></div></div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="https://bizchainchina.com">BizchainChina</a>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-b on" id="btnEN" onclick="setLang('en')">EN</button>
+        <button class="lang-b" id="btnZH" onclick="setLang('zh')">中</button>
+      </div>
+      <div class="nav-pct"><span data-en>Completed: </span><span data-zh>完成：</span><b id="pPct">0%</b></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div class="eyebrow">
+      <span class="eyebrow-txt">
+        <span data-en>U.S. — China Franchise Advisory</span>
+        <span data-zh>中美加盟连锁顾问</span>
+      </span>
+    </div>
+    <h1 class="hero-h">
+      <span data-en>Franchise Feasibility<br><em>Assessment</em></span>
+      <span data-zh>加盟可行性<br><em>评估问卷</em></span>
+    </h1>
+    <p class="header-desc">
+      <span data-en>This confidential questionnaire helps our team evaluate your business's franchising potential. All information is protected and used solely for feasibility analysis.</span>
+      <span data-zh>本问卷所有信息将严格保密，仅用于加盟可行性分析。我们的顾问团队将在2–3个工作日内与您联系。</span>
+    </p>
+  </div>
+</header>
+
+<!-- Form -->
+<div class="main">
+<form id="mainForm" novalidate>
+
+  <!-- 01 -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">01</div>
+      <div class="sec-label-wrap">
+        <div class="sec-label"><span data-en>Contact Information</span><span data-zh>联系信息</span></div>
+        <div class="sec-title"><span data-en>Tell Us About Yourself</span><span data-zh>请告诉我们您的基本信息</span></div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="fg">
+        <label class="fl"><span data-en>Business Name</span><span data-zh>企业名称</span> <span class="req">*</span></label>
+        <input type="text" name="biz_name" data-ph-en="Your registered business name" data-ph-zh="您的注册企业名称" placeholder="Your registered business name" required>
+        <span class="err-msg"><span data-en>Please enter your business name.</span><span data-zh>请填写企业名称。</span></span>
+      </div>
+      <div class="grid two">
+        <div class="fg">
+          <label class="fl"><span data-en>Primary Contact</span><span data-zh>主要联系人</span> <span class="req">*</span></label>
+          <input type="text" name="p_first" data-ph-en="First name" data-ph-zh="名" placeholder="First name" required style="margin-bottom:6px">
+          <input type="text" name="p_last" data-ph-en="Last name" data-ph-zh="姓" placeholder="Last name" required>
+        </div>
+        <div class="fg">
+          <label class="fl"><span data-en>Secondary Contact</span><span data-zh>备选联系人</span></label>
+          <input type="text" name="s_first" data-ph-en="First name" data-ph-zh="名" placeholder="First name" style="margin-bottom:6px">
+          <input type="text" name="s_last" data-ph-en="Last name" data-ph-zh="姓" placeholder="Last name">
+        </div>
+      </div>
+      <div class="grid two">
+        <div class="fg">
+          <label class="fl"><span data-en>Main Phone</span><span data-zh>主要电话</span> <span class="req">*</span></label>
+          <input type="tel" name="phone_main" placeholder="+1 (___) ___-____" required>
+          <span class="err-msg"><span data-en>Please enter a phone number.</span><span data-zh>请填写联系电话。</span></span>
+        </div>
+        <div class="fg">
+          <label class="fl"><span data-en>Other Phone</span><span data-zh>备用电话</span></label>
+          <input type="tel" name="phone_other" placeholder="+1 (___) ___-____">
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Business Address</span><span data-zh>公司地址</span> <span class="req">*</span></label>
+        <div class="addr">
+          <input type="text" name="addr1" data-ph-en="Street Address" data-ph-zh="街道地址" placeholder="Street Address" required>
+          <input type="text" name="addr2" data-ph-en="Suite / Floor / Unit" data-ph-zh="楼层 / 单元" placeholder="Suite / Floor / Unit">
+          <div class="row">
+            <input type="text" name="city" data-ph-en="City" data-ph-zh="城市" placeholder="City" required>
+            <input type="text" name="state" data-ph-en="State" data-ph-zh="州/省" placeholder="State">
+            <input type="text" name="zip" data-ph-en="ZIP Code" data-ph-zh="邮编" placeholder="ZIP Code">
+          </div>
+        </div>
+        <span class="err-msg"><span data-en>Please enter your address.</span><span data-zh>请填写公司地址。</span></span>
+      </div>
+      <div class="grid two">
+        <div class="fg">
+          <label class="fl"><span data-en>Email</span><span data-zh>邮箱</span> <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="contact@yourbusiness.com" required>
+          <span class="err-msg"><span data-en>Please enter a valid email.</span><span data-zh>请填写有效邮箱。</span></span>
+        </div>
+        <div class="fg">
+          <label class="fl"><span data-en>Website</span><span data-zh>官网</span> <span class="req">*</span></label>
+          <input type="url" name="website" placeholder="https://www.yourbusiness.com" required>
+          <span class="err-msg"><span data-en>Please enter your website URL.</span><span data-zh>请填写官网地址。</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 02 -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">02</div>
+      <div class="sec-label-wrap">
+        <div class="sec-label"><span data-en>Business Profile</span><span data-zh>业务概况</span></div>
+        <div class="sec-title"><span data-en>Current Operations</span><span data-zh>当前运营状况</span></div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="grid two">
+        <div class="fg">
+          <label class="fl"><span data-en>Year Business Founded</span><span data-zh>成立年份</span> <span class="req">*</span></label>
+          <input type="number" name="year" data-ph-en="e.g. 2015" data-ph-zh="例：2015" placeholder="e.g. 2015" min="1900" max="2026" required>
+          <span class="err-msg"><span data-en>Please enter the year founded.</span><span data-zh>请填写成立年份。</span></span>
+        </div>
+        <div class="fg">
+          <label class="fl"><span data-en>Locations Currently Open</span><span data-zh>当前门店数</span> <span class="req">*</span></label>
+          <input type="number" name="locations" data-ph-en="e.g. 3" data-ph-zh="例：3" placeholder="e.g. 3" min="1" required>
+          <span class="err-msg"><span data-en>Please enter number of locations.</span><span data-zh>请填写门店数量。</span></span>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Business Logo or Photo</span><span data-zh>品牌Logo</span></label>
+        <div class="upload">
+          <div class="up-icon">↑</div>
+          <div class="up-txt"><strong><span data-en>Click to upload</span><span data-zh>点击上传</span></strong>&nbsp;<span data-en>or drag & drop · PNG · JPG · PDF</span><span data-zh>或拖拽至此 · PNG · JPG · PDF</span></div>
+          <div class="file-ok" id="fname"></div>
+          <input type="file" name="logo" accept="image/*,.pdf" id="fInput">
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Target Franchise Launch Timeline</span><span data-zh>目标加盟启动时间</span> <span class="req">*</span></label>
+        <div class="choices">
+          <div class="ch"><input type="radio" name="timeline" id="t1" value="ASAP" required><label for="t1"><span data-en>ASAP</span><span data-zh>尽快</span></label></div>
+          <div class="ch"><input type="radio" name="timeline" id="t2" value="1-3M"><label for="t2">1–3 <span data-en>Months</span><span data-zh>个月</span></label></div>
+          <div class="ch"><input type="radio" name="timeline" id="t3" value="3-6M"><label for="t3">3–6 <span data-en>Months</span><span data-zh>个月</span></label></div>
+          <div class="ch"><input type="radio" name="timeline" id="t4" value="6M+"><label for="t4">6+ <span data-en>Months</span><span data-zh>个月</span></label></div>
+        </div>
+        <span class="err-msg" id="errTL"><span data-en>Please select a timeline.</span><span data-zh>请选择时间节点。</span></span>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Business Name Trademarked?</span><span data-zh>品牌是否已注册商标？</span> <span class="req">*</span></label>
+        <div class="choices">
+          <div class="ch"><input type="radio" name="tm" id="tm1" value="Yes" required><label for="tm1"><span data-en>Yes — Registered</span><span data-zh>已注册</span></label></div>
+          <div class="ch"><input type="radio" name="tm" id="tm2" value="Pending"><label for="tm2"><span data-en>Pending</span><span data-zh>申请中</span></label></div>
+          <div class="ch"><input type="radio" name="tm" id="tm3" value="No"><label for="tm3"><span data-en>Not Yet</span><span data-zh>尚未申请</span></label></div>
+        </div>
+        <span class="err-msg" id="errTM"><span data-en>Please select trademark status.</span><span data-zh>请选择商标状态。</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 03 -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">03</div>
+      <div class="sec-label-wrap">
+        <div class="sec-label"><span data-en>Brand Story</span><span data-zh>品牌故事</span></div>
+        <div class="sec-title"><span data-en>What Makes You Stand Out</span><span data-zh>您的差异化优势</span></div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="fg">
+        <label class="fl"><span data-en>Why Did You Start This Business?</span><span data-zh>创业初衷</span> <span class="req">*</span></label>
+        <p class="fh"><span data-en>Tell us your origin story — motivation, mission, and the problem you set out to solve.</span><span data-zh>请分享您的创业故事——动机、使命，以及您想解决的问题。</span></p>
+        <textarea name="why" data-ph-en="Share your founding story..." data-ph-zh="请分享您的创业故事……" placeholder="Share your founding story..." required></textarea>
+        <span class="err-msg"><span data-en>Please describe why you started this business.</span><span data-zh>请填写创业初衷。</span></span>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>What Makes Your Business Unique?</span><span data-zh>核心差异化优势</span> <span class="req">*</span></label>
+        <p class="fh"><span data-en>Competitive edge, proprietary methods, brand identity — what franchisees would be investing in.</span><span data-zh>您的竞争优势、专有方法、品牌特色——加盟商投资的核心价值。</span></p>
+        <textarea name="unique" data-ph-en="Core differentiators, competitive advantages..." data-ph-zh="核心差异化优势、竞争壁垒……" placeholder="Core differentiators, competitive advantages..." required></textarea>
+        <span class="err-msg"><span data-en>Please describe what makes your business unique.</span><span data-zh>请填写差异化优势。</span></span>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Largest Franchised Competitors</span><span data-zh>主要加盟竞争对手</span> <span class="req">*</span></label>
+        <textarea name="competitors" data-ph-en="e.g. Brand A (500+ locations), Brand B..." data-ph-zh="例：品牌A（500+门店）、品牌B……" placeholder="e.g. Brand A (500+ locations), Brand B..." required style="min-height:80px"></textarea>
+        <span class="err-msg"><span data-en>Please list your main competitors.</span><span data-zh>请填写主要竞争对手。</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 04 -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">04</div>
+      <div class="sec-label-wrap">
+        <div class="sec-label"><span data-en>Operational Assessment</span><span data-zh>运营评估</span></div>
+        <div class="sec-title"><span data-en>Systems & Scalability</span><span data-zh>系统与可扩展性</span></div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="fg">
+        <label class="fl"><span data-en>Employees Required Per Location</span><span data-zh>单店所需员工数</span> <span class="req">*</span></label>
+        <input type="number" name="employees" data-ph-en="e.g. 6" data-ph-zh="例：6" placeholder="e.g. 6" min="1" required>
+        <span class="err-msg"><span data-en>Please enter number of employees.</span><span data-zh>请填写所需员工数。</span></span>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Can Your Systems Be Duplicated?</span><span data-zh>系统可复制性</span> <span class="req">*</span></label>
+        <div class="choices">
+          <div class="ch"><input type="radio" name="dup" id="d1" value="Yes" required><label for="d1"><span data-en>Yes — Fully Documented</span><span data-zh>已完整记录</span></label></div>
+          <div class="ch"><input type="radio" name="dup" id="d2" value="Mostly"><label for="d2"><span data-en>Mostly</span><span data-zh>基本可以</span></label></div>
+          <div class="ch"><input type="radio" name="dup" id="d3" value="Partial"><label for="d3"><span data-en>Partially</span><span data-zh>部分</span></label></div>
+          <div class="ch"><input type="radio" name="dup" id="d4" value="Not-Yet"><label for="d4"><span data-en>Not Yet</span><span data-zh>尚未建立</span></label></div>
+        </div>
+        <span class="err-msg" id="errDup"><span data-en>Please select an option.</span><span data-zh>请选择。</span></span>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Describe Your Key Systems</span><span data-zh>运营系统说明</span></label>
+        <p class="fh"><span data-en>Training manuals, SOPs, POS systems, supply chain, QC processes, etc.</span><span data-zh>培训手册、标准操作流程、POS系统、供应链等。</span></p>
+        <textarea name="ops" data-ph-en="Training manuals, SOPs, POS systems..." data-ph-zh="培训手册、SOP、POS系统……" placeholder="Training manuals, SOPs, POS systems..." style="min-height:90px"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 05 -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">05</div>
+      <div class="sec-label-wrap">
+        <div class="sec-label"><span data-en>Financial Overview</span><span data-zh>财务概况</span></div>
+        <div class="sec-title"><span data-en>Unit Economics & Investment</span><span data-zh>单店经济模型与投资</span></div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="grid two">
+        <div class="fg">
+          <label class="fl"><span data-en>Cost to Open One Location</span><span data-zh>单店开店成本</span> <span class="req">*</span></label>
+          <input type="text" name="startup_cost" data-ph-en="e.g. $150,000 – $250,000" data-ph-zh="例：$150,000 – $250,000" placeholder="e.g. $150,000 – $250,000" required>
+          <span class="err-msg"><span data-en>Please enter startup cost.</span><span data-zh>请填写开店成本。</span></span>
+        </div>
+        <div class="fg">
+          <label class="fl"><span data-en>Average Annual Revenue Per Location</span><span data-zh>单店年均营收</span> <span class="req">*</span></label>
+          <input type="text" name="revenue" data-ph-en="e.g. $800,000" data-ph-zh="例：$800,000" placeholder="e.g. $800,000" required>
+          <span class="err-msg"><span data-en>Please enter annual revenue.</span><span data-zh>请填写年均营收。</span></span>
+        </div>
+      </div>
+      <div class="grid two">
+        <div class="fg">
+          <label class="fl"><span data-en>Net Profit Per Location</span><span data-zh>单店净利润</span> <span class="req">*</span></label>
+          <input type="text" name="profit" data-ph-en="e.g. $120,000 or ~15%" data-ph-zh="例：$120,000 或约15%" placeholder="e.g. $120,000 or ~15%" required>
+          <span class="err-msg"><span data-en>Please enter net profit.</span><span data-zh>请填写净利润。</span></span>
+        </div>
+        <div class="fg">
+          <label class="fl"><span data-en>Capital Available for Franchising</span><span data-zh>加盟开发可用资金</span> <span class="req">*</span></label>
+          <input type="text" name="capital" data-ph-en="e.g. $50,000 – $100,000" data-ph-zh="例：$50,000 – $100,000" placeholder="e.g. $50,000 – $100,000" required>
+          <span class="err-msg"><span data-en>Please enter available capital.</span><span data-zh>请填写可用资金。</span></span>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Industry</span><span data-zh>所属行业</span> <span class="req">*</span></label>
+        <select name="industry" required>
+          <option value="" data-en="Select your industry…" data-zh="请选择行业…">Select your industry…</option>
+          <option data-en="Food & Beverage — Restaurant / Café / QSR" data-zh="餐饮">Food & Beverage — Restaurant / Café / QSR</option>
+          <option data-en="Retail / Specialty Goods" data-zh="零售 / 特色商品">Retail / Specialty Goods</option>
+          <option data-en="Health, Wellness & Fitness" data-zh="健康与健身">Health, Wellness & Fitness</option>
+          <option data-en="Beauty, Spa & Personal Care" data-zh="美容美体">Beauty, Spa & Personal Care</option>
+          <option data-en="Education & Tutoring" data-zh="教育培训">Education & Tutoring</option>
+          <option data-en="Home Services & Maintenance" data-zh="家庭服务">Home Services & Maintenance</option>
+          <option data-en="Business Services & Consulting" data-zh="商业咨询">Business Services & Consulting</option>
+          <option data-en="Technology & IT" data-zh="科技与IT">Technology & IT</option>
+          <option data-en="Healthcare & Medical" data-zh="医疗健康">Healthcare & Medical</option>
+          <option data-en="Childcare & Senior Care" data-zh="养老托育">Childcare & Senior Care</option>
+          <option data-en="Other" data-zh="其他">Other</option>
+        </select>
+        <span class="err-msg"><span data-en>Please select your industry.</span><span data-zh>请选择所属行业。</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 06 -->
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-num">06</div>
+      <div class="sec-label-wrap">
+        <div class="sec-label"><span data-en>Additional Information</span><span data-zh>补充信息</span></div>
+        <div class="sec-title"><span data-en>Anything Else to Share</span><span data-zh>其他补充说明</span></div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="fg">
+        <label class="fl"><span data-en>What Else Should We Know?</span><span data-zh>其他需要补充的信息</span> <span class="req">*</span></label>
+        <textarea name="extra" data-ph-en="Awards, press coverage, strategic partnerships, expansion plans..." data-ph-zh="获奖记录、媒体报道、战略合作、扩张计划……" placeholder="Awards, press coverage, strategic partnerships..." required style="min-height:120px"></textarea>
+        <span class="err-msg"><span data-en>Please provide additional information.</span><span data-zh>请填写补充信息。</span></span>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Concerns About Franchising?</span><span data-zh>对加盟的顾虑</span></label>
+        <textarea name="concerns" data-ph-en="Share any reservations or specific concerns..." data-ph-zh="请分享您对加盟的任何顾虑……" placeholder="Share any reservations or specific concerns..." style="min-height:100px"></textarea>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>Target Expansion Markets</span><span data-zh>目标扩张市场</span></label>
+        <div class="choices">
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m1" value="USA"><label for="m1"><span data-en>United States</span><span data-zh>美国</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m2" value="China"><label for="m2"><span data-en>China</span><span data-zh>中国大陆</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m3" value="Canada"><label for="m3"><span data-en>Canada</span><span data-zh>加拿大</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m4" value="SEA"><label for="m4"><span data-en>Southeast Asia</span><span data-zh>东南亚</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m5" value="Europe"><label for="m5"><span data-en>Europe</span><span data-zh>欧洲</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m6" value="Global"><label for="m6"><span data-en>Global</span><span data-zh>全球</span></label></div>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl"><span data-en>How Did You Find BizchainChina?</span><span data-zh>如何了解到我们</span></label>
+        <select name="source">
+          <option value="" data-en="Select one…" data-zh="请选择…">Select one…</option>
+          <option data-en="Referral — Colleague or Friend" data-zh="朋友或同事推荐">Referral — Colleague or Friend</option>
+          <option data-en="WeChat / Douyin / Chinese Social Media" data-zh="微信 / 抖音">WeChat / Douyin / Chinese Social Media</option>
+          <option data-en="LinkedIn" data-zh="LinkedIn">LinkedIn</option>
+          <option data-en="Google Search" data-zh="谷歌搜索">Google Search</option>
+          <option data-en="Industry Conference or Event" data-zh="行业活动">Industry Conference or Event</option>
+          <option data-en="BizchainChina Website" data-zh="BizchainChina官网">BizchainChina Website</option>
+          <option data-en="Other" data-zh="其他">Other</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="submit-block">
+    <div class="sub-eye"><span data-en>Submit Your Assessment</span><span data-zh>提交评估问卷</span></div>
+    <h2 class="sub-h2">
+      <span data-en>Ready to Begin Your<br><em>Franchise Journey?</em></span>
+      <span data-zh>准备好开启您的<br><em>加盟之旅了吗？</em></span>
+    </h2>
+    <p class="sub-desc">
+      <span data-en>Our team will review your submission within 2–3 business days. All information is kept strictly confidential.</span>
+      <span data-zh>我们的顾问团队将在2–3个工作日内与您联系。所有信息严格保密。</span>
+    </p>
+    <div class="consent-row">
+      <input type="checkbox" id="consent" required>
+      <label class="consent-txt" for="consent">
+        <span data-en>I confirm the information is accurate and authorize BizchainChina LLC to contact me. Protected under our <a href="https://bizchainchina.com">Privacy Policy</a>.</span>
+        <span data-zh>我确认所提供信息真实准确，并授权BizchainChina LLC与我联系。信息受我们的<a href="https://bizchainchina.com">隐私政策</a>保护。</span>
+      </label>
+    </div>
+    <button type="submit" class="btn-submit" id="submitBtn">
+      <span data-en>SUBMIT ASSESSMENT</span><span data-zh>提交问卷</span>
+    </button>
+  </div>
+
+</form>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">BizchainChina</div>
+  <div class="footer-copy">© 2025 · <span data-en>U.S.–China Franchise Growth Partner</span><span data-zh>中美加盟连锁增长伙伴</span></div>
+</footer>
+
+<!-- Success -->
+<div class="success" id="successOverlay">
+  <div class="success-ring">✓</div>
+  <h2 class="success-h"><span data-en>Assessment Received</span><span data-zh>问卷已提交</span></h2>
+  <p class="success-p">
+    <span data-en>Thank you. Our team will review your submission and reach out within 2–3 business days.</span>
+    <span data-zh>感谢您完成问卷。我们将在2–3个工作日内与您联系。</span>
+  </p>
+  <button class="success-back" onclick="resetForm()">← <span data-en>Submit Another Response</span><span data-zh>重新填写</span></button>
+</div>
+
+<script>
+let lang = 'en';
+
+function setLang(l) {
+  lang = l;
+  document.body.classList.toggle('zh', l === 'zh');
+  document.getElementById('btnEN').classList.toggle('on', l === 'en');
+  document.getElementById('btnZH').classList.toggle('on', l === 'zh');
+  document.querySelectorAll('[data-ph-en]').forEach(el => {
+    el.placeholder = l === 'zh' ? el.dataset.phZh : el.dataset.phEn;
+  });
+  document.querySelectorAll('select option[data-en]').forEach(opt => {
+    opt.textContent = l === 'zh' ? opt.dataset.zh : opt.dataset.en;
+  });
+}
+
+function updateProgress() {
+  const fields = [...document.querySelectorAll('input[required]:not([type=radio]):not([type=checkbox]), select[required], textarea[required]')];
+  const rNames = [...new Set([...document.querySelectorAll('input[type=radio][required]')].map(r => r.name))];
+  const total = fields.length + rNames.length;
+  let filled = fields.filter(el => el.value.trim()).length;
+  rNames.forEach(n => { if (document.querySelector(`[name="${n}"]:checked`)) filled++; });
+  const pct = total ? Math.round(filled / total * 100) : 0;
+  document.getElementById('pFill').style.width = pct + '%';
+  document.getElementById('pPct').textContent = pct + '%';
+}
+document.addEventListener('input', updateProgress);
+document.addEventListener('change', updateProgress);
+
+document.getElementById('fInput').addEventListener('change', function() {
+  document.getElementById('fname').textContent = this.files[0] ? '✓ ' + this.files[0].name : '';
+});
+
+document.getElementById('mainForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let ok = true;
+  this.querySelectorAll('input[required]:not([type=radio]):not([type=checkbox]), select[required], textarea[required]').forEach(el => {
+    const err = el.closest('.fg')?.querySelector('.err-msg');
+    if (!el.value.trim()) { el.classList.add('err'); if(err) err.classList.add('on'); ok = false; }
+    else { el.classList.remove('err'); if(err) err.classList.remove('on'); }
+  });
+  [['timeline','errTL'],['tm','errTM'],['dup','errDup']].forEach(([n,id]) => {
+    const e2 = document.getElementById(id);
+    if (!document.querySelector(`[name="${n}"]:checked`)) { if(e2) e2.classList.add('on'); ok = false; }
+    else { if(e2) e2.classList.remove('on'); }
+  });
+  if (!document.getElementById('consent').checked) {
+    alert(lang === 'zh' ? '请勾选授权确认后再提交。' : 'Please confirm consent before submitting.'); return;
+  }
+  if (!ok) {
+    const first = document.querySelector('.err, .err-msg.on');
+    if(first) first.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+
+  // ── 提交到 formsubmit（和主网站一样的方式）──
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = lang === 'zh' ? '提交中…' : 'Submitting…';
+
+  const data = new FormData(this);
+  data.append('_subject', 'New Franchise Feasibility Assessment — BizchainChina');
+  data.append('_captcha', 'false');
+
+  fetch('https://formsubmit.co/ajax/info@bizchainchina.com', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: data
+  })
+  .then(() => {
+    document.getElementById('successOverlay').classList.add('on');
+    window.scrollTo(0, 0);
+  })
+  .catch(() => {
+    // formsubmit 仍然会发送，显示成功
+    document.getElementById('successOverlay').classList.add('on');
+    window.scrollTo(0, 0);
+  })
+  .finally(() => {
+    btn.disabled = false;
+    btn.textContent = lang === 'zh' ? '提交问卷' : 'SUBMIT ASSESSMENT';
+  });
+});
+
+document.querySelectorAll('input, select, textarea').forEach(el => {
+  el.addEventListener('input', function() {
+    this.classList.remove('err');
+    const err = this.closest('.fg')?.querySelector('.err-msg');
+    if (err) err.classList.remove('on');
+  });
+});
+
+function resetForm() {
+  document.getElementById('mainForm').reset();
+  document.getElementById('successOverlay').classList.remove('on');
+  document.getElementById('fname').textContent = '';
+  document.querySelectorAll('.err').forEach(e => e.classList.remove('err'));
+  document.querySelectorAll('.err-msg.on').forEach(e => e.classList.remove('on'));
+  updateProgress();
+}
+</script>
+</body>
+</html>
