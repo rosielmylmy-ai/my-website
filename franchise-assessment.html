@@ -208,7 +208,7 @@
     padding: 11px 14px;
     font-family: var(--sans); font-size: 0.88rem;
     color: var(--ink); font-weight: 300;
-    outline: none; border-radius: 0; appearance: none;
+    outline: none; border-radius: 0;
     transition: border-color .2s, background .2s, box-shadow .2s;
   }
   ::placeholder { color: var(--ink-muted); font-size: 0.82rem; font-weight: 300; }
@@ -221,9 +221,14 @@
   textarea { resize: vertical; min-height: 110px; line-height: 1.7; }
   select {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%238B6A38' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 14px center;
-    padding-right: 38px; cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: right 14px center;
     background-color: rgba(255,255,255,0.7);
+    padding-right: 38px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
   .err-msg { font-size: 0.68rem; color: #A0352A; display: none; font-family: var(--sans); }
   .err-msg.on { display: block; }
@@ -363,13 +368,13 @@
   .success-p { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-soft); max-width: 380px; line-height: 1.85; margin-bottom: 32px; font-weight: 300; }
   .success-back { font-family: var(--sans); font-size: 0.65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); background: none; border: none; border-bottom: 1px solid rgba(139,106,56,.3); padding-bottom: 3px; cursor: pointer; }
 
-  /* lang hide/show */
-  [data-zh] { display: none; }
-  body.zh [data-en] { display: none; }
-  body.zh [data-zh] { display: block; }
-  span[data-zh] { display: none; }
-  body.zh span[data-en] { display: none; }
-  body.zh span[data-zh] { display: inline; }
+  /* lang hide/show — scoped to avoid affecting select/option rendering */
+  .lang-en { display: none; }
+  .lang-zh { display: none; }
+  body.en .lang-en { display: inline; }
+  body.en .lang-block-en { display: block; }
+  body.zh .lang-zh { display: inline; }
+  body.zh .lang-block-zh { display: block; }
 </style>
 </head>
 <body>
@@ -385,7 +390,7 @@
         <button class="lang-b on" id="btnEN" onclick="setLang('en')">EN</button>
         <button class="lang-b" id="btnZH" onclick="setLang('zh')">中</button>
       </div>
-      <div class="nav-pct"><span data-en>Completed: </span><span data-zh>完成：</span><b id="pPct">0%</b></div>
+      <div class="nav-pct"><span class="lang-en">Completed: </span><span class="lang-zh">完成：</span><b id="pPct">0%</b></div>
     </div>
   </div>
 </nav>
@@ -395,17 +400,17 @@
   <div class="header-inner">
     <div class="eyebrow">
       <span class="eyebrow-txt">
-        <span data-en>U.S. — China Franchise Advisory</span>
-        <span data-zh>中美加盟连锁顾问</span>
+        <span class="lang-en">U.S. — China Franchise Advisory</span>
+        <span class="lang-zh">中美加盟连锁顾问</span>
       </span>
     </div>
     <h1 class="hero-h">
-      <span data-en>Franchise Feasibility<br><em>Assessment</em></span>
-      <span data-zh>加盟可行性<br><em>评估问卷</em></span>
+      <span class="lang-en">Franchise Feasibility<br><em>Assessment</em></span>
+      <span class="lang-zh">加盟可行性<br><em>评估问卷</em></span>
     </h1>
     <p class="header-desc">
-      <span data-en>This confidential questionnaire helps our team evaluate your business's franchising potential. All information is protected and used solely for feasibility analysis.</span>
-      <span data-zh>本问卷所有信息将严格保密，仅用于加盟可行性分析。我们的顾问团队将在2–3个工作日内与您联系。</span>
+      <span class="lang-en">This confidential questionnaire helps our team evaluate your business's franchising potential. All information is protected and used solely for feasibility analysis.</span>
+      <span class="lang-zh">本问卷所有信息将严格保密，仅用于加盟可行性分析。我们的顾问团队将在2–3个工作日内与您联系。</span>
     </p>
   </div>
 </header>
@@ -419,41 +424,41 @@
     <div class="sec-head">
       <div class="sec-num">01</div>
       <div class="sec-label-wrap">
-        <div class="sec-label"><span data-en>Contact Information</span><span data-zh>联系信息</span></div>
-        <div class="sec-title"><span data-en>Tell Us About Yourself</span><span data-zh>请告诉我们您的基本信息</span></div>
+        <div class="sec-label"><span class="lang-en">Contact Information</span><span class="lang-zh">联系信息</span></div>
+        <div class="sec-title"><span class="lang-en">Tell Us About Yourself</span><span class="lang-zh">请告诉我们您的基本信息</span></div>
       </div>
     </div>
     <div class="grid">
       <div class="fg">
-        <label class="fl"><span data-en>Business Name</span><span data-zh>企业名称</span> <span class="req">*</span></label>
+        <label class="fl"><span class="lang-en">Business Name</span><span class="lang-zh">企业名称</span> <span class="req">*</span></label>
         <input type="text" name="biz_name" data-ph-en="Your registered business name" data-ph-zh="您的注册企业名称" placeholder="Your registered business name" required>
-        <span class="err-msg"><span data-en>Please enter your business name.</span><span data-zh>请填写企业名称。</span></span>
+        <span class="err-msg"><span class="lang-en">Please enter your business name.</span><span class="lang-zh">请填写企业名称。</span></span>
       </div>
       <div class="grid two">
         <div class="fg">
-          <label class="fl"><span data-en>Primary Contact</span><span data-zh>主要联系人</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Primary Contact</span><span class="lang-zh">主要联系人</span> <span class="req">*</span></label>
           <input type="text" name="p_first" data-ph-en="First name" data-ph-zh="名" placeholder="First name" required style="margin-bottom:6px">
           <input type="text" name="p_last" data-ph-en="Last name" data-ph-zh="姓" placeholder="Last name" required>
         </div>
         <div class="fg">
-          <label class="fl"><span data-en>Secondary Contact</span><span data-zh>备选联系人</span></label>
+          <label class="fl"><span class="lang-en">Secondary Contact</span><span class="lang-zh">备选联系人</span></label>
           <input type="text" name="s_first" data-ph-en="First name" data-ph-zh="名" placeholder="First name" style="margin-bottom:6px">
           <input type="text" name="s_last" data-ph-en="Last name" data-ph-zh="姓" placeholder="Last name">
         </div>
       </div>
       <div class="grid two">
         <div class="fg">
-          <label class="fl"><span data-en>Main Phone</span><span data-zh>主要电话</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Main Phone</span><span class="lang-zh">主要电话</span> <span class="req">*</span></label>
           <input type="tel" name="phone_main" placeholder="+1 (___) ___-____" required>
-          <span class="err-msg"><span data-en>Please enter a phone number.</span><span data-zh>请填写联系电话。</span></span>
+          <span class="err-msg"><span class="lang-en">Please enter a phone number.</span><span class="lang-zh">请填写联系电话。</span></span>
         </div>
         <div class="fg">
-          <label class="fl"><span data-en>Other Phone</span><span data-zh>备用电话</span></label>
+          <label class="fl"><span class="lang-en">Other Phone</span><span class="lang-zh">备用电话</span></label>
           <input type="tel" name="phone_other" placeholder="+1 (___) ___-____">
         </div>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Business Address</span><span data-zh>公司地址</span> <span class="req">*</span></label>
+        <label class="fl"><span class="lang-en">Business Address</span><span class="lang-zh">公司地址</span> <span class="req">*</span></label>
         <div class="addr">
           <input type="text" name="addr1" data-ph-en="Street Address" data-ph-zh="街道地址" placeholder="Street Address" required>
           <input type="text" name="addr2" data-ph-en="Suite / Floor / Unit" data-ph-zh="楼层 / 单元" placeholder="Suite / Floor / Unit">
@@ -463,18 +468,18 @@
             <input type="text" name="zip" data-ph-en="ZIP Code" data-ph-zh="邮编" placeholder="ZIP Code">
           </div>
         </div>
-        <span class="err-msg"><span data-en>Please enter your address.</span><span data-zh>请填写公司地址。</span></span>
+        <span class="err-msg"><span class="lang-en">Please enter your address.</span><span class="lang-zh">请填写公司地址。</span></span>
       </div>
       <div class="grid two">
         <div class="fg">
-          <label class="fl"><span data-en>Email</span><span data-zh>邮箱</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Email</span><span class="lang-zh">邮箱</span> <span class="req">*</span></label>
           <input type="email" name="email" placeholder="contact@yourbusiness.com" required>
-          <span class="err-msg"><span data-en>Please enter a valid email.</span><span data-zh>请填写有效邮箱。</span></span>
+          <span class="err-msg"><span class="lang-en">Please enter a valid email.</span><span class="lang-zh">请填写有效邮箱。</span></span>
         </div>
         <div class="fg">
-          <label class="fl"><span data-en>Website</span><span data-zh>官网</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Website</span><span class="lang-zh">官网</span> <span class="req">*</span></label>
           <input type="url" name="website" placeholder="https://www.yourbusiness.com" required>
-          <span class="err-msg"><span data-en>Please enter your website URL.</span><span data-zh>请填写官网地址。</span></span>
+          <span class="err-msg"><span class="lang-en">Please enter your website URL.</span><span class="lang-zh">请填写官网地址。</span></span>
         </div>
       </div>
     </div>
@@ -487,50 +492,50 @@
     <div class="sec-head">
       <div class="sec-num">02</div>
       <div class="sec-label-wrap">
-        <div class="sec-label"><span data-en>Business Profile</span><span data-zh>业务概况</span></div>
-        <div class="sec-title"><span data-en>Current Operations</span><span data-zh>当前运营状况</span></div>
+        <div class="sec-label"><span class="lang-en">Business Profile</span><span class="lang-zh">业务概况</span></div>
+        <div class="sec-title"><span class="lang-en">Current Operations</span><span class="lang-zh">当前运营状况</span></div>
       </div>
     </div>
     <div class="grid">
       <div class="grid two">
         <div class="fg">
-          <label class="fl"><span data-en>Year Business Founded</span><span data-zh>成立年份</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Year Business Founded</span><span class="lang-zh">成立年份</span> <span class="req">*</span></label>
           <input type="number" name="year" data-ph-en="e.g. 2015" data-ph-zh="例：2015" placeholder="e.g. 2015" min="1900" max="2026" required>
-          <span class="err-msg"><span data-en>Please enter the year founded.</span><span data-zh>请填写成立年份。</span></span>
+          <span class="err-msg"><span class="lang-en">Please enter the year founded.</span><span class="lang-zh">请填写成立年份。</span></span>
         </div>
         <div class="fg">
-          <label class="fl"><span data-en>Locations Currently Open</span><span data-zh>当前门店数</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Locations Currently Open</span><span class="lang-zh">当前门店数</span> <span class="req">*</span></label>
           <input type="number" name="locations" data-ph-en="e.g. 3" data-ph-zh="例：3" placeholder="e.g. 3" min="1" required>
-          <span class="err-msg"><span data-en>Please enter number of locations.</span><span data-zh>请填写门店数量。</span></span>
+          <span class="err-msg"><span class="lang-en">Please enter number of locations.</span><span class="lang-zh">请填写门店数量。</span></span>
         </div>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Business Logo or Photo</span><span data-zh>品牌Logo</span></label>
+        <label class="fl"><span class="lang-en">Business Logo or Photo</span><span class="lang-zh">品牌Logo</span></label>
         <div class="upload">
           <div class="up-icon">↑</div>
-          <div class="up-txt"><strong><span data-en>Click to upload</span><span data-zh>点击上传</span></strong>&nbsp;<span data-en>or drag & drop · PNG · JPG · PDF</span><span data-zh>或拖拽至此 · PNG · JPG · PDF</span></div>
+          <div class="up-txt"><strong><span class="lang-en">Click to upload</span><span class="lang-zh">点击上传</span></strong>&nbsp;<span class="lang-en">or drag & drop · PNG · JPG · PDF</span><span class="lang-zh">或拖拽至此 · PNG · JPG · PDF</span></div>
           <div class="file-ok" id="fname"></div>
           <input type="file" name="logo" accept="image/*,.pdf" id="fInput">
         </div>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Target Franchise Launch Timeline</span><span data-zh>目标加盟启动时间</span> <span class="req">*</span></label>
+        <label class="fl"><span class="lang-en">Target Franchise Launch Timeline</span><span class="lang-zh">目标加盟启动时间</span> <span class="req">*</span></label>
         <div class="choices">
-          <div class="ch"><input type="radio" name="timeline" id="t1" value="ASAP" required><label for="t1"><span data-en>ASAP</span><span data-zh>尽快</span></label></div>
-          <div class="ch"><input type="radio" name="timeline" id="t2" value="1-3M"><label for="t2">1–3 <span data-en>Months</span><span data-zh>个月</span></label></div>
-          <div class="ch"><input type="radio" name="timeline" id="t3" value="3-6M"><label for="t3">3–6 <span data-en>Months</span><span data-zh>个月</span></label></div>
-          <div class="ch"><input type="radio" name="timeline" id="t4" value="6M+"><label for="t4">6+ <span data-en>Months</span><span data-zh>个月</span></label></div>
+          <div class="ch"><input type="radio" name="timeline" id="t1" value="ASAP" required><label for="t1"><span class="lang-en">ASAP</span><span class="lang-zh">尽快</span></label></div>
+          <div class="ch"><input type="radio" name="timeline" id="t2" value="1-3M"><label for="t2">1–3 <span class="lang-en">Months</span><span class="lang-zh">个月</span></label></div>
+          <div class="ch"><input type="radio" name="timeline" id="t3" value="3-6M"><label for="t3">3–6 <span class="lang-en">Months</span><span class="lang-zh">个月</span></label></div>
+          <div class="ch"><input type="radio" name="timeline" id="t4" value="6M+"><label for="t4">6+ <span class="lang-en">Months</span><span class="lang-zh">个月</span></label></div>
         </div>
-        <span class="err-msg" id="errTL"><span data-en>Please select a timeline.</span><span data-zh>请选择时间节点。</span></span>
+        <span class="err-msg" id="errTL"><span class="lang-en">Please select a timeline.</span><span class="lang-zh">请选择时间节点。</span></span>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Business Name Trademarked?</span><span data-zh>品牌是否已注册商标？</span> <span class="req">*</span></label>
+        <label class="fl"><span class="lang-en">Business Name Trademarked?</span><span class="lang-zh">品牌是否已注册商标？</span> <span class="req">*</span></label>
         <div class="choices">
-          <div class="ch"><input type="radio" name="tm" id="tm1" value="Yes" required><label for="tm1"><span data-en>Yes — Registered</span><span data-zh>已注册</span></label></div>
-          <div class="ch"><input type="radio" name="tm" id="tm2" value="Pending"><label for="tm2"><span data-en>Pending</span><span data-zh>申请中</span></label></div>
-          <div class="ch"><input type="radio" name="tm" id="tm3" value="No"><label for="tm3"><span data-en>Not Yet</span><span data-zh>尚未申请</span></label></div>
+          <div class="ch"><input type="radio" name="tm" id="tm1" value="Yes" required><label for="tm1"><span class="lang-en">Yes — Registered</span><span class="lang-zh">已注册</span></label></div>
+          <div class="ch"><input type="radio" name="tm" id="tm2" value="Pending"><label for="tm2"><span class="lang-en">Pending</span><span class="lang-zh">申请中</span></label></div>
+          <div class="ch"><input type="radio" name="tm" id="tm3" value="No"><label for="tm3"><span class="lang-en">Not Yet</span><span class="lang-zh">尚未申请</span></label></div>
         </div>
-        <span class="err-msg" id="errTM"><span data-en>Please select trademark status.</span><span data-zh>请选择商标状态。</span></span>
+        <span class="err-msg" id="errTM"><span class="lang-en">Please select trademark status.</span><span class="lang-zh">请选择商标状态。</span></span>
       </div>
     </div>
   </div>
@@ -542,27 +547,27 @@
     <div class="sec-head">
       <div class="sec-num">03</div>
       <div class="sec-label-wrap">
-        <div class="sec-label"><span data-en>Brand Story</span><span data-zh>品牌故事</span></div>
-        <div class="sec-title"><span data-en>What Makes You Stand Out</span><span data-zh>您的差异化优势</span></div>
+        <div class="sec-label"><span class="lang-en">Brand Story</span><span class="lang-zh">品牌故事</span></div>
+        <div class="sec-title"><span class="lang-en">What Makes You Stand Out</span><span class="lang-zh">您的差异化优势</span></div>
       </div>
     </div>
     <div class="grid">
       <div class="fg">
-        <label class="fl"><span data-en>Why Did You Start This Business?</span><span data-zh>创业初衷</span> <span class="req">*</span></label>
-        <p class="fh"><span data-en>Tell us your origin story — motivation, mission, and the problem you set out to solve.</span><span data-zh>请分享您的创业故事——动机、使命，以及您想解决的问题。</span></p>
+        <label class="fl"><span class="lang-en">Why Did You Start This Business?</span><span class="lang-zh">创业初衷</span> <span class="req">*</span></label>
+        <p class="fh"><span class="lang-en">Tell us your origin story — motivation, mission, and the problem you set out to solve.</span><span class="lang-zh">请分享您的创业故事——动机、使命，以及您想解决的问题。</span></p>
         <textarea name="why" data-ph-en="Share your founding story..." data-ph-zh="请分享您的创业故事……" placeholder="Share your founding story..." required></textarea>
-        <span class="err-msg"><span data-en>Please describe why you started this business.</span><span data-zh>请填写创业初衷。</span></span>
+        <span class="err-msg"><span class="lang-en">Please describe why you started this business.</span><span class="lang-zh">请填写创业初衷。</span></span>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>What Makes Your Business Unique?</span><span data-zh>核心差异化优势</span> <span class="req">*</span></label>
-        <p class="fh"><span data-en>Competitive edge, proprietary methods, brand identity — what franchisees would be investing in.</span><span data-zh>您的竞争优势、专有方法、品牌特色——加盟商投资的核心价值。</span></p>
+        <label class="fl"><span class="lang-en">What Makes Your Business Unique?</span><span class="lang-zh">核心差异化优势</span> <span class="req">*</span></label>
+        <p class="fh"><span class="lang-en">Competitive edge, proprietary methods, brand identity — what franchisees would be investing in.</span><span class="lang-zh">您的竞争优势、专有方法、品牌特色——加盟商投资的核心价值。</span></p>
         <textarea name="unique" data-ph-en="Core differentiators, competitive advantages..." data-ph-zh="核心差异化优势、竞争壁垒……" placeholder="Core differentiators, competitive advantages..." required></textarea>
-        <span class="err-msg"><span data-en>Please describe what makes your business unique.</span><span data-zh>请填写差异化优势。</span></span>
+        <span class="err-msg"><span class="lang-en">Please describe what makes your business unique.</span><span class="lang-zh">请填写差异化优势。</span></span>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Largest Franchised Competitors</span><span data-zh>主要加盟竞争对手</span> <span class="req">*</span></label>
+        <label class="fl"><span class="lang-en">Largest Franchised Competitors</span><span class="lang-zh">主要加盟竞争对手</span> <span class="req">*</span></label>
         <textarea name="competitors" data-ph-en="e.g. Brand A (500+ locations), Brand B..." data-ph-zh="例：品牌A（500+门店）、品牌B……" placeholder="e.g. Brand A (500+ locations), Brand B..." required style="min-height:80px"></textarea>
-        <span class="err-msg"><span data-en>Please list your main competitors.</span><span data-zh>请填写主要竞争对手。</span></span>
+        <span class="err-msg"><span class="lang-en">Please list your main competitors.</span><span class="lang-zh">请填写主要竞争对手。</span></span>
       </div>
     </div>
   </div>
@@ -574,29 +579,29 @@
     <div class="sec-head">
       <div class="sec-num">04</div>
       <div class="sec-label-wrap">
-        <div class="sec-label"><span data-en>Operational Assessment</span><span data-zh>运营评估</span></div>
-        <div class="sec-title"><span data-en>Systems & Scalability</span><span data-zh>系统与可扩展性</span></div>
+        <div class="sec-label"><span class="lang-en">Operational Assessment</span><span class="lang-zh">运营评估</span></div>
+        <div class="sec-title"><span class="lang-en">Systems & Scalability</span><span class="lang-zh">系统与可扩展性</span></div>
       </div>
     </div>
     <div class="grid">
       <div class="fg">
-        <label class="fl"><span data-en>Employees Required Per Location</span><span data-zh>单店所需员工数</span> <span class="req">*</span></label>
+        <label class="fl"><span class="lang-en">Employees Required Per Location</span><span class="lang-zh">单店所需员工数</span> <span class="req">*</span></label>
         <input type="number" name="employees" data-ph-en="e.g. 6" data-ph-zh="例：6" placeholder="e.g. 6" min="1" required>
-        <span class="err-msg"><span data-en>Please enter number of employees.</span><span data-zh>请填写所需员工数。</span></span>
+        <span class="err-msg"><span class="lang-en">Please enter number of employees.</span><span class="lang-zh">请填写所需员工数。</span></span>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Can Your Systems Be Duplicated?</span><span data-zh>系统可复制性</span> <span class="req">*</span></label>
+        <label class="fl"><span class="lang-en">Can Your Systems Be Duplicated?</span><span class="lang-zh">系统可复制性</span> <span class="req">*</span></label>
         <div class="choices">
-          <div class="ch"><input type="radio" name="dup" id="d1" value="Yes" required><label for="d1"><span data-en>Yes — Fully Documented</span><span data-zh>已完整记录</span></label></div>
-          <div class="ch"><input type="radio" name="dup" id="d2" value="Mostly"><label for="d2"><span data-en>Mostly</span><span data-zh>基本可以</span></label></div>
-          <div class="ch"><input type="radio" name="dup" id="d3" value="Partial"><label for="d3"><span data-en>Partially</span><span data-zh>部分</span></label></div>
-          <div class="ch"><input type="radio" name="dup" id="d4" value="Not-Yet"><label for="d4"><span data-en>Not Yet</span><span data-zh>尚未建立</span></label></div>
+          <div class="ch"><input type="radio" name="dup" id="d1" value="Yes" required><label for="d1"><span class="lang-en">Yes — Fully Documented</span><span class="lang-zh">已完整记录</span></label></div>
+          <div class="ch"><input type="radio" name="dup" id="d2" value="Mostly"><label for="d2"><span class="lang-en">Mostly</span><span class="lang-zh">基本可以</span></label></div>
+          <div class="ch"><input type="radio" name="dup" id="d3" value="Partial"><label for="d3"><span class="lang-en">Partially</span><span class="lang-zh">部分</span></label></div>
+          <div class="ch"><input type="radio" name="dup" id="d4" value="Not-Yet"><label for="d4"><span class="lang-en">Not Yet</span><span class="lang-zh">尚未建立</span></label></div>
         </div>
-        <span class="err-msg" id="errDup"><span data-en>Please select an option.</span><span data-zh>请选择。</span></span>
+        <span class="err-msg" id="errDup"><span class="lang-en">Please select an option.</span><span class="lang-zh">请选择。</span></span>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Describe Your Key Systems</span><span data-zh>运营系统说明</span></label>
-        <p class="fh"><span data-en>Training manuals, SOPs, POS systems, supply chain, QC processes, etc.</span><span data-zh>培训手册、标准操作流程、POS系统、供应链等。</span></p>
+        <label class="fl"><span class="lang-en">Describe Your Key Systems</span><span class="lang-zh">运营系统说明</span></label>
+        <p class="fh"><span class="lang-en">Training manuals, SOPs, POS systems, supply chain, QC processes, etc.</span><span class="lang-zh">培训手册、标准操作流程、POS系统、供应链等。</span></p>
         <textarea name="ops" data-ph-en="Training manuals, SOPs, POS systems..." data-ph-zh="培训手册、SOP、POS系统……" placeholder="Training manuals, SOPs, POS systems..." style="min-height:90px"></textarea>
       </div>
     </div>
@@ -609,52 +614,52 @@
     <div class="sec-head">
       <div class="sec-num">05</div>
       <div class="sec-label-wrap">
-        <div class="sec-label"><span data-en>Financial Overview</span><span data-zh>财务概况</span></div>
-        <div class="sec-title"><span data-en>Unit Economics & Investment</span><span data-zh>单店经济模型与投资</span></div>
+        <div class="sec-label"><span class="lang-en">Financial Overview</span><span class="lang-zh">财务概况</span></div>
+        <div class="sec-title"><span class="lang-en">Unit Economics & Investment</span><span class="lang-zh">单店经济模型与投资</span></div>
       </div>
     </div>
     <div class="grid">
       <div class="grid two">
         <div class="fg">
-          <label class="fl"><span data-en>Cost to Open One Location</span><span data-zh>单店开店成本</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Cost to Open One Location</span><span class="lang-zh">单店开店成本</span> <span class="req">*</span></label>
           <input type="text" name="startup_cost" data-ph-en="e.g. $150,000 – $250,000" data-ph-zh="例：$150,000 – $250,000" placeholder="e.g. $150,000 – $250,000" required>
-          <span class="err-msg"><span data-en>Please enter startup cost.</span><span data-zh>请填写开店成本。</span></span>
+          <span class="err-msg"><span class="lang-en">Please enter startup cost.</span><span class="lang-zh">请填写开店成本。</span></span>
         </div>
         <div class="fg">
-          <label class="fl"><span data-en>Average Annual Revenue Per Location</span><span data-zh>单店年均营收</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Average Annual Revenue Per Location</span><span class="lang-zh">单店年均营收</span> <span class="req">*</span></label>
           <input type="text" name="revenue" data-ph-en="e.g. $800,000" data-ph-zh="例：$800,000" placeholder="e.g. $800,000" required>
-          <span class="err-msg"><span data-en>Please enter annual revenue.</span><span data-zh>请填写年均营收。</span></span>
+          <span class="err-msg"><span class="lang-en">Please enter annual revenue.</span><span class="lang-zh">请填写年均营收。</span></span>
         </div>
       </div>
       <div class="grid two">
         <div class="fg">
-          <label class="fl"><span data-en>Net Profit Per Location</span><span data-zh>单店净利润</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Net Profit Per Location</span><span class="lang-zh">单店净利润</span> <span class="req">*</span></label>
           <input type="text" name="profit" data-ph-en="e.g. $120,000 or ~15%" data-ph-zh="例：$120,000 或约15%" placeholder="e.g. $120,000 or ~15%" required>
-          <span class="err-msg"><span data-en>Please enter net profit.</span><span data-zh>请填写净利润。</span></span>
+          <span class="err-msg"><span class="lang-en">Please enter net profit.</span><span class="lang-zh">请填写净利润。</span></span>
         </div>
         <div class="fg">
-          <label class="fl"><span data-en>Capital Available for Franchising</span><span data-zh>加盟开发可用资金</span> <span class="req">*</span></label>
+          <label class="fl"><span class="lang-en">Capital Available for Franchising</span><span class="lang-zh">加盟开发可用资金</span> <span class="req">*</span></label>
           <input type="text" name="capital" data-ph-en="e.g. $50,000 – $100,000" data-ph-zh="例：$50,000 – $100,000" placeholder="e.g. $50,000 – $100,000" required>
-          <span class="err-msg"><span data-en>Please enter available capital.</span><span data-zh>请填写可用资金。</span></span>
+          <span class="err-msg"><span class="lang-en">Please enter available capital.</span><span class="lang-zh">请填写可用资金。</span></span>
         </div>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Industry</span><span data-zh>所属行业</span> <span class="req">*</span></label>
-        <select name="industry" required>
-          <option value="">Select your industry… / 请选择行业…</option>
-          <option>Food & Beverage / 餐饮（餐厅·咖啡·快餐）</option>
-          <option>Retail / Specialty Goods / 零售·特色商品</option>
-          <option>Health, Wellness & Fitness / 健康与健身</option>
-          <option>Beauty, Spa & Personal Care / 美容美体</option>
-          <option>Education & Tutoring / 教育培训</option>
-          <option>Home Services & Maintenance / 家庭服务</option>
-          <option>Business Services & Consulting / 商业咨询</option>
-          <option>Technology & IT / 科技与IT</option>
-          <option>Healthcare & Medical / 医疗健康</option>
-          <option>Childcare & Senior Care / 养老托育</option>
-          <option>Other / 其他</option>
+        <label class="fl"><span class="lang-en">Industry</span><span class="lang-zh">所属行业</span> <span class="req">*</span></label>
+        <select name="industry" required id="sel_industry">
+          <option value="">Select your industry…</option>
+          <option value="Food & Beverage">Food &amp; Beverage — Restaurant / Café / QSR</option>
+          <option value="Retail">Retail / Specialty Goods</option>
+          <option value="Health">Health, Wellness &amp; Fitness</option>
+          <option value="Beauty">Beauty, Spa &amp; Personal Care</option>
+          <option value="Education">Education &amp; Tutoring</option>
+          <option value="Home Services">Home Services &amp; Maintenance</option>
+          <option value="Business Services">Business Services &amp; Consulting</option>
+          <option value="Technology">Technology &amp; IT</option>
+          <option value="Healthcare">Healthcare &amp; Medical</option>
+          <option value="Childcare">Childcare &amp; Senior Care</option>
+          <option value="Other">Other</option>
         </select>
-        <span class="err-msg"><span data-en>Please select your industry.</span><span data-zh>请选择所属行业。</span></span>
+        <span class="err-msg"><span class="lang-en">Please select your industry.</span><span class="lang-zh">请选择所属行业。</span></span>
       </div>
     </div>
   </div>
@@ -666,42 +671,42 @@
     <div class="sec-head">
       <div class="sec-num">06</div>
       <div class="sec-label-wrap">
-        <div class="sec-label"><span data-en>Additional Information</span><span data-zh>补充信息</span></div>
-        <div class="sec-title"><span data-en>Anything Else to Share</span><span data-zh>其他补充说明</span></div>
+        <div class="sec-label"><span class="lang-en">Additional Information</span><span class="lang-zh">补充信息</span></div>
+        <div class="sec-title"><span class="lang-en">Anything Else to Share</span><span class="lang-zh">其他补充说明</span></div>
       </div>
     </div>
     <div class="grid">
       <div class="fg">
-        <label class="fl"><span data-en>What Else Should We Know?</span><span data-zh>其他需要补充的信息</span> <span class="req">*</span></label>
+        <label class="fl"><span class="lang-en">What Else Should We Know?</span><span class="lang-zh">其他需要补充的信息</span> <span class="req">*</span></label>
         <textarea name="extra" data-ph-en="Awards, press coverage, strategic partnerships, expansion plans..." data-ph-zh="获奖记录、媒体报道、战略合作、扩张计划……" placeholder="Awards, press coverage, strategic partnerships..." required style="min-height:120px"></textarea>
-        <span class="err-msg"><span data-en>Please provide additional information.</span><span data-zh>请填写补充信息。</span></span>
+        <span class="err-msg"><span class="lang-en">Please provide additional information.</span><span class="lang-zh">请填写补充信息。</span></span>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Concerns About Franchising?</span><span data-zh>对加盟的顾虑</span></label>
+        <label class="fl"><span class="lang-en">Concerns About Franchising?</span><span class="lang-zh">对加盟的顾虑</span></label>
         <textarea name="concerns" data-ph-en="Share any reservations or specific concerns..." data-ph-zh="请分享您对加盟的任何顾虑……" placeholder="Share any reservations or specific concerns..." style="min-height:100px"></textarea>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>Target Expansion Markets</span><span data-zh>目标扩张市场</span></label>
+        <label class="fl"><span class="lang-en">Target Expansion Markets</span><span class="lang-zh">目标扩张市场</span></label>
         <div class="choices">
-          <div class="ch cb"><input type="checkbox" name="mkt" id="m1" value="USA"><label for="m1"><span data-en>United States</span><span data-zh>美国</span></label></div>
-          <div class="ch cb"><input type="checkbox" name="mkt" id="m2" value="China"><label for="m2"><span data-en>China</span><span data-zh>中国大陆</span></label></div>
-          <div class="ch cb"><input type="checkbox" name="mkt" id="m3" value="Canada"><label for="m3"><span data-en>Canada</span><span data-zh>加拿大</span></label></div>
-          <div class="ch cb"><input type="checkbox" name="mkt" id="m4" value="SEA"><label for="m4"><span data-en>Southeast Asia</span><span data-zh>东南亚</span></label></div>
-          <div class="ch cb"><input type="checkbox" name="mkt" id="m5" value="Europe"><label for="m5"><span data-en>Europe</span><span data-zh>欧洲</span></label></div>
-          <div class="ch cb"><input type="checkbox" name="mkt" id="m6" value="Global"><label for="m6"><span data-en>Global</span><span data-zh>全球</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m1" value="USA"><label for="m1"><span class="lang-en">United States</span><span class="lang-zh">美国</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m2" value="China"><label for="m2"><span class="lang-en">China</span><span class="lang-zh">中国大陆</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m3" value="Canada"><label for="m3"><span class="lang-en">Canada</span><span class="lang-zh">加拿大</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m4" value="SEA"><label for="m4"><span class="lang-en">Southeast Asia</span><span class="lang-zh">东南亚</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m5" value="Europe"><label for="m5"><span class="lang-en">Europe</span><span class="lang-zh">欧洲</span></label></div>
+          <div class="ch cb"><input type="checkbox" name="mkt" id="m6" value="Global"><label for="m6"><span class="lang-en">Global</span><span class="lang-zh">全球</span></label></div>
         </div>
       </div>
       <div class="fg">
-        <label class="fl"><span data-en>How Did You Find BizchainChina?</span><span data-zh>如何了解到我们</span></label>
-        <select name="source">
-          <option value="">Select one… / 请选择…</option>
-          <option>Referral — Colleague or Friend / 朋友或同事推荐</option>
-          <option>WeChat / Douyin / 微信·抖音</option>
-          <option>LinkedIn</option>
-          <option>Google Search / 谷歌搜索</option>
-          <option>Industry Conference / 行业活动</option>
-          <option>BizchainChina Website / 官网</option>
-          <option>Other / 其他</option>
+        <label class="fl"><span class="lang-en">How Did You Find BizchainChina?</span><span class="lang-zh">如何了解到我们</span></label>
+        <select name="source" id="sel_source">
+          <option value="">Select one…</option>
+          <option value="Referral">Referral — Colleague or Friend</option>
+          <option value="WeChat/Douyin">WeChat / Douyin / Chinese Social Media</option>
+          <option value="LinkedIn">LinkedIn</option>
+          <option value="Google">Google Search</option>
+          <option value="Conference">Industry Conference or Event</option>
+          <option value="Website">BizchainChina Website</option>
+          <option value="Other">Other</option>
         </select>
       </div>
     </div>
@@ -709,24 +714,24 @@
 
   <!-- Submit -->
   <div class="submit-block">
-    <div class="sub-eye"><span data-en>Submit Your Assessment</span><span data-zh>提交评估问卷</span></div>
+    <div class="sub-eye"><span class="lang-en">Submit Your Assessment</span><span class="lang-zh">提交评估问卷</span></div>
     <h2 class="sub-h2">
-      <span data-en>Ready to Begin Your<br><em>Franchise Journey?</em></span>
-      <span data-zh>准备好开启您的<br><em>加盟之旅了吗？</em></span>
+      <span class="lang-en">Ready to Begin Your<br><em>Franchise Journey?</em></span>
+      <span class="lang-zh">准备好开启您的<br><em>加盟之旅了吗？</em></span>
     </h2>
     <p class="sub-desc">
-      <span data-en>Our team will review your submission within 2–3 business days. All information is kept strictly confidential.</span>
-      <span data-zh>我们的顾问团队将在2–3个工作日内与您联系。所有信息严格保密。</span>
+      <span class="lang-en">Our team will review your submission within 2–3 business days. All information is kept strictly confidential.</span>
+      <span class="lang-zh">我们的顾问团队将在2–3个工作日内与您联系。所有信息严格保密。</span>
     </p>
     <div class="consent-row">
       <input type="checkbox" id="consent" required>
       <label class="consent-txt" for="consent">
-        <span data-en>I confirm the information is accurate and authorize BizchainChina LLC to contact me. Protected under our <a href="https://bizchainchina.com">Privacy Policy</a>.</span>
-        <span data-zh>我确认所提供信息真实准确，并授权BizchainChina LLC与我联系。信息受我们的<a href="https://bizchainchina.com">隐私政策</a>保护。</span>
+        <span class="lang-en">I confirm the information is accurate and authorize BizchainChina LLC to contact me. Protected under our <a href="https://bizchainchina.com">Privacy Policy</a>.</span>
+        <span class="lang-zh">我确认所提供信息真实准确，并授权BizchainChina LLC与我联系。信息受我们的<a href="https://bizchainchina.com">隐私政策</a>保护。</span>
       </label>
     </div>
     <button type="submit" class="btn-submit" id="submitBtn">
-      <span data-en>SUBMIT ASSESSMENT</span><span data-zh>提交问卷</span>
+      <span class="lang-en">SUBMIT ASSESSMENT</span><span class="lang-zh">提交问卷</span>
     </button>
   </div>
 
@@ -736,18 +741,18 @@
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-logo">BizchainChina</div>
-  <div class="footer-copy">© 2025 · <span data-en>U.S.–China Franchise Growth Partner</span><span data-zh>中美加盟连锁增长伙伴</span></div>
+  <div class="footer-copy">© 2025 · <span class="lang-en">U.S.–China Franchise Growth Partner</span><span class="lang-zh">中美加盟连锁增长伙伴</span></div>
 </footer>
 
 <!-- Success -->
 <div class="success" id="successOverlay">
   <div class="success-ring">✓</div>
-  <h2 class="success-h"><span data-en>Assessment Received</span><span data-zh>问卷已提交</span></h2>
+  <h2 class="success-h"><span class="lang-en">Assessment Received</span><span class="lang-zh">问卷已提交</span></h2>
   <p class="success-p">
-    <span data-en>Thank you. Our team will review your submission and reach out within 2–3 business days.</span>
-    <span data-zh>感谢您完成问卷。我们将在2–3个工作日内与您联系。</span>
+    <span class="lang-en">Thank you. Our team will review your submission and reach out within 2–3 business days.</span>
+    <span class="lang-zh">感谢您完成问卷。我们将在2–3个工作日内与您联系。</span>
   </p>
-  <button class="success-back" onclick="resetForm()">← <span data-en>Submit Another Response</span><span data-zh>重新填写</span></button>
+  <button class="success-back" onclick="resetForm()">← <span class="lang-en">Submit Another Response</span><span class="lang-zh">重新填写</span></button>
 </div>
 
 <script>
@@ -761,6 +766,17 @@ function setLang(l) {
   document.querySelectorAll('[data-ph-en]').forEach(el => {
     el.placeholder = l === 'zh' ? el.dataset.phZh : el.dataset.phEn;
   });
+
+  // Industry select
+  const industryEN = ['Select your industry…','Food & Beverage — Restaurant / Café / QSR','Retail / Specialty Goods','Health, Wellness & Fitness','Beauty, Spa & Personal Care','Education & Tutoring','Home Services & Maintenance','Business Services & Consulting','Technology & IT','Healthcare & Medical','Childcare & Senior Care','Other'];
+  const industryZH = ['请选择行业…','餐饮（餐厅·咖啡·快餐）','零售·特色商品','健康与健身','美容美体','教育培训','家庭服务','商业咨询','科技与IT','医疗健康','养老托育','其他'];
+  const sourceEN  = ['Select one…','Referral — Colleague or Friend','WeChat / Douyin / Chinese Social Media','LinkedIn','Google Search','Industry Conference or Event','BizchainChina Website','Other'];
+  const sourceZH  = ['请选择…','朋友或同事推荐','微信 / 抖音 / 中文社交媒体','LinkedIn','谷歌搜索','行业活动','BizchainChina官网','其他'];
+
+  const iSel = document.getElementById('sel_industry');
+  const sSel = document.getElementById('sel_source');
+  if (iSel) [...iSel.options].forEach((o,i) => { o.text = l==='zh' ? industryZH[i] : industryEN[i]; });
+  if (sSel) [...sSel.options].forEach((o,i) => { o.text = l==='zh' ? sourceZH[i]  : sourceEN[i];  });
 }
 
 function updateProgress() {
