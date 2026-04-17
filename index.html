@@ -101,6 +101,16 @@ nav.scrolled{
   transition:all .4s !important;
 }
 .nav-cta-link:hover{background:var(--gold) !important;color:#fff !important}
+.nav-apply{
+  background:var(--gold) !important;
+  color:#fff !important;
+  margin-left:8px;
+  font-family:var(--sans);
+  font-size:.65rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-weight:500;
+}
 .lang-sw{display:flex;gap:0;border:1px solid rgba(15,15,13,.15);margin-left:.5rem}
 .lang-b{
   padding:.38rem .75rem;font-size:.62rem;letter-spacing:.1em;
@@ -176,7 +186,7 @@ body.lang-cn .hero-h{
   opacity:0;animation:heroFade 1s .85s cubic-bezier(.16,1,.3,1) forwards;
 }
 .hero-actions{
-  display:flex;gap:1.5rem;align-items:center;
+  display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;
   opacity:0;animation:heroFade 1s 1s cubic-bezier(.16,1,.3,1) forwards;
 }
 .btn-gold{
@@ -728,6 +738,7 @@ footer{
 }
 @media(max-width:768px){
   .menu-toggle{display:flex}
+  .nav-apply{display:none}
   .nav-links{
     position:fixed;top:0;right:-100%;width:75%;height:100vh;
     background:var(--bg);flex-direction:column;justify-content:center;
@@ -767,6 +778,7 @@ footer{
       <a href="#partners"><span data-en>Partners</span><span data-cn>伙伴</span></a>
       <a href="#why"><span data-en>Why Us</span><span data-cn>优势</span></a>
       <a href="#contact" class="nav-cta-link"><span data-en>Contact</span><span data-cn>联系</span></a>
+      <a href="/franchise-assessment.html" class="nav-cta-link nav-apply"><span data-en>Apply Now</span><span data-cn>立即申请</span></a>
     </div>
     <div class="lang-sw">
       <button class="lang-b" data-lang="en" onclick="setLang('en')">EN</button>
@@ -797,6 +809,7 @@ footer{
     <div class="hero-actions">
       <a href="#services" class="btn-gold"><span data-en>Explore Services</span><span data-cn>探索服务</span></a>
       <a href="#about" class="btn-ghost"><span data-en>Our Story</span><span data-cn>了解我们</span></a>
+      <a href="/franchise-assessment.html" class="btn-ghost"><span data-en>Apply to Franchise</span><span data-cn>加盟申请</span></a>
     </div>
   </div>
   <div class="hero-vertical">
