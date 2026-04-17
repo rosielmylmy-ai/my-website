@@ -641,18 +641,18 @@
       <div class="fg">
         <label class="fl"><span data-en>Industry</span><span data-zh>所属行业</span> <span class="req">*</span></label>
         <select name="industry" required>
-          <option value="" data-en="Select your industry…" data-zh="请选择行业…">Select your industry…</option>
-          <option data-en="Food & Beverage — Restaurant / Café / QSR" data-zh="餐饮">Food & Beverage — Restaurant / Café / QSR</option>
-          <option data-en="Retail / Specialty Goods" data-zh="零售 / 特色商品">Retail / Specialty Goods</option>
-          <option data-en="Health, Wellness & Fitness" data-zh="健康与健身">Health, Wellness & Fitness</option>
-          <option data-en="Beauty, Spa & Personal Care" data-zh="美容美体">Beauty, Spa & Personal Care</option>
-          <option data-en="Education & Tutoring" data-zh="教育培训">Education & Tutoring</option>
-          <option data-en="Home Services & Maintenance" data-zh="家庭服务">Home Services & Maintenance</option>
-          <option data-en="Business Services & Consulting" data-zh="商业咨询">Business Services & Consulting</option>
-          <option data-en="Technology & IT" data-zh="科技与IT">Technology & IT</option>
-          <option data-en="Healthcare & Medical" data-zh="医疗健康">Healthcare & Medical</option>
-          <option data-en="Childcare & Senior Care" data-zh="养老托育">Childcare & Senior Care</option>
-          <option data-en="Other" data-zh="其他">Other</option>
+          <option value="">Select your industry… / 请选择行业…</option>
+          <option>Food & Beverage / 餐饮（餐厅·咖啡·快餐）</option>
+          <option>Retail / Specialty Goods / 零售·特色商品</option>
+          <option>Health, Wellness & Fitness / 健康与健身</option>
+          <option>Beauty, Spa & Personal Care / 美容美体</option>
+          <option>Education & Tutoring / 教育培训</option>
+          <option>Home Services & Maintenance / 家庭服务</option>
+          <option>Business Services & Consulting / 商业咨询</option>
+          <option>Technology & IT / 科技与IT</option>
+          <option>Healthcare & Medical / 医疗健康</option>
+          <option>Childcare & Senior Care / 养老托育</option>
+          <option>Other / 其他</option>
         </select>
         <span class="err-msg"><span data-en>Please select your industry.</span><span data-zh>请选择所属行业。</span></span>
       </div>
@@ -694,14 +694,14 @@
       <div class="fg">
         <label class="fl"><span data-en>How Did You Find BizchainChina?</span><span data-zh>如何了解到我们</span></label>
         <select name="source">
-          <option value="" data-en="Select one…" data-zh="请选择…">Select one…</option>
-          <option data-en="Referral — Colleague or Friend" data-zh="朋友或同事推荐">Referral — Colleague or Friend</option>
-          <option data-en="WeChat / Douyin / Chinese Social Media" data-zh="微信 / 抖音">WeChat / Douyin / Chinese Social Media</option>
-          <option data-en="LinkedIn" data-zh="LinkedIn">LinkedIn</option>
-          <option data-en="Google Search" data-zh="谷歌搜索">Google Search</option>
-          <option data-en="Industry Conference or Event" data-zh="行业活动">Industry Conference or Event</option>
-          <option data-en="BizchainChina Website" data-zh="BizchainChina官网">BizchainChina Website</option>
-          <option data-en="Other" data-zh="其他">Other</option>
+          <option value="">Select one… / 请选择…</option>
+          <option>Referral — Colleague or Friend / 朋友或同事推荐</option>
+          <option>WeChat / Douyin / 微信·抖音</option>
+          <option>LinkedIn</option>
+          <option>Google Search / 谷歌搜索</option>
+          <option>Industry Conference / 行业活动</option>
+          <option>BizchainChina Website / 官网</option>
+          <option>Other / 其他</option>
         </select>
       </div>
     </div>
@@ -760,9 +760,6 @@ function setLang(l) {
   document.getElementById('btnZH').classList.toggle('on', l === 'zh');
   document.querySelectorAll('[data-ph-en]').forEach(el => {
     el.placeholder = l === 'zh' ? el.dataset.phZh : el.dataset.phEn;
-  });
-  document.querySelectorAll('select option[data-en]').forEach(opt => {
-    opt.textContent = l === 'zh' ? opt.dataset.zh : opt.dataset.en;
   });
 }
 
