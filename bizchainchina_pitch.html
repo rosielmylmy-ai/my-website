@@ -6,18 +6,18 @@
 <title>BizchainChina — China Franchise Entry, Done Right.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+SC:wght@400;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#141414;
-    --ink-soft:#2a2a2a;
-    --paper:#f6f1e8;
-    --paper-warm:#ede5d3;
+    --ink:#0F0F0D;
+    --ink-soft:#2B2A26;
+    --paper:#F8F7F3;
+    --paper-warm:#EEECE5;
     --line:#1e1e1e;
-    --gold:#a8843a;
-    --gold-soft:#c9a857;
+    --gold:#8B6A38;
+    --gold-soft:#D4B574;
     --red:#8b2a1f;
-    --mute:#6b6457;
+    --mute:#5C594F;
     --serif:'Cormorant Garamond', 'Noto Serif SC', serif;
     --mono:'JetBrains Mono', monospace;
   }
@@ -43,40 +43,111 @@
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 0.25 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 
+  /* ---------- language toggle ---------- */
+  .lang-en .cn-text{display:none}
+  .lang-cn .en-text{display:none}
+  .lang-cn body,
+  body.lang-cn{
+    font-family:'Noto Serif SC','Cormorant Garamond',serif;
+  }
+  .lang-cn .display,
+  .lang-cn h1,
+  .lang-cn h2,
+  .lang-cn h3,
+  .lang-cn h4,
+  .lang-cn .lede,
+  .lang-cn p,
+  .lang-cn .cap p,
+  .lang-cn .stake p,
+  .lang-cn .pillar p,
+  .lang-cn .model-desc,
+  .lang-cn .model-fit,
+  .lang-cn .pkg .features li,
+  .lang-cn .pkg .positioning,
+  .lang-cn .quote p,
+  .lang-cn .close p{
+    font-family:'Noto Serif SC','Cormorant Garamond',serif;
+    font-weight:500;
+  }
+  .lang-cn .display em,
+  .lang-cn h1 em,
+  .lang-cn h2 em,
+  .lang-cn h3 em,
+  .lang-cn h4 em,
+  .lang-cn .quote p em{
+    font-style:normal;
+    font-weight:600;
+  }
+
   /* ---------- top bar ---------- */
   .topbar{
     position:fixed;top:0;left:0;right:0;
     z-index:50;
     display:flex;justify-content:space-between;align-items:center;
-    padding:18px 40px;
-    background:rgba(246,241,232,.82);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(20,20,20,.08);
+    padding:1.1rem 5vw;
+    background:rgba(248,247,243,0.85);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(15,15,13,0.12);
     font-family:var(--mono);
     font-size:11px;
     letter-spacing:.18em;
     text-transform:uppercase;
+    transition:background .4s ease, box-shadow .4s ease;
   }
-  .topbar .brand{display:flex;align-items:center;gap:14px}
-  .topbar .brand strong{
+  .topbar.scrolled{
+    background:rgba(248,247,243,0.97);
+    backdrop-filter:blur(30px);
+    -webkit-backdrop-filter:blur(30px);
+    box-shadow:0 4px 20px -8px rgba(15,15,13,0.08);
+  }
+  .topbar .brand{
     font-family:var(--serif);
     font-size:1.15rem;
     font-weight:500;
     letter-spacing:.38em;
     text-transform:uppercase;
     color:var(--gold);
+    text-decoration:none;
+    transition:opacity .25s ease;
   }
-  .topbar .brand em{
-    font-style:italic;
-    font-family:var(--serif);
-    font-size:13px;
-    color:var(--mute);
-    text-transform:none;
-    letter-spacing:0;
-    margin-left:6px;
-  }
+  .topbar .brand:hover{opacity:.7}
   .topbar .meta{color:var(--mute)}
   .topbar .meta span{margin-left:24px}
+  .topbar-right{
+    display:flex;align-items:center;gap:22px;
+  }
+  .back-link{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--mute);
+    text-decoration:none;
+    transition:color .25s ease;
+  }
+  .back-link:hover{color:var(--gold)}
+  .lang-toggle{
+    display:inline-flex;
+    border:1px solid rgba(20,20,20,.18);
+    font-family:'Inter',sans-serif;
+    font-size:10.5px;
+    font-weight:500;
+    letter-spacing:.15em;
+    overflow:hidden;
+  }
+  .lang-toggle button{
+    background:transparent;border:none;cursor:pointer;
+    padding:6px 12px;
+    color:var(--ink-soft);
+    transition:all .25s ease;
+    font-family:inherit;font-size:inherit;letter-spacing:inherit;
+    text-transform:uppercase;
+  }
+  .lang-toggle button.active{
+    background:var(--gold);
+    color:var(--paper);
+  }
 
   /* ---------- section base ---------- */
   section{
@@ -752,30 +823,38 @@
     margin:0 auto 70px;
     line-height:1.55;
   }
-  .contact-block{
-    display:inline-block;
-    border:1px solid rgba(201,168,87,.4);
-    padding:40px 60px;
-    font-family:var(--mono);
-    font-size:13px;
-    letter-spacing:.12em;
-    color:var(--gold-soft);
-    text-align:left;
-    line-height:2;
-  }
-  .contact-block strong{
-    display:block;
-    font-family:var(--serif);
-    font-style:italic;
-    font-size:26px;
-    color:var(--paper);
-    margin-bottom:16px;
-    letter-spacing:0;
-  }
-  .contact-block a{
-    color:var(--paper);
+  .cta-pitch{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    padding:22px 48px;
+    background:var(--gold);
+    color:var(--ink);
     text-decoration:none;
-    border-bottom:1px dashed rgba(201,168,87,.5);
+    font-family:var(--mono);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    border:1px solid var(--gold);
+    transition:all .35s cubic-bezier(.2,.6,.2,1);
+  }
+  .cta-pitch:hover{
+    background:var(--gold-soft);
+    border-color:var(--gold-soft);
+    transform:translateY(-2px);
+    box-shadow:0 18px 40px -12px rgba(201,168,87,.45);
+  }
+  .cta-pitch svg{width:14px;height:14px;transition:transform .35s ease}
+  .cta-pitch:hover svg{transform:translate(3px,-3px)}
+  .cta-note{
+    margin-top:28px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    opacity:.75;
   }
   .footer-meta{
     margin-top:80px;
@@ -789,7 +868,7 @@
   /* ---------- responsive ---------- */
   @media (max-width:1100px){
     section{padding:110px 40px 80px}
-    .topbar{padding:16px 24px}
+    .topbar .meta{display:none}
     .section-num{right:40px}
     .hero .sub{grid-template-columns:1fr;gap:40px}
     .hero .sub .signature{text-align:left}
@@ -802,6 +881,12 @@
     .mandates-row{grid-template-columns:60px 1fr;gap:16px}
     .mandates-row .zh,.mandates-row .desc,.mandates-row .pen{grid-column:2}
   }
+  @media (max-width:680px){
+    .topbar{gap:12px}
+    .back-link{display:none}
+    .topbar-right{gap:14px}
+    .cta-pitch{padding:18px 28px;font-size:11px;letter-spacing:.22em}
+  }
 
   /* ---------- scroll reveal ---------- */
   .reveal{
@@ -812,18 +897,24 @@
   .reveal.in{opacity:1;transform:none}
 </style>
 </head>
-<body>
+<body class="lang-en">
 
 <!-- ======== TOP BAR ======== -->
 <div class="topbar">
-  <div class="brand">
-    <strong>BizchainChina</strong>
-    <em>Cross-border Franchise Advisory</em>
-  </div>
-  <div class="meta">
-    <span>Miami · Shanghai</span>
-    <span>Est. 2005</span>
-    <span>Confidential</span>
+  <a href="index.html" class="brand">BizchainChina</a>
+  <div class="topbar-right">
+    <div class="meta">
+      <span>Miami · Shanghai</span>
+      <span><span class="en-text">Est. 2005</span><span class="cn-text">2005 年成立</span></span>
+    </div>
+    <a href="index.html#insights" class="back-link">
+      <span class="en-text">← Back to Insights</span>
+      <span class="cn-text">← 返回洞察</span>
+    </a>
+    <div class="lang-toggle">
+      <button class="active" data-lang="en">EN</button>
+      <button data-lang="cn">中</button>
+    </div>
   </div>
 </div>
 
@@ -831,79 +922,86 @@
 <section class="hero">
   <span class="section-num">§ 00</span>
   <div class="chinese-deco">中国</div>
-  <div class="eyebrow reveal">A strategic briefing for foreign brand owners</div>
+  <div class="eyebrow reveal">
+    <span class="en-text">A strategic briefing for foreign brand owners</span>
+    <span class="cn-text">给海外品牌方的战略简报</span>
+  </div>
   <h1 class="display reveal">
-    Entering China is not<br>a market move.<br>
-    <em>It is a legal architecture.</em>
+    <span class="en-text">Entering China is not<br>a market move.<br><em>It is a legal architecture.</em></span>
+    <span class="cn-text">进入中国，<br>不是一次市场决定。<br><em>而是一套法律架构。</em></span>
   </h1>
   <div class="sub">
     <p class="reveal">
-      Most foreign brands approach China as a growth question.
-      The brands that succeed approach it as <em>a structural one</em>.
-      What determines the outcome is rarely the product, the marketing,
-      or the partner alone — it is the way the legal architecture,
-      the operating model, and the on-the-ground network come together
-      in the first year.
+      <span class="en-text">Most foreign brands approach China as a growth question. The brands that succeed approach it as <em>a structural one</em>. What determines the outcome is rarely the product, the marketing, or the partner alone — it is the way the legal architecture, the operating model, and the on-the-ground network come together in the first year.</span>
+      <span class="cn-text">大多数海外品牌把中国当作增长议题，但最终成功的品牌都把它当作<em>架构议题</em>。决定成败的，从来不只是产品、营销或合作伙伴本身——而是法律架构、运营模式与本地网络在头一年里是否真正咬合在一起。</span>
     </p>
     <div class="signature reveal">
-      <strong>Miaoye Liu</strong>
-      Founder · BizchainChina LLC<br>
-      Prepared for your team<br>
-      April 2026
+      <strong><span class="en-text">BizchainChina</span><span class="cn-text">BizchainChina</span></strong>
+      <span class="en-text">Cross-border Franchise Advisory<br>Prepared for your leadership team<br>2026</span>
+      <span class="cn-text">中美加盟连锁顾问<br>呈交品牌决策团队<br>2026 年</span>
     </div>
   </div>
 </section>
 
 <!-- ======== INSIGHTS / WHAT MOST BRANDS MISREAD ======== -->
 <section class="stakes">
-  <span class="section-num" style="color:var(--gold-soft)">§ 01 · The Premise</span>
-  <div class="section-label reveal">Four things foreign brands tend to misread</div>
-  <h2 class="big reveal">China reads <em>differently</em><br>from the inside.</h2>
+  <span class="section-num" style="color:var(--gold-soft)">§ 01 · <span class="en-text">The Premise</span><span class="cn-text">前提</span></span>
+  <div class="section-label reveal">
+    <span class="en-text">Four things foreign brands tend to misread</span>
+    <span class="cn-text">海外品牌最常误读的四件事</span>
+  </div>
+  <h2 class="big reveal">
+    <span class="en-text">China reads <em>differently</em><br>from the inside.</span>
+    <span class="cn-text">中国市场，<br>从内部看是<em>另一种逻辑</em>。</span>
+  </h2>
   <p class="lede reveal">
-    The strategic assumptions that build a successful franchise
-    system in the U.S. or Europe do not transfer cleanly.
-    Before we talk about structure, here are four points
-    where foreign brands most often begin from the wrong premise.
+    <span class="en-text">The strategic assumptions that build a successful franchise system in the U.S. or Europe do not transfer cleanly. Before we talk about structure, here are four points where foreign brands most often begin from the wrong premise.</span>
+    <span class="cn-text">在美国或欧洲建立成功加盟体系的那套战略假设，无法原样照搬到中国。在谈架构之前，先指出四件海外品牌最常从错误前提出发的事。</span>
   </p>
 
   <div class="stakes-grid">
     <div class="stake reveal">
       <div class="num">→ 01</div>
-      <h4 style="margin-top:10px;font-size:22px">The law defines the model.</h4>
+      <h4 style="margin-top:10px;font-size:22px">
+        <span class="en-text">The law defines the model.</span>
+        <span class="cn-text">法律先于商业模式。</span>
+      </h4>
       <p style="margin-top:20px">
-        In China, franchising is a regulated activity under a
-        specific statute. The legal structure you choose determines
-        what you can sell, to whom, and how fast — not the other way round.
+        <span class="en-text">In China, franchising is a regulated activity under a specific statute. The legal structure you choose determines what you can sell, to whom, and how fast — not the other way round.</span>
+        <span class="cn-text">在中国，特许经营是受专门法规管辖的受监管活动。你选择的法律结构决定了你能卖什么、卖给谁、扩张多快——而不是反过来。</span>
       </p>
     </div>
     <div class="stake reveal">
       <div class="num">→ 02</div>
-      <h4 style="margin-top:10px;font-size:22px">Trademark is territory.</h4>
+      <h4 style="margin-top:10px;font-size:22px">
+        <span class="en-text">Trademark is territory.</span>
+        <span class="cn-text">商标即领土。</span>
+      </h4>
       <p style="margin-top:20px">
-        China is a first-to-file jurisdiction. Your brand is not
-        your brand in China until it is registered in China —
-        in English, in Chinese, and in the correct classes.
-        Market entry begins in the trademark office.
+        <span class="en-text">China is a first-to-file jurisdiction. Your brand is not your brand in China until it is registered in China — in English, in Chinese, and in the correct classes. Market entry begins in the trademark office.</span>
+        <span class="cn-text">中国实行商标"申请在先"制度。在中国注册之前，你的品牌不是你的品牌——必须中英文双注册，且覆盖正确的商品类别。市场进入的真正起点在商标局。</span>
       </p>
     </div>
     <div class="stake reveal">
       <div class="num">→ 03</div>
-      <h4 style="margin-top:10px;font-size:22px">The Master is the franchisor.</h4>
+      <h4 style="margin-top:10px;font-size:22px">
+        <span class="en-text">The Master is the franchisor.</span>
+        <span class="cn-text">总代即特许人。</span>
+      </h4>
       <p style="margin-top:20px">
-        Under Chinese law, whoever signs franchise agreements
-        inside China is the legally recognized franchisor — and
-        carries all of the regulatory weight. Structure this
-        correctly and you offload ninety percent of that burden.
+        <span class="en-text">Under Chinese law, whoever signs franchise agreements inside China is the legally recognized franchisor — and carries all of the regulatory weight. Structure this correctly and you offload ninety percent of that burden.</span>
+        <span class="cn-text">根据中国法律，在中国境内签署加盟合同的一方，才是法律意义上被认可的特许人，并承担全部合规义务。结构设计得当，你可以把九成的合规负担转交出去。</span>
       </p>
     </div>
     <div class="stake reveal">
       <div class="num">→ 04</div>
-      <h4 style="margin-top:10px;font-size:22px">A bilingual contract is two contracts.</h4>
+      <h4 style="margin-top:10px;font-size:22px">
+        <span class="en-text">A bilingual contract is two contracts.</span>
+        <span class="cn-text">双语合同等于两份合同。</span>
+      </h4>
       <p style="margin-top:20px">
-        Translation is not drafting. A Master Franchise Agreement
-        must be written natively in both languages, with governing
-        language, dispute venue, and IP provisions reconciled
-        across two legal traditions.
+        <span class="en-text">Translation is not drafting. A Master Franchise Agreement must be written natively in both languages, with governing language, dispute venue, and IP provisions reconciled across two legal traditions.</span>
+        <span class="cn-text">翻译不等于起草。一份总特许经营协议必须用两种语言原生撰写，并在两套法律传统之间协调好准据语言、争议管辖与知识产权条款。</span>
       </p>
     </div>
   </div>
@@ -911,16 +1009,19 @@
 
 <!-- ======== 10 MANDATES ======== -->
 <section class="mandates">
-  <span class="section-num">§ 02 · The Landscape</span>
-  <div class="section-label reveal">The ten government mandates</div>
+  <span class="section-num">§ 02 · <span class="en-text">The Landscape</span><span class="cn-text">监管全景</span></span>
+  <div class="section-label reveal">
+    <span class="en-text">The ten government mandates</span>
+    <span class="cn-text">十项政府强制要求</span>
+  </div>
   <div class="mandates-intro">
-    <h2 class="big reveal">Ten laws.<br>Non-negotiable. <em>All of them.</em></h2>
+    <h2 class="big reveal">
+      <span class="en-text">Ten laws.<br>Non-negotiable. <em>All of them.</em></span>
+      <span class="cn-text">十条法规。<br>没有讨价还价的余地。<em>条条都是。</em></span>
+    </h2>
     <p class="lede reveal">
-      These are not guidelines. They are the letter of the law
-      under the Commercial Franchise Administration Regulation,
-      the Trademark Law, the Foreign Investment Law, and the PIPL.
-      A foreign brand must touch every one of them — or find
-      a structure where someone else does.
+      <span class="en-text">These are not guidelines. They are the letter of the law under the Commercial Franchise Administration Regulation, the Trademark Law, the Foreign Investment Law, and the PIPL. A foreign brand must touch every one of them — or find a structure where someone else does.</span>
+      <span class="cn-text">这些不是行业指引，而是《商业特许经营管理条例》《商标法》《外商投资法》和《个人信息保护法》明文规定的法律义务。海外品牌要么自己处理每一条，要么搭建一个让别人替你处理的结构。</span>
     </p>
   </div>
 
@@ -928,102 +1029,162 @@
     <div class="mandates-row reveal">
       <div class="code">G · 01</div>
       <div>
-        <div class="en">Two-Shops-One-Year Rule</div>
+        <div class="en"><span class="en-text">Two-Shops-One-Year Rule</span><span class="cn-text">两店一年规则</span></div>
         <div class="zh">两店一年</div>
       </div>
-      <div class="zh">Two directly-operated stores, one year of operation. Overseas stores qualify.</div>
-      <div class="desc">The qualification threshold. Without evidence, no filing is possible.</div>
-      <div class="pen">Threshold<br>of eligibility.</div>
+      <div class="zh">
+        <span class="en-text">Two directly-operated stores, one year of operation. Overseas stores qualify.</span>
+        <span class="cn-text">两家直营店、运营满一年。海外门店可计入。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">The qualification threshold. Without evidence, no filing is possible.</span>
+        <span class="cn-text">资质门槛。没有证据，无法备案。</span>
+      </div>
+      <div class="pen"><span class="en-text">Threshold<br>of eligibility.</span><span class="cn-text">资质<br>门槛</span></div>
     </div>
     <div class="mandates-row reveal">
       <div class="code">G · 02</div>
       <div>
-        <div class="en">PRC Trademark Registration</div>
+        <div class="en"><span class="en-text">PRC Trademark Registration</span><span class="cn-text">中国商标注册</span></div>
         <div class="zh">中国商标注册</div>
       </div>
-      <div class="zh">First-to-file jurisdiction. File before market entry, not after.</div>
-      <div class="desc">The foundation of every license, every agreement, every dispute you will ever have.</div>
-      <div class="pen">The IP<br>foundation.</div>
+      <div class="zh">
+        <span class="en-text">First-to-file jurisdiction. File before market entry, not after.</span>
+        <span class="cn-text">申请在先制。先注册，再进入市场。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">The foundation of every license, every agreement, every dispute you will ever have.</span>
+        <span class="cn-text">所有授权、合同、未来纠纷的根基。</span>
+      </div>
+      <div class="pen"><span class="en-text">The IP<br>foundation.</span><span class="cn-text">知识产权<br>根基</span></div>
     </div>
     <div class="mandates-row reveal">
       <div class="code">G · 03</div>
       <div>
-        <div class="en">MOFCOM Franchise Filing</div>
+        <div class="en"><span class="en-text">MOFCOM Franchise Filing</span><span class="cn-text">商务部备案</span></div>
         <div class="zh">商务部备案</div>
       </div>
-      <div class="zh">Within 15 days of signing the first franchise agreement in China.</div>
-      <div class="desc">The single act that makes your China franchise legally recognized.</div>
-      <div class="pen">Official<br>recognition.</div>
+      <div class="zh">
+        <span class="en-text">Within 15 days of signing the first franchise agreement in China.</span>
+        <span class="cn-text">中国境内首份加盟合同签署后 15 日内完成。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">The single act that makes your China franchise legally recognized.</span>
+        <span class="cn-text">让你的中国加盟体系获得法律认可的关键一步。</span>
+      </div>
+      <div class="pen"><span class="en-text">Official<br>recognition.</span><span class="cn-text">官方<br>认可</span></div>
     </div>
     <div class="mandates-row reveal">
       <div class="code">G · 04</div>
       <div>
-        <div class="en">Pre-contractual Disclosure</div>
+        <div class="en"><span class="en-text">Pre-contractual Disclosure</span><span class="cn-text">信息披露义务</span></div>
         <div class="zh">信息披露义务</div>
       </div>
-      <div class="zh">Written disclosure to franchisee at least 30 days before signing.</div>
-      <div class="desc">Network data, fees, litigation history, audited financials — all of it, bilingual.</div>
-      <div class="pen">Transparency<br>obligation.</div>
+      <div class="zh">
+        <span class="en-text">Written disclosure to franchisee at least 30 days before signing.</span>
+        <span class="cn-text">签约前至少 30 日，向加盟商作书面披露。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">Network data, fees, litigation history, audited financials — all of it, bilingual.</span>
+        <span class="cn-text">网络数据、费用、诉讼记录、审计财报——全部内容，双语呈现。</span>
+      </div>
+      <div class="pen"><span class="en-text">Transparency<br>obligation.</span><span class="cn-text">透明<br>义务</span></div>
     </div>
     <div class="mandates-row reveal">
       <div class="code">G · 05</div>
       <div>
-        <div class="en">Cooling-off Period</div>
+        <div class="en"><span class="en-text">Cooling-off Period</span><span class="cn-text">冷静期条款</span></div>
         <div class="zh">冷静期条款</div>
       </div>
-      <div class="zh">Mandatory unilateral right for the franchisee to terminate (typically 7–15 days).</div>
-      <div class="desc">A required contract clause. Its absence can invalidate the agreement itself.</div>
-      <div class="pen">Contract<br>requirement.</div>
+      <div class="zh">
+        <span class="en-text">Mandatory unilateral right for the franchisee to terminate (typically 7–15 days).</span>
+        <span class="cn-text">加盟商单方面解除权，通常为 7 至 15 天。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">A required contract clause. Its absence can invalidate the agreement itself.</span>
+        <span class="cn-text">合同必备条款。缺失可能导致合同整体无效。</span>
+      </div>
+      <div class="pen"><span class="en-text">Contract<br>requirement.</span><span class="cn-text">合同<br>必备</span></div>
     </div>
     <div class="mandates-row reveal">
       <div class="code">G · 06</div>
       <div>
-        <div class="en">Written Contract</div>
+        <div class="en"><span class="en-text">Written Contract</span><span class="cn-text">书面合同</span></div>
         <div class="zh">书面合同</div>
       </div>
-      <div class="zh">Oral agreements carry no weight under Chinese franchise law.</div>
-      <div class="desc">Ten mandatory clauses. Specific language. Bilingual, ideally governing in Chinese.</div>
-      <div class="pen">Formal<br>instrument.</div>
+      <div class="zh">
+        <span class="en-text">Oral agreements carry no weight under Chinese franchise law.</span>
+        <span class="cn-text">中国特许经营法下，口头协议不具约束力。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">Ten mandatory clauses. Specific language. Bilingual, ideally governing in Chinese.</span>
+        <span class="cn-text">十项法定条款。措辞明确。双语撰写，建议以中文为准据语言。</span>
+      </div>
+      <div class="pen"><span class="en-text">Formal<br>instrument.</span><span class="cn-text">正式<br>文书</span></div>
     </div>
     <div class="mandates-row reveal">
       <div class="code">G · 07</div>
       <div>
-        <div class="en">Notarization &amp; Legalization</div>
+        <div class="en"><span class="en-text">Notarization &amp; Legalization</span><span class="cn-text">海外文件公证认证</span></div>
         <div class="zh">海外文件公证认证</div>
       </div>
-      <div class="zh">Apostille (Hague members) or consular legalization (non-members) for every parent-company document.</div>
-      <div class="desc">The procedural gateway that makes your U.S. corporate documents evidentiary in China.</div>
-      <div class="pen">Evidentiary<br>bridge.</div>
+      <div class="zh">
+        <span class="en-text">Apostille (Hague members) or consular legalization (non-members) for every parent-company document.</span>
+        <span class="cn-text">海牙成员国适用附加证明书，非成员国走领事认证——母公司每一份文件都要做。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">The procedural gateway that makes your U.S. corporate documents evidentiary in China.</span>
+        <span class="cn-text">让美国公司文件在中国具备证据效力的程序门槛。</span>
+      </div>
+      <div class="pen"><span class="en-text">Evidentiary<br>bridge.</span><span class="cn-text">证据<br>通道</span></div>
     </div>
     <div class="mandates-row reveal">
       <div class="code">G · 08</div>
       <div>
-        <div class="en">Annual Report</div>
+        <div class="en"><span class="en-text">Annual Report</span><span class="cn-text">年度报告义务</span></div>
         <div class="zh">年度报告义务</div>
       </div>
-      <div class="zh">Filed with MOFCOM by 31 March, every year, forever.</div>
-      <div class="desc">Franchise contracts executed, renewed, or terminated. Outlet count and distribution.</div>
-      <div class="pen">Ongoing<br>stewardship.</div>
+      <div class="zh">
+        <span class="en-text">Filed with MOFCOM by 31 March, every year, forever.</span>
+        <span class="cn-text">每年 3 月 31 日前向商务部提交，长期持续。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">Franchise contracts executed, renewed, or terminated. Outlet count and distribution.</span>
+        <span class="cn-text">加盟合同的签订、续约或终止，门店数量与地区分布。</span>
+      </div>
+      <div class="pen"><span class="en-text">Ongoing<br>stewardship.</span><span class="cn-text">持续<br>义务</span></div>
     </div>
     <div class="mandates-row reveal">
       <div class="code">G · 09</div>
       <div>
-        <div class="en">FDI Information Report</div>
+        <div class="en"><span class="en-text">FDI Information Report</span><span class="cn-text">外商投资信息报告</span></div>
         <div class="zh">外商投资信息报告</div>
       </div>
-      <div class="zh">If — and only if — you establish a WFOE or JV in China.</div>
-      <div class="desc">Filed through SAMR under the Foreign Investment Law.</div>
-      <div class="pen">Entity-level<br>reporting.</div>
+      <div class="zh">
+        <span class="en-text">If — and only if — you establish a WFOE or JV in China.</span>
+        <span class="cn-text">仅当你在中国设立外商独资企业或合资公司时适用。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">Filed through SAMR under the Foreign Investment Law.</span>
+        <span class="cn-text">依据《外商投资法》通过市场监管总局提交。</span>
+      </div>
+      <div class="pen"><span class="en-text">Entity-level<br>reporting.</span><span class="cn-text">主体<br>层面</span></div>
     </div>
     <div class="mandates-row reveal">
       <div class="code">G · 10</div>
       <div>
-        <div class="en">Industry Licensing</div>
+        <div class="en"><span class="en-text">Industry Licensing</span><span class="cn-text">行业专项许可</span></div>
         <div class="zh">行业专项许可</div>
       </div>
-      <div class="zh">Food, beverage, education, cosmetics, medical, liquor, online services — each with its own gate.</div>
-      <div class="desc">The sector-specific permissions that sit on top of the franchise framework.</div>
-      <div class="pen">Sector<br>specific.</div>
+      <div class="zh">
+        <span class="en-text">Food, beverage, education, cosmetics, medical, liquor, online services — each with its own gate.</span>
+        <span class="cn-text">餐饮、教育、化妆品、医疗、酒类、互联网服务——各自有独立门槛。</span>
+      </div>
+      <div class="desc">
+        <span class="en-text">The sector-specific permissions that sit on top of the franchise framework.</span>
+        <span class="cn-text">叠加在加盟监管框架之上的行业专项许可。</span>
+      </div>
+      <div class="pen"><span class="en-text">Sector<br>specific.</span><span class="cn-text">行业<br>专属</span></div>
     </div>
   </div>
 </section>
@@ -1031,39 +1192,39 @@
 <!-- ======== THE THREE ENTRY MODELS ======== -->
 <section class="solution">
   <div class="chinese-deco">模式</div>
-  <span class="section-num">§ 03 · The Architecture</span>
-  <div class="section-label reveal">Three ways to enter China</div>
+  <span class="section-num">§ 03 · <span class="en-text">The Architecture</span><span class="cn-text">架构</span></span>
+  <div class="section-label reveal">
+    <span class="en-text">Three ways to enter China</span>
+    <span class="cn-text">进入中国的三条路径</span>
+  </div>
   <h2 class="big reveal">
-    There is no single<br>right answer. <em>There are three.</em>
+    <span class="en-text">There is no single<br>right answer. <em>There are three.</em></span>
+    <span class="cn-text">没有唯一正解。<br><em>有三种结构。</em></span>
   </h2>
   <p class="lede reveal">
-    The structural choice depends on how much operational
-    control you want, how much capital you are willing to
-    commit, and how quickly you intend to scale.
-    Each model reshapes the ten mandates differently —
-    and each reshapes your business differently.
+    <span class="en-text">The structural choice depends on how much operational control you want, how much capital you are willing to commit, and how quickly you intend to scale. Each model reshapes the ten mandates differently — and each reshapes your business differently.</span>
+    <span class="cn-text">结构的选择取决于三件事：你想保留多少运营控制权、愿意投入多少资本、计划以多快的速度扩张。三种模式对前述十项法规的承担方式各不相同——对你业务的塑造也各不相同。</span>
   </p>
 
   <div class="three-models">
     <div class="model reveal">
       <div class="model-tag">Option A</div>
-      <h3>Master Franchise</h3>
+      <h3><span class="en-text">Master Franchise</span><span class="cn-text">总特许经营</span></h3>
       <div class="model-sub">总特许经营</div>
       <p class="model-desc">
-        You grant China territory rights to a local Master Franchisee,
-        who becomes the regulated franchisor under Chinese law and
-        carries the bulk of local compliance.
+        <span class="en-text">You grant China territory rights to a local Master Franchisee, who becomes the regulated franchisor under Chinese law and carries the bulk of local compliance.</span>
+        <span class="cn-text">你将中国市场的特许权授予一家本地总加盟商，由其在中国法律下成为受监管的特许人，承担绝大部分本地合规义务。</span>
       </p>
       <ul class="model-traits">
-        <li><span>Control</span><b>Moderate</b></li>
-        <li><span>Capital</span><b>Lower</b></li>
-        <li><span>Speed</span><b>Faster</b></li>
-        <li><span>Compliance carried by you</span><b>6 of 10</b></li>
+        <li><span><span class="en-text">Control</span><span class="cn-text">控制权</span></span><b><span class="en-text">Moderate</span><span class="cn-text">中等</span></b></li>
+        <li><span><span class="en-text">Capital</span><span class="cn-text">资本投入</span></span><b><span class="en-text">Lower</span><span class="cn-text">较低</span></b></li>
+        <li><span><span class="en-text">Speed</span><span class="cn-text">扩张速度</span></span><b><span class="en-text">Faster</span><span class="cn-text">较快</span></b></li>
+        <li><span><span class="en-text">Compliance carried by you</span><span class="cn-text">由你承担的合规</span></span><b><span class="en-text">6 of 10</span><span class="cn-text">十之有六</span></b></li>
       </ul>
       <div class="model-fit">
-        <em>Best for</em> brands entering a new market through a trusted
-        local partner, prioritizing speed and capital efficiency over
-        direct operational control.
+        <em><span class="en-text">Best for</span><span class="cn-text">适合</span></em>
+        <span class="en-text">brands entering a new market through a trusted local partner, prioritizing speed and capital efficiency over direct operational control.</span>
+        <span class="cn-text">通过可信本地伙伴进入新市场、追求速度与资本效率、不强求直接运营控制权的品牌。</span>
       </div>
     </div>
 
@@ -1072,215 +1233,205 @@
       <h3>WFOE</h3>
       <div class="model-sub">外商独资企业</div>
       <p class="model-desc">
-        You establish a wholly foreign-owned enterprise in China
-        and franchise directly, operating as the regulated franchisor
-        yourself under Chinese law.
+        <span class="en-text">You establish a wholly foreign-owned enterprise in China and franchise directly, operating as the regulated franchisor yourself under Chinese law.</span>
+        <span class="cn-text">在中国设立外商独资企业（WFOE），由你直接对外加盟，自身作为中国法律下的受监管特许人运营。</span>
       </p>
       <ul class="model-traits">
-        <li><span>Control</span><b>Full</b></li>
-        <li><span>Capital</span><b>Higher</b></li>
-        <li><span>Speed</span><b>Slower</b></li>
-        <li><span>Compliance carried by you</span><b>10 of 10</b></li>
+        <li><span><span class="en-text">Control</span><span class="cn-text">控制权</span></span><b><span class="en-text">Full</span><span class="cn-text">完全</span></b></li>
+        <li><span><span class="en-text">Capital</span><span class="cn-text">资本投入</span></span><b><span class="en-text">Higher</span><span class="cn-text">较高</span></b></li>
+        <li><span><span class="en-text">Speed</span><span class="cn-text">扩张速度</span></span><b><span class="en-text">Slower</span><span class="cn-text">较慢</span></b></li>
+        <li><span><span class="en-text">Compliance carried by you</span><span class="cn-text">由你承担的合规</span></span><b><span class="en-text">10 of 10</span><span class="cn-text">十之有十</span></b></li>
       </ul>
       <div class="model-fit">
-        <em>Best for</em> brands treating China as a long-horizon,
-        wholly-owned market, willing to invest in local infrastructure
-        to preserve full brand and operational control.
+        <em><span class="en-text">Best for</span><span class="cn-text">适合</span></em>
+        <span class="en-text">brands treating China as a long-horizon, wholly-owned market, willing to invest in local infrastructure to preserve full brand and operational control.</span>
+        <span class="cn-text">将中国视为长期独资市场、愿意投入本地基础建设以保留完整品牌与运营控制权的品牌。</span>
       </div>
     </div>
 
     <div class="model reveal">
       <div class="model-tag">Option C</div>
-      <h3>Joint Venture</h3>
+      <h3><span class="en-text">Joint Venture</span><span class="cn-text">中外合资</span></h3>
       <div class="model-sub">中外合资企业</div>
       <p class="model-desc">
-        You partner with a Chinese entity in a shared company,
-        combining your brand and IP with their local market access,
-        government relationships, and capital.
+        <span class="en-text">You partner with a Chinese entity in a shared company, combining your brand and IP with their local market access, government relationships, and capital.</span>
+        <span class="cn-text">与中国方共同设立合资公司，将你的品牌与知识产权，与对方的本地市场资源、政府关系和资金结合在一起。</span>
       </p>
       <ul class="model-traits">
-        <li><span>Control</span><b>Shared</b></li>
-        <li><span>Capital</span><b>Shared</b></li>
-        <li><span>Speed</span><b>Moderate</b></li>
-        <li><span>Compliance carried by you</span><b>Shared</b></li>
+        <li><span><span class="en-text">Control</span><span class="cn-text">控制权</span></span><b><span class="en-text">Shared</span><span class="cn-text">共享</span></b></li>
+        <li><span><span class="en-text">Capital</span><span class="cn-text">资本投入</span></span><b><span class="en-text">Shared</span><span class="cn-text">共担</span></b></li>
+        <li><span><span class="en-text">Speed</span><span class="cn-text">扩张速度</span></span><b><span class="en-text">Moderate</span><span class="cn-text">中等</span></b></li>
+        <li><span><span class="en-text">Compliance carried by you</span><span class="cn-text">由你承担的合规</span></span><b><span class="en-text">Shared</span><span class="cn-text">共担</span></b></li>
       </ul>
       <div class="model-fit">
-        <em>Best for</em> brands in regulated or politically sensitive
-        sectors, or those seeking deep integration with a Chinese
-        strategic partner from day one.
+        <em><span class="en-text">Best for</span><span class="cn-text">适合</span></em>
+        <span class="en-text">brands in regulated or politically sensitive sectors, or those seeking deep integration with a Chinese strategic partner from day one.</span>
+        <span class="cn-text">处于强监管或政策敏感行业的品牌，或从一开始就希望与中国战略伙伴深度绑定的品牌。</span>
       </div>
     </div>
   </div>
 
   <p style="margin-top:70px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--mute);max-width:820px;line-height:1.55" class="reveal">
-    We have structured engagements across all three.
-    The first conversation we have with a new brand is almost
-    always about which of these is right — not about which
-    documents to draft.
+    <span class="en-text">We have structured engagements across all three. The first conversation we have with a new brand is almost always about which of these is right — not about which documents to draft.</span>
+    <span class="cn-text">三种模式我们都做过。与新品牌的第一次对话，几乎永远是讨论哪一种最合适——而不是先动笔起草哪些文件。</span>
   </p>
 </section>
 
 <!-- ======== CAPABILITIES / FULL-STACK SERVICES ======== -->
 <section class="capabilities">
-  <span class="section-num">§ 04 · The Practice</span>
-  <div class="section-label reveal">What we actually do for you</div>
+  <span class="section-num">§ 04 · <span class="en-text">The Practice</span><span class="cn-text">我们的工作</span></span>
+  <div class="section-label reveal">
+    <span class="en-text">What we actually do for you</span>
+    <span class="cn-text">我们究竟为你做什么</span>
+  </div>
   <h2 class="big reveal">
-    Structure is the beginning.<br>
-    <em>Not the work.</em>
+    <span class="en-text">Structure is the beginning.<br><em>Not the work.</em></span>
+    <span class="cn-text">架构只是起点。<br><em>不是工作的全部。</em></span>
   </h2>
   <p class="lede reveal">
-    Choosing the right entry model solves the legal question.
-    Opening stores in China solves the business question.
-    Most brands need both — and most advisors do only one.
-    Over twenty-one years we have built a network across six
-    functions that a brand entering China actually needs.
+    <span class="en-text">Choosing the right entry model solves the legal question. Opening stores in China solves the business question. Most brands need both — and most advisors do only one. Over twenty-one years we have built a network across six functions that a brand entering China actually needs.</span>
+    <span class="cn-text">选对进入模式解决的是法律问题，把店开起来解决的是生意问题。大多数品牌两件事都需要——而大多数顾问只做其中一件。二十一年来，我们沿着品牌进入中国真正需要的六个职能，构建起一整套网络。</span>
   </p>
 
   <div class="cap-grid">
     <div class="cap reveal">
       <div class="cap-num">01</div>
       <div class="cap-title">
-        <h4>Legal &amp; Regulatory Architecture</h4>
+        <h4><span class="en-text">Legal &amp; Regulatory Architecture</span><span class="cn-text">法律与合规架构</span></h4>
         <div class="cap-zh">法律与合规架构</div>
       </div>
       <p>
-        PRC trademark strategy, Master or WFOE structuring, bilingual
-        franchise agreements, MOFCOM filing, pre-contractual disclosure,
-        cross-border tax structuring. The foundation layer — done once,
-        done right.
+        <span class="en-text">PRC trademark strategy, Master or WFOE structuring, bilingual franchise agreements, MOFCOM filing, pre-contractual disclosure, cross-border tax structuring. The foundation layer — done once, done right.</span>
+        <span class="cn-text">中国商标策略、总代或外商独资架构搭建、双语加盟合同、商务部备案、签约前信息披露、跨境税务安排。地基层——一次做对，受益长期。</span>
       </p>
     </div>
 
     <div class="cap reveal">
       <div class="cap-num">02</div>
       <div class="cap-title">
-        <h4>Franchisee &amp; Master Sourcing</h4>
+        <h4><span class="en-text">Franchisee &amp; Master Sourcing</span><span class="cn-text">加盟商与总代撮合</span></h4>
         <div class="cap-zh">加盟商与总代撮合</div>
       </div>
       <p>
-        A curated network of qualified Chinese franchise investors,
-        regional Master candidates, and multi-brand operators —
-        developed over two decades. We introduce, vet, and
-        broker — not list. The right partner is the single
-        biggest determinant of a brand's success in China.
+        <span class="en-text">A curated network of qualified Chinese franchise investors, regional Master candidates, and multi-brand operators — developed over two decades. We introduce, vet, and broker — not list. The right partner is the single biggest determinant of a brand's success in China.</span>
+        <span class="cn-text">一份用二十年积累的中国加盟投资者、区域总代候选人和多品牌运营商精选名单。我们做的是引荐、尽调与撮合——不是简单挂牌。在中国，找对合作伙伴是决定品牌成败的最大变量。</span>
       </p>
     </div>
 
     <div class="cap reveal">
       <div class="cap-num">03</div>
       <div class="cap-title">
-        <h4>Supply Chain &amp; Sourcing</h4>
+        <h4><span class="en-text">Supply Chain &amp; Sourcing</span><span class="cn-text">供应链与供应商</span></h4>
         <div class="cap-zh">供应链与供应商</div>
       </div>
       <p>
-        Vetted Chinese manufacturers, ingredient suppliers, packaging
-        vendors, and logistics providers across categories — F&amp;B,
-        apparel, consumer goods, equipment. Quality-controlled,
-        MOQ-negotiated, export-ready where relevant.
+        <span class="en-text">Vetted Chinese manufacturers, ingredient suppliers, packaging vendors, and logistics providers across categories — F&amp;B, apparel, consumer goods, equipment. Quality-controlled, MOQ-negotiated, export-ready where relevant.</span>
+        <span class="cn-text">经过审核的中国制造厂、原料供应商、包装厂、物流服务商，覆盖餐饮、服装、消费品、设备等品类。质量可控，起订量可谈，必要时具备出口能力。</span>
       </p>
     </div>
 
     <div class="cap reveal">
       <div class="cap-num">04</div>
       <div class="cap-title">
-        <h4>Site Selection &amp; Store Build</h4>
+        <h4><span class="en-text">Site Selection &amp; Store Build</span><span class="cn-text">选址与店铺落地</span></h4>
         <div class="cap-zh">选址与店铺落地</div>
       </div>
       <p>
-        Tier-one, tier-two, and shopping-mall leasing relationships.
-        Landlord introductions, lease negotiation, site analytics,
-        fit-out coordination. We have helped brands open their
-        first flagship and their fiftieth unit.
+        <span class="en-text">Tier-one, tier-two, and shopping-mall leasing relationships. Landlord introductions, lease negotiation, site analytics, fit-out coordination. We have helped brands open their first flagship and their fiftieth unit.</span>
+        <span class="cn-text">一线、二线及购物中心的租赁资源。业主对接、租约谈判、商圈分析、装修协调。从首家旗舰店到第五十家分店，我们都做过。</span>
       </p>
     </div>
 
     <div class="cap reveal">
       <div class="cap-num">05</div>
       <div class="cap-title">
-        <h4>Operations &amp; Brand Localization</h4>
+        <h4><span class="en-text">Operations &amp; Brand Localization</span><span class="cn-text">运营与品牌本土化</span></h4>
         <div class="cap-zh">运营与品牌本土化</div>
       </div>
       <p>
-        Bilingual operations manuals, staff training frameworks,
-        service-standard audits, brand-standard protocols. Adapting
-        a U.S. or European concept for Chinese consumer expectations
-        without diluting what makes the brand itself.
+        <span class="en-text">Bilingual operations manuals, staff training frameworks, service-standard audits, brand-standard protocols. Adapting a U.S. or European concept for Chinese consumer expectations without diluting what makes the brand itself.</span>
+        <span class="cn-text">双语运营手册、员工培训体系、服务标准巡检、品牌标准规范。把美式或欧式概念适配中国消费者的期待，又不稀释品牌本身的内核。</span>
       </p>
     </div>
 
     <div class="cap reveal">
       <div class="cap-num">06</div>
       <div class="cap-title">
-        <h4>Marketing &amp; Digital Presence</h4>
+        <h4><span class="en-text">Marketing &amp; Digital Presence</span><span class="cn-text">营销与数字化</span></h4>
         <div class="cap-zh">营销与数字化</div>
       </div>
       <p>
-        Douyin, Xiaohongshu, and WeChat strategy. Content partnerships,
-        KOL sourcing, livestream commerce integration, ICP filing for
-        your China-facing web properties. The channels a foreign
-        brand cannot access from abroad.
+        <span class="en-text">Douyin, Xiaohongshu, and WeChat strategy. Content partnerships, KOL sourcing, livestream commerce integration, ICP filing for your China-facing web properties. The channels a foreign brand cannot access from abroad.</span>
+        <span class="cn-text">抖音、小红书、微信策略。内容合作、KOL 对接、直播电商接入，以及面向中国市场网站的 ICP 备案。海外品牌从境外无法触达的那些渠道。</span>
       </p>
     </div>
   </div>
 
   <p style="margin-top:70px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--mute);max-width:820px;line-height:1.55" class="reveal">
-    We do not believe a brand should enter China by assembling
-    six separate vendors, translated through six layers of language
-    and cultural misunderstanding. That is the reason we exist.
+    <span class="en-text">We do not believe a brand should enter China by assembling six separate vendors, translated through six layers of language and cultural misunderstanding. That is the reason we exist.</span>
+    <span class="cn-text">我们不认为一个品牌进入中国，应该靠拼接六家彼此独立的供应商，再隔着六层语言与文化误解互相传话。这正是我们存在的理由。</span>
   </p>
 </section>
 
 <!-- ======== WHY US ======== -->
 <section class="why">
-  <span class="section-num" style="color:var(--gold-soft)">§ 05 · The Difference</span>
-  <div class="section-label reveal">What makes us different</div>
-  <h2 class="big reveal">We are not consultants<br>who stop at the <em>contract</em>.</h2>
+  <span class="section-num" style="color:var(--gold-soft)">§ 05 · <span class="en-text">The Difference</span><span class="cn-text">差异</span></span>
+  <div class="section-label reveal">
+    <span class="en-text">What makes us different</span>
+    <span class="cn-text">我们与众不同之处</span>
+  </div>
+  <h2 class="big reveal">
+    <span class="en-text">We are not consultants<br>who stop at the <em>contract</em>.</span>
+    <span class="cn-text">我们不是<br>只把<em>合同</em>交付完就走的顾问。</span>
+  </h2>
   <p class="lede reveal">
-    A Shanghai agent can submit a filing. A Shanghai law firm
-    can draft a Chinese-language document. A U.S. attorney
-    can draft an American one. None of them opens your first
-    store, introduces your first Master, or vets your first supplier.
-    That integration — law, network, operations, in both languages
-    and both business cultures — is the work we do.
+    <span class="en-text">A Shanghai agent can submit a filing. A Shanghai law firm can draft a Chinese-language document. A U.S. attorney can draft an American one. None of them opens your first store, introduces your first Master, or vets your first supplier. That integration — law, network, operations, in both languages and both business cultures — is the work we do.</span>
+    <span class="cn-text">上海的代理可以替你提交备案，上海的律所可以为你起草中文合同，美国律师可以为你起草美国合同——但没有谁能替你开第一家店、找到第一个总代、审核第一个供应商。把法律、网络、运营，在两种语言和两种商业文化里整合到一起——这就是我们的工作。</span>
   </p>
 
   <div class="quote reveal">
-    <p>"Every foreign brand that succeeds in China<br>
-    succeeds for the same reason: they arrived<br>
-    with the right people already at the table."</p>
-    <div class="attr">— BizchainChina, founding thesis, 2005</div>
+    <p>
+      <span class="en-text">"Every foreign brand that succeeds in China<br>succeeds for the same reason: they arrived<br>with the right people already at the table."</span>
+      <span class="cn-text">"每一个在中国成功的海外品牌，<br>原因都是同一个——他们来到时，<br>对的人已经坐在桌前。"</span>
+    </p>
+    <div class="attr">
+      <span class="en-text">— BizchainChina, founding thesis, 2005</span>
+      <span class="cn-text">— BizchainChina 创立信条，2005 年</span>
+    </div>
   </div>
 
   <div class="pillars">
     <div class="pillar reveal">
       <div class="roman">I.</div>
-      <h4>Cross-border <em>fluency</em></h4>
+      <h4>
+        <span class="en-text">Cross-border <em>fluency</em></span>
+        <span class="cn-text">跨境<em>双语功底</em></span>
+      </h4>
       <p>
-        Twenty-one years operating the seam between U.S. and Chinese
-        franchise law and business practice. We draft in two legal
-        traditions and negotiate in two business cultures — the kind
-        of fluency no translator or outside counsel alone can replicate.
+        <span class="en-text">Twenty-one years operating the seam between U.S. and Chinese franchise law and business practice. We draft in two legal traditions and negotiate in two business cultures — the kind of fluency no translator or outside counsel alone can replicate.</span>
+        <span class="cn-text">在中美加盟法律与商业实践的接缝处工作了二十一年。我们在两套法律传统中起草文件，在两种商业文化中谈判——这种功底，单靠翻译或外部律师无法复制。</span>
       </p>
     </div>
     <div class="pillar reveal">
       <div class="roman">II.</div>
-      <h4>Network <em>depth</em></h4>
+      <h4>
+        <span class="en-text">Network <em>depth</em></span>
+        <span class="cn-text">网络<em>深度</em></span>
+      </h4>
       <p>
-        Two decades of relationships: Chinese franchise investors and
-        Master candidates, manufacturers and suppliers, landlords and
-        mall developers, KOLs and content partners, regulators and
-        local counsel. This is the layer no amount of consulting
-        can manufacture on demand.
+        <span class="en-text">Two decades of relationships: Chinese franchise investors and Master candidates, manufacturers and suppliers, landlords and mall developers, KOLs and content partners, regulators and local counsel. This is the layer no amount of consulting can manufacture on demand.</span>
+        <span class="cn-text">二十年积累的关系网络：中国加盟投资者与总代候选人、工厂与供应商、业主与商场开发商、KOL 与内容合作方、监管部门与本地律所。这一层，再多咨询费也临时造不出来。</span>
       </p>
     </div>
     <div class="pillar reveal">
       <div class="roman">III.</div>
-      <h4>Integrated <em>execution</em></h4>
+      <h4>
+        <span class="en-text">Integrated <em>execution</em></span>
+        <span class="cn-text">整合<em>交付</em></span>
+      </h4>
       <p>
-        We do not hand you a strategy deck and walk away. From
-        trademark filing to store opening, we coordinate — directly,
-        bilingually, accountably. One point of contact across all
-        six functions. One line of responsibility for the outcome.
+        <span class="en-text">We do not hand you a strategy deck and walk away. From trademark filing to store opening, we coordinate — directly, bilingually, accountably. One point of contact across all six functions. One line of responsibility for the outcome.</span>
+        <span class="cn-text">我们不会给你一份战略 PPT 然后转身离开。从商标备案到首店开业，我们直接、双语、负责地协调——六大职能一个对接人，一条对结果负责的责任线。</span>
       </p>
     </div>
   </div>
@@ -1288,107 +1439,122 @@
 
 <!-- ======== SERVICES / ENGAGEMENT SCOPE ======== -->
 <section class="services">
-  <span class="section-num">§ 06 · The Engagement</span>
-  <div class="section-label reveal">How we work with you</div>
+  <span class="section-num">§ 06 · <span class="en-text">The Engagement</span><span class="cn-text">合作方式</span></span>
+  <div class="section-label reveal">
+    <span class="en-text">How we work with you</span>
+    <span class="cn-text">我们如何与你合作</span>
+  </div>
   <div class="service-intro">
-    <h2 class="big reveal">Three ways to<br>work <em>together</em>.</h2>
+    <h2 class="big reveal">
+      <span class="en-text">Three ways to<br>work <em>together</em>.</span>
+      <span class="cn-text">三种<br><em>合作</em>方式。</span>
+    </h2>
     <div class="note reveal">
-      THE RIGHT ENGAGEMENT IS NOT THE LARGEST ONE.<br>
-      IT IS THE ONE THAT MATCHES WHERE YOUR BRAND<br>
-      ALREADY IS — AND WHAT THE NEXT TWELVE TO<br>
-      TWENTY-FOUR MONTHS ACTUALLY REQUIRE.
+      <span class="en-text">THE RIGHT ENGAGEMENT IS NOT THE LARGEST ONE.<br>IT IS THE ONE THAT MATCHES WHERE YOUR BRAND<br>ALREADY IS — AND WHAT THE NEXT TWELVE TO<br>TWENTY-FOUR MONTHS ACTUALLY REQUIRE.</span>
+      <span class="cn-text">合适的合作不是最大的合作。<br>而是与你品牌当前阶段匹配、<br>并能解决未来 12 至 24 个月<br>实际需要的那一种。</span>
     </div>
   </div>
 
   <div class="packages">
     <!-- foundations -->
     <div class="pkg reveal">
-      <div class="tier-name">I · Foundations</div>
-      <h3>Entry Mandate</h3>
-      <div class="positioning">For brands still evaluating China — where the first priority is securing IP, assessing the right structure, and understanding what a full commitment would require.</div>
+      <div class="tier-name">I · <span class="en-text">Foundations</span><span class="cn-text">基础</span></div>
+      <h3><span class="en-text">Entry Mandate</span><span class="cn-text">进入授权</span></h3>
+      <div class="positioning">
+        <span class="en-text">For brands still evaluating China — where the first priority is securing IP, assessing the right structure, and understanding what a full commitment would require.</span>
+        <span class="cn-text">面向仍在评估中国市场的品牌——首要任务是锁定知识产权、评估合适架构，并明确全面进入需要付出的代价。</span>
+      </div>
       <ul class="features" style="margin-top:20px">
-        <li>PRC trademark strategy and filing across English mark, Chinese mark, and logo</li>
-        <li>Entry-model analysis: Master, WFOE, or JV — with our recommendation</li>
-        <li>Parent-company authentication: corporate documents, signatory authority, end-to-end</li>
-        <li>Bilingual Master Franchise Agreement or equivalent foundation contract</li>
-        <li>Two-shops-one-year evidence package, apostilled and translated</li>
-        <li>A strategic briefing document, written for your board</li>
+        <li><span class="en-text">PRC trademark strategy and filing across English mark, Chinese mark, and logo</span><span class="cn-text">中国商标策略与备案：英文商标、中文商标、Logo 三类同步申请</span></li>
+        <li><span class="en-text">Entry-model analysis: Master, WFOE, or JV — with our recommendation</span><span class="cn-text">进入模式分析：总代、外商独资或合资——并附我们的建议</span></li>
+        <li><span class="en-text">Parent-company authentication: corporate documents, signatory authority, end-to-end</span><span class="cn-text">母公司证照认证：公司文件、签字授权，全流程办理</span></li>
+        <li><span class="en-text">Bilingual Master Franchise Agreement or equivalent foundation contract</span><span class="cn-text">双语总特许经营协议或同等基础合同</span></li>
+        <li><span class="en-text">Two-shops-one-year evidence package, apostilled and translated</span><span class="cn-text">"两店一年"证据包，附加海牙认证与翻译</span></li>
+        <li><span class="en-text">A strategic briefing document, written for your board</span><span class="cn-text">一份面向董事会的战略简报文件</span></li>
       </ul>
     </div>
 
     <!-- full china build -->
     <div class="pkg reveal">
-      <div class="tier-name">II · Full Build</div>
-      <h3>The China Launch</h3>
-      <div class="positioning">For brands ready to commit to China — where the work shifts from legal groundwork to finding the right Master, the right suppliers, and the first stores on the ground.</div>
+      <div class="tier-name">II · <span class="en-text">Full Build</span><span class="cn-text">完整搭建</span></div>
+      <h3><span class="en-text">The China Launch</span><span class="cn-text">中国落地</span></h3>
+      <div class="positioning">
+        <span class="en-text">For brands ready to commit to China — where the work shifts from legal groundwork to finding the right Master, the right suppliers, and the first stores on the ground.</span>
+        <span class="cn-text">面向已决定投入中国市场的品牌——工作重心从法律地基转向寻找合适的总代、合适的供应商，以及落地首批门店。</span>
+      </div>
       <ul class="features" style="margin-top:20px">
-        <li>Everything in the Entry Mandate — carried through</li>
-        <li>Entity setup: WFOE or JV incorporation, if operationally warranted</li>
-        <li>Long-form bilingual agreements with KPI, buy-back, and right-of-first-refusal provisions</li>
-        <li>Cross-border tax architecture: withholding, royalty repatriation, transfer pricing</li>
-        <li>Master or franchisee sourcing and vetting from our network</li>
-        <li>Supplier and manufacturer introductions, with quality-control support</li>
-        <li>Initial site selection and landlord introductions for your first stores</li>
-        <li>Ongoing retained advisory: calls, reviews, escalations</li>
+        <li><span class="en-text">Everything in the Entry Mandate — carried through</span><span class="cn-text">"进入授权"包含的全部内容——延续推进</span></li>
+        <li><span class="en-text">Entity setup: WFOE or JV incorporation, if operationally warranted</span><span class="cn-text">主体设立：根据运营需要设立外商独资或合资公司</span></li>
+        <li><span class="en-text">Long-form bilingual agreements with KPI, buy-back, and right-of-first-refusal provisions</span><span class="cn-text">长篇双语合同：含 KPI 条款、回购安排及优先购买权</span></li>
+        <li><span class="en-text">Cross-border tax architecture: withholding, royalty repatriation, transfer pricing</span><span class="cn-text">跨境税务架构：预提税、特许权使用费回流、转让定价</span></li>
+        <li><span class="en-text">Master or franchisee sourcing and vetting from our network</span><span class="cn-text">从我们网络中筛选并尽调总代或加盟商</span></li>
+        <li><span class="en-text">Supplier and manufacturer introductions, with quality-control support</span><span class="cn-text">供应商与工厂引荐，并提供质量管控支持</span></li>
+        <li><span class="en-text">Initial site selection and landlord introductions for your first stores</span><span class="cn-text">首批门店的初步选址与业主对接</span></li>
+        <li><span class="en-text">Ongoing retained advisory: calls, reviews, escalations</span><span class="cn-text">持续顾问陪跑：定期通话、审阅、突发问题处理</span></li>
       </ul>
     </div>
 
     <!-- bespoke -->
     <div class="pkg reveal">
-      <div class="tier-name">III · Bespoke</div>
-      <h3>The China Program</h3>
-      <div class="positioning">For brands treating China as a strategic market — where the scale, the number of Masters, or the complexity of operations calls for a dedicated long-term partner on the ground.</div>
+      <div class="tier-name">III · <span class="en-text">Bespoke</span><span class="cn-text">定制</span></div>
+      <h3><span class="en-text">The China Program</span><span class="cn-text">中国战略合作</span></h3>
+      <div class="positioning">
+        <span class="en-text">For brands treating China as a strategic market — where the scale, the number of Masters, or the complexity of operations calls for a dedicated long-term partner on the ground.</span>
+        <span class="cn-text">面向把中国视为战略市场的品牌——规模、总代数量、运营复杂度需要一位长期驻地的专属伙伴。</span>
+      </div>
       <ul class="features" style="margin-top:20px">
-        <li>Everything in The China Launch</li>
-        <li>Multi-Master territorial architecture — by region, channel, or staged rights</li>
-        <li>Ongoing Master candidate sourcing, due diligence, and introduction</li>
-        <li>Dedicated supply chain, logistics, and operations support</li>
-        <li>Brand localization: operations manuals, staff training frameworks, service audits</li>
-        <li>Marketing infrastructure: Douyin, Xiaohongshu, WeChat, KOL partnerships</li>
-        <li>Governance design: China Coordination Office or equivalent senior function</li>
-        <li>Direct line to the founder throughout the engagement</li>
+        <li><span class="en-text">Everything in The China Launch</span><span class="cn-text">"中国落地"包含的全部内容</span></li>
+        <li><span class="en-text">Multi-Master territorial architecture — by region, channel, or staged rights</span><span class="cn-text">多总代区域架构——按地区、渠道或阶段授权切分</span></li>
+        <li><span class="en-text">Ongoing Master candidate sourcing, due diligence, and introduction</span><span class="cn-text">总代候选人持续筛选、尽调与引荐</span></li>
+        <li><span class="en-text">Dedicated supply chain, logistics, and operations support</span><span class="cn-text">专属供应链、物流与运营支持</span></li>
+        <li><span class="en-text">Brand localization: operations manuals, staff training frameworks, service audits</span><span class="cn-text">品牌本土化：运营手册、员工培训体系、服务巡检</span></li>
+        <li><span class="en-text">Marketing infrastructure: Douyin, Xiaohongshu, WeChat, KOL partnerships</span><span class="cn-text">营销基础设施：抖音、小红书、微信、KOL 合作</span></li>
+        <li><span class="en-text">Governance design: China Coordination Office or equivalent senior function</span><span class="cn-text">治理结构设计：中国协调办公室或同等高阶职能</span></li>
+        <li><span class="en-text">Direct line to the founder throughout the engagement</span><span class="cn-text">合作全程，与创始团队直线沟通</span></li>
       </ul>
     </div>
   </div>
 
   <p style="margin-top:70px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--mute);max-width:820px;line-height:1.55" class="reveal">
-    The right fit is almost always clear within the first briefing —
-    once we understand your brand, where it stands in China today,
-    and the decisions in front of you. Scope, fees, and timeline
-    are shaped around that conversation.
+    <span class="en-text">The right fit is almost always clear within the first briefing — once we understand your brand, where it stands in China today, and the decisions in front of you. Scope, fees, and timeline are shaped around that conversation.</span>
+    <span class="cn-text">合适的合作方式，几乎总在第一次会面中就清晰起来——一旦我们了解你的品牌、它在中国当前的处境，以及你面前要做的决定。合作范围、费用与时间表，都围绕那次对话量身设计。</span>
   </p>
 </section>
 
 <!-- ======== PROOF ======== -->
 <section class="proof">
-  <span class="section-num">§ 07 · The Record</span>
-  <div class="section-label reveal">BizchainChina, in figures</div>
+  <span class="section-num">§ 07 · <span class="en-text">The Record</span><span class="cn-text">履历</span></span>
+  <div class="section-label reveal">
+    <span class="en-text">BizchainChina, in figures</span>
+    <span class="cn-text">数字背后的 BizchainChina</span>
+  </div>
   <div class="proof-grid">
     <div class="reveal">
-      <h2 class="big">Since <em>2005</em>.</h2>
+      <h2 class="big">
+        <span class="en-text">Since <em>2005</em>.</span>
+        <span class="cn-text">始于 <em>2005 年</em>。</span>
+      </h2>
       <p class="lede">
-        Two decades of moving franchise brands across the Pacific.
-        U.S. concepts into Shanghai, Chengdu, Shenzhen.
-        Chinese brands into Los Angeles, New York, Miami.
-        Same network, pointed in two directions.
+        <span class="en-text">Two decades of moving franchise brands across the Pacific. U.S. concepts into Shanghai, Chengdu, Shenzhen. Chinese brands into Los Angeles, New York, Miami. Same network, pointed in two directions.</span>
+        <span class="cn-text">二十年来，我们让加盟品牌跨越太平洋。把美式概念带进上海、成都、深圳。把中国品牌送进洛杉矶、纽约、迈阿密。同一张网络，朝两个方向工作。</span>
       </p>
     </div>
     <div class="credentials">
       <div class="cred reveal">
         <div class="big"><em>21</em></div>
-        <div class="desc">Years<br>in cross-border<br>franchising</div>
+        <div class="desc"><span class="en-text">Years<br>in cross-border<br>franchising</span><span class="cn-text">年<br>跨境加盟<br>实战</span></div>
       </div>
       <div class="cred reveal">
         <div class="big">2</div>
-        <div class="desc">Jurisdictions<br>U.S. &amp; PRC<br>native practice</div>
+        <div class="desc"><span class="en-text">Jurisdictions<br>U.S. &amp; PRC<br>native practice</span><span class="cn-text">个法域<br>中美两地<br>本土执业</span></div>
       </div>
       <div class="cred reveal">
         <div class="big"><em>双</em></div>
-        <div class="desc">Bilingual<br>at every<br>layer</div>
+        <div class="desc"><span class="en-text">Bilingual<br>at every<br>layer</span><span class="cn-text">每一层<br>都是<br>双语</span></div>
       </div>
       <div class="cred reveal">
         <div class="big">6</div>
-        <div class="desc">Functional<br>networks<br>under one roof</div>
+        <div class="desc"><span class="en-text">Functional<br>networks<br>under one roof</span><span class="cn-text">大职能网络<br>统一在<br>同一屋檐下</span></div>
       </div>
     </div>
   </div>
@@ -1397,26 +1563,34 @@
 <!-- ======== CLOSE / CTA ======== -->
 <section class="close">
   <div class="close-inner">
-    <div class="eyebrow reveal">Next step</div>
-    <h2 class="reveal">When a brand enters China<br>with the right people<br>already at the <em>table</em>,<br>everything else follows.</h2>
+    <div class="eyebrow reveal">
+      <span class="en-text">Next step</span>
+      <span class="cn-text">下一步</span>
+    </div>
+    <h2 class="reveal">
+      <span class="en-text">When a brand enters China<br>with the right people<br>already at the <em>table</em>,<br>everything else follows.</span>
+      <span class="cn-text">当一个品牌进入中国时，<br>如果对的人已经坐在<em>桌前</em>，<br>之后的一切自会顺势而成。</span>
+    </h2>
     <p class="reveal">
-      If what you have read resonates, the next step is a confidential
-      ninety-minute briefing with your leadership team. You will leave
-      it with a clear view of the right structure for your brand —
-      Master, WFOE, or JV — and a concrete picture of what year one
-      in China actually looks like, from trademark to first store.
+      <span class="en-text">If what you have read resonates, the next step is a confidential ninety-minute briefing with your leadership team. You will leave it with a clear view of the right structure for your brand — Master, WFOE, or JV — and a concrete picture of what year one in China actually looks like, from trademark to first store.</span>
+      <span class="cn-text">如果以上内容与你产生共鸣，下一步是与你的决策团队进行一次九十分钟的保密会面。会后你将清楚知道适合你品牌的架构——总代、外商独资还是合资——以及在中国第一年的具体路径，从商标到首店。</span>
     </p>
 
-    <div class="contact-block reveal">
-      <strong>Miaoye Liu &mdash; Founder</strong>
-      BizchainChina LLC<br>
-      <a href="mailto:miaoye@bizchainchina.com">miaoye@bizchainchina.com</a><br>
-      <a href="https://bizchainchina.com" target="_blank" rel="noopener">bizchainchina.com</a><br>
-      Miami · Shanghai
+    <a href="https://bizchainchina.com/franchise-assessment.html" class="cta-pitch reveal">
+      <span class="en-text">Request a Briefing</span>
+      <span class="cn-text">申请会面</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M7 17 17 7"></path><path d="M8 7h9v9"></path>
+      </svg>
+    </a>
+    <div class="cta-note reveal">
+      <span class="en-text">A 90-minute confidential session with our founding team</span>
+      <span class="cn-text">与创始团队的 90 分钟保密会议</span>
     </div>
 
     <div class="footer-meta">
-      Confidential · Prepared for strategic discussion · © BizchainChina 2026
+      <span class="en-text">Confidential · Prepared for strategic discussion · © BizchainChina 2026</span>
+      <span class="cn-text">机密文件 · 仅供战略洽谈使用 · © BizchainChina 2026</span>
     </div>
   </div>
 </section>
@@ -1432,6 +1606,27 @@
     });
   },{threshold:.08, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // 顶栏滚动状态
+  const topbarEl = document.querySelector('.topbar');
+  window.addEventListener('scroll',()=>{
+    if(topbarEl) topbarEl.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // 语言切换
+  const langButtons = document.querySelectorAll('.lang-toggle button');
+  const body = document.body;
+  function setLang(lang){
+    body.classList.remove('lang-en','lang-cn');
+    body.classList.add('lang-'+lang);
+    langButtons.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+    localStorage.setItem('bizchain-lang', lang);
+    document.documentElement.lang = lang === 'cn' ? 'zh-CN' : 'en';
+  }
+  langButtons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  const savedLang = localStorage.getItem('bizchain-lang');
+  const browserLang = (navigator.language||'en').toLowerCase().startsWith('zh') ? 'cn' : 'en';
+  setLang(savedLang || browserLang);
 </script>
 
 </body>
