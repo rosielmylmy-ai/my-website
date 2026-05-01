@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FDD 是什么？华人投资者必读的 7 个重点 | BizchainChina Field Notes</title>
+<meta name="description" content="美国加盟特许经营披露文件（FDD）超过 200 页，华人投资者最容易吃亏的 7 个核心条款全解析。来自 BizchainChina 二十年跨境加盟实战经验。">
+<meta name="keywords" content="FDD, 特许经营披露文件, 美国加盟, 华人投资加盟, 加盟合同, Franchise Disclosure Document, BizchainChina">
+
+<!-- Open Graph -->
+<meta property="og:title" content="FDD 是什么？华人投资者必读的 7 个重点">
+<meta property="og:description" content="一份 200 页的法律文件，决定你 30-200 万美元投资的命运。BizchainChina 拆解 FDD 中最容易踩雷的 7 个条款。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bizchainchina.com/insights/fdd-7-points.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #F8F7F3;
+  --bg-warm: #EEECE5;
+  --ink: #0F0F0D;
+  --ink-soft: #2B2A26;
+  --ink-muted: #5C594F;
+  --gold: #8B6A38;
+  --gold-deep: #5C4318;
+  --gold-soft: #D4B574;
+  --rule: rgba(15, 15, 13, 0.12);
+  --rule-strong: rgba(15, 15, 13, 0.22);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.75;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Language toggle */
+.lang-en .cn-text { display: none; }
+.lang-cn .en-text { display: none; }
+.lang-cn body {
+  font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+  font-weight: 500;
+}
+.lang-cn .article p,
+.lang-cn .lede,
+.lang-cn .checklist li,
+.lang-cn .warning p {
+  font-weight: 500;
+}
+
+/* ===== Nav ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.1rem 5vw;
+  background: rgba(248, 247, 243, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(248, 247, 243, 0.97);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 0 4px 20px -8px rgba(15, 15, 13, 0.08);
+}
+.brand {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  color: var(--gold);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.25s ease;
+}
+.brand:hover { opacity: 0.7; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.lang-toggle {
+  display: inline-flex; border: 1px solid var(--rule-strong); border-radius: 2px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.15em; overflow: hidden;
+}
+.lang-toggle button {
+  background: transparent; border: none; cursor: pointer;
+  padding: 7px 14px; color: var(--ink-soft);
+  transition: all 0.3s ease;
+  font-family: inherit; font-size: inherit; letter-spacing: inherit;
+}
+.lang-toggle button.active { background: var(--gold-deep); color: #fff; }
+.back-link {
+  font-family: 'Inter', sans-serif; font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  transition: color 0.3s;
+}
+.back-link:hover { color: var(--gold-deep); }
+
+/* ===== Hero ===== */
+.hero {
+  padding: 180px 40px 100px;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: left;
+}
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold-deep);
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 36px;
+}
+.eyebrow::before {
+  content: ''; width: 40px; height: 1px; background: var(--gold);
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+h1 em {
+  font-style: italic;
+  color: var(--gold-deep);
+  font-weight: 400;
+}
+.cn-text h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.lede {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  line-height: 1.55;
+  color: var(--ink);
+  font-weight: 400;
+  font-style: italic;
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+.cn-text .lede {
+  font-family: 'Noto Serif SC', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.7;
+}
+.meta-row {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.meta-row span strong {
+  color: var(--ink); font-weight: 600;
+}
+
+/* ===== Article ===== */
+.article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px;
+}
+.article p {
+  margin-bottom: 28px;
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.75;
+}
+.article p strong {
+  color: var(--ink); font-weight: 700;
+}
+
+/* Section divider */
+.section-divider {
+  display: flex; align-items: center; justify-content: center;
+  margin: 80px 0 60px;
+  gap: 20px;
+}
+.section-divider::before,
+.section-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--rule);
+}
+.section-divider span {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.4em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+}
+
+/* Point block */
+.point {
+  margin: 70px 0;
+  padding-left: 0;
+  position: relative;
+}
+.point-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 90px;
+  line-height: 1;
+  color: var(--gold);
+  font-weight: 300;
+  margin-bottom: -10px;
+  display: block;
+}
+.point-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 12px;
+}
+.point h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 24px;
+  letter-spacing: -0.005em;
+}
+.cn-text .point h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 500;
+}
+.point h2 em {
+  font-style: italic;
+  color: var(--gold-deep);
+}
+
+/* Pull quote / warning */
+.warning {
+  margin: 28px 0;
+  padding: 28px 32px;
+  background: var(--bg-warm);
+  border-left: 3px solid var(--gold-deep);
+  position: relative;
+}
+.warning::before {
+  content: '⚠';
+  position: absolute; top: 28px; left: -14px;
+  width: 26px; height: 26px;
+  background: var(--gold-deep);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+.warning p {
+  margin: 0; padding-left: 18px;
+  font-style: italic;
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.65;
+}
+.cn-text .warning p { font-style: normal; font-weight: 500; }
+.warning p strong { color: var(--gold-deep); font-weight: 700; }
+
+/* Stat row */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--rule-strong);
+  margin: 36px 0;
+  border: 1px solid var(--rule-strong);
+}
+.stat {
+  background: var(--bg);
+  padding: 24px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px; font-weight: 500;
+  color: var(--gold-deep);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+}
+.checklist li {
+  position: relative;
+  padding: 16px 0 16px 36px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.6;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: '';
+  position: absolute; left: 0; top: 22px;
+  width: 18px; height: 1px;
+  background: var(--gold);
+}
+
+/* CTA Block */
+.cta-block {
+  margin: 100px -40px 40px;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #1A1612 0%, #2A2218 100%);
+  color: #FAF7F2;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-block::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -10%;
+  width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.15) 0%, transparent 60%);
+}
+.cta-block::after {
+  content: '';
+  position: absolute;
+  bottom: -50%; right: -10%;
+  width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.1) 0%, transparent 60%);
+}
+.cta-content { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+.cta-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.cta-block h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.cn-text .cta-block h3 { font-family: 'Noto Serif SC', serif; }
+.cta-block h3 em { color: var(--gold-soft); font-style: italic; }
+.cta-block p {
+  color: rgba(250, 247, 242, 0.92);
+  margin-bottom: 36px;
+  font-size: 19px;
+  line-height: 1.65;
+}
+.cn-text .cta-block p { font-weight: 500; }
+.cta-btn {
+  display: inline-block;
+  padding: 16px 38px;
+  background: var(--gold);
+  color: #1A1612;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.cta-btn:hover {
+  background: var(--gold-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(201, 168, 76, 0.3);
+}
+
+/* Footer */
+.footer {
+  padding: 60px 40px 40px;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  background: var(--bg-warm);
+  margin-top: 60px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; letter-spacing: 0.22em;
+  color: var(--gold-deep);
+  margin-bottom: 12px;
+}
+.footer-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.footer-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin: 0 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.footer-links a:hover { color: var(--gold-deep); }
+.footer-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.15em;
+  color: var(--ink-muted);
+  margin-top: 30px;
+}
+
+@media (max-width: 720px) {
+  body { font-size: 18px; }
+  .nav { padding: 16px 20px; }
+  .brand { font-size: 18px; letter-spacing: 0.18em; }
+  .back-link { display: none; }
+  .hero { padding: 120px 24px 60px; }
+  .article { padding: 20px 24px; }
+  .article p { font-size: 18px; line-height: 1.7; }
+  .lede { font-size: 20px; }
+  .cn-text .lede { font-size: 18px; }
+  .checklist li { font-size: 17px; }
+  .warning p { font-size: 17px; }
+  .point-num { font-size: 70px; }
+  .cta-block { margin: 60px -24px 20px; padding: 60px 24px; }
+  .meta-row { gap: 18px; font-size: 11px; }
+}
+
+/* Reading progress bar */
+.progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px;
+  background: var(--gold);
+  z-index: 200;
+  transition: width 0.1s ease;
+  width: 0%;
+}
+</style>
+</head>
+
+<body class="lang-en">
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav">
+  <a href="index.html" class="brand">BizchainChina</a>
+  <div class="nav-right">
+    <a href="index.html#insights" class="back-link">
+      <span class="en-text">← Back to Insights</span>
+      <span class="cn-text">← 返回洞察</span>
+    </a>
+    <div class="lang-toggle">
+      <button class="active" data-lang="en">EN</button>
+      <button data-lang="cn">中</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">
+    <span class="en-text">Field Guide · Insights</span>
+    <span class="cn-text">实战指南 · 行业洞察</span>
+  </div>
+
+  <h1>
+    <span class="en-text">What Is the <em>FDD</em>?<br>7 Sections Chinese Investors Cannot Afford to Skip</span>
+    <span class="cn-text">FDD 是什么？<br>华人投资者<em>不看会吃大亏</em>的 7 个重点</span>
+  </h1>
+
+  <p class="lede">
+    <span class="en-text">A 200-page legal document determines the fate of a $300K to $2M investment. Yet most Chinese investors only flip through it casually before signing. Here is what BizchainChina has learned in two decades of cross-border franchise practice — translated into the seven sections that matter most.</span>
+    <span class="cn-text">一份两百页的法律文件，决定着三十万到两百万美元投资的命运。然而大多数华人投资者在签字前只是草草翻阅。这是 BizchainChina 二十年跨境加盟实战的提炼——浓缩为最关键的七个章节。</span>
+  </p>
+
+  <div class="meta-row">
+    <span><strong>Apr 2026</strong> · 2026 年 4 月</span>
+    <span><strong>12 min read</strong> · 12 分钟阅读</span>
+    <span><strong>BizchainChina</strong> Field Notes</span>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <p>
+    <span class="en-text">In the United States, every franchise brand is required by Federal Trade Commission rule to provide prospective franchisees with a <strong>Franchise Disclosure Document</strong> — known universally as the <strong>FDD</strong> — at least 14 days before any contract signing or money exchange. The document runs 23 standardized items, often spanning 150 to 300 pages including exhibits.</span>
+    <span class="cn-text">在美国，根据联邦贸易委员会（FTC）的规定，每一个加盟品牌都必须在签约或收款前至少 <strong>14 天</strong>，向准加盟商提供一份<strong>特许经营披露文件</strong>（Franchise Disclosure Document，简称 <strong>FDD</strong>）。这份文件包含 23 个标准化条款，连同附件通常长达 150 至 300 页。</span>
+  </p>
+
+  <p>
+    <span class="en-text">For Chinese investors evaluating U.S. franchise opportunities, the FDD is both a treasure map and a minefield. Every fee, every restriction, every termination clause — the truth lives in this document. Yet language barriers, legal terminology, and sheer volume mean that most prospective franchisees rely on a brand's verbal pitch rather than the binding text they are about to sign.</span>
+    <span class="cn-text">对于评估美国加盟机会的华人投资者来说，FDD 既是藏宝图，也是雷区。所有的费用、限制、终止条款——真相全部写在这份文件里。然而语言障碍、法律术语和庞大篇幅，让大多数准加盟商只听品牌方口头推介，却不看自己即将签下的法律文本。</span>
+  </p>
+
+  <p>
+    <span class="en-text">The result is predictable: investors discover hidden royalty structures only after store openings, find themselves locked into territories they didn't realize were non-exclusive, or get hit with renewal fees and transfer fees that were disclosed — but not read.</span>
+    <span class="cn-text">结果可想而知：投资者在开店后才发现隐藏的权利金结构；签约后才意识到所谓"独家区域"其实不独家；或被披露过却没注意的续约费、转让费打个措手不及。</span>
+  </p>
+
+  <p>
+    <span class="en-text">After reviewing hundreds of FDDs across food, retail, and service categories, we have identified <strong>seven items</strong> where Chinese investors most often miss critical details. These are the sections to read first, read twice, and ideally have translated.</span>
+    <span class="cn-text">在审阅过数百份涵盖餐饮、零售、服务等行业的 FDD 之后，我们总结出华人投资者最容易遗漏关键细节的<strong>七个条款</strong>。这些是必须最先看、看两遍、最好翻译成中文再看的章节。</span>
+  </p>
+
+  <div class="section-divider"><span class="en-text">The Seven Points</span><span class="cn-text">七个重点</span></div>
+
+  <!-- POINT 1 -->
+  <div class="point">
+    <span class="point-num">01</span>
+    <div class="point-label">Item 5 · Initial Fees · 第五项</div>
+    <h2>
+      <span class="en-text">The <em>Initial Franchise Fee</em> Is Rarely the Whole Story</span>
+      <span class="cn-text">"加盟费"<em>从来不是</em>全部</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Item 5 lists the upfront franchise fee — typically $25,000 to $75,000 for food and beverage concepts, $40,000 to $50,000 for established brands like Paris Baguette or Crumbl. This is the number brands lead with in their pitches.</span>
+      <span class="cn-text">第五项列出的是首期加盟金——餐饮品类通常 2.5 万至 7.5 万美元，巴黎贝甜（Paris Baguette）、Crumbl 这类成熟品牌通常 4 万至 5 万美元。这是品牌方在推介时最先抛出的数字。</span>
+    </p>
+
+    <p>
+      <span class="en-text">But Item 5 also discloses fees most investors miss: territory development deposits ($20,000 per future store on signed multi-unit deals), training fees that may be billed separately ($5,000 to $15,000 per session), and grand opening marketing minimums ($10,000 to $25,000 spent before doors open).</span>
+      <span class="cn-text">但第五项还披露了大多数投资者忽视的费用：多店区域开发押金（每家未来门店 2 万美元）、可能单独计费的培训费（每次 5,000 至 15,000 美元）、开业营销最低投入（开店前需投入 1 万至 2.5 万美元）。</span>
+    </p>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>Watch for:</strong> Whether the initial fee is fully refundable, partially refundable, or non-refundable if you fail site approval. Many brands keep $10,000 to $20,000 even if the deal collapses through no fault of yours.</span>
+        <span class="cn-text"><strong>注意：</strong>若选址未通过审批，加盟费是全额退还、部分退还、还是不退？很多品牌即使因品牌方原因终止合作，也会扣留 1 万至 2 万美元。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- POINT 2 -->
+  <div class="point">
+    <span class="point-num">02</span>
+    <div class="point-label">Item 6 · Other Fees · 第六项</div>
+    <h2>
+      <span class="en-text">Item 6 Hides 30+ Fees You Will Pay <em>For Years</em></span>
+      <span class="cn-text">第六项藏着 <em>30 多项</em>你要付一辈子的费用</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Item 6 is the most underread section of the entire FDD — and the one with the highest financial impact over a 10-year franchise term. While Item 5 is a one-time payment, Item 6 lists every recurring or conditional fee you will owe the franchisor for as long as you operate.</span>
+      <span class="cn-text">第六项是整份 FDD 中最被忽视的一章——也是 10 年加盟期内对财务影响最大的一章。第五项是一次性付款，第六项则列出了你在经营期间必须持续支付给品牌方的<strong>每一项费用</strong>。</span>
+    </p>
+
+    <p>
+      <span class="en-text">In recent FDD reviews we've conducted, the typical Item 6 contains 25 to 42 line items. Royalty fees (typically 5–7% of weekly gross sales) and marketing fund contributions (1–4%) are well known. The hidden ones include:</span>
+      <span class="cn-text">在我们最近审阅的 FDD 中，第六项通常包含 25 至 42 个项目。权利金（一般为周毛销售额的 5–7%）和市场基金（1–4%）大家都知道。容易被忽视的包括：</span>
+    </p>
+
+    <ul class="checklist">
+      <li><span class="en-text"><strong>Technology fees</strong> — $250 to $650 per month for POS systems, often increasing annually</span><span class="cn-text"><strong>技术费</strong>——每月 250 至 650 美元的 POS 系统费，通常逐年上调</span></li>
+      <li><span class="en-text"><strong>Compliance audit fees</strong> — $250 to $1,500 if the franchisor finds you out of standard, plus travel costs for re-inspection</span><span class="cn-text"><strong>合规审计费</strong>——若品牌方发现门店不达标，收取 250 至 1,500 美元，外加复检差旅费</span></li>
+      <li><span class="en-text"><strong>Late payment penalties</strong> — typically 18% annualized interest on any unpaid royalty</span><span class="cn-text"><strong>逾期罚息</strong>——未付权利金通常按年化 18% 计息</span></li>
+      <li><span class="en-text"><strong>Transfer fees</strong> — $10,000 to $40,000 if you ever want to sell your store</span><span class="cn-text"><strong>转让费</strong>——若日后想转卖门店，需支付 1 万至 4 万美元</span></li>
+      <li><span class="en-text"><strong>Renewal fees</strong> — often 25–50% of the current initial franchise fee at the end of each term</span><span class="cn-text"><strong>续约费</strong>——通常为现行加盟费的 25–50%，每期合约期末缴付</span></li>
+      <li><span class="en-text"><strong>Temporary management custodian fee</strong> — if you become unable to operate, the franchisor steps in and charges 10% of weekly gross (minimum $3,000) plus management cost</span><span class="cn-text"><strong>临时托管代管费</strong>——若你无法经营，品牌方接管时按周毛销售 10%（最低 3,000 美元）外加管理费收取</span></li>
+    </ul>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>Real math:</strong> On a store generating $1.2M annual revenue, total Item 6 obligations typically consume <strong>11–14% of gross sales</strong> — before rent, labor, food cost, or your salary. Always model this against the brand's reported AUV.</span>
+        <span class="cn-text"><strong>实际账：</strong>一家年营收 120 万美元的门店，第六项各项费用通常会吞掉<strong>毛销售额的 11–14%</strong>——这还没算房租、人工、食材成本、自己的工资。一定要把这些数字代入品牌方公布的 AUV（平均单店营收）做模型。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- POINT 3 -->
+  <div class="point">
+    <span class="point-num">03</span>
+    <div class="point-label">Item 7 · Initial Investment · 第七项</div>
+    <h2>
+      <span class="en-text">The Investment Range Is a <em>Floor, Not a Ceiling</em></span>
+      <span class="cn-text">投资金额是<em>地板价</em>，不是天花板</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Item 7 presents the brand's official "estimated initial investment" as a low-to-high range: e.g., $727,440 to $1,825,100 for Paris Baguette, $169,000 to $378,000 for Kung Fu Tea. Investors anchor on these numbers when calculating how much capital they need.</span>
+      <span class="cn-text">第七项以"区间"形式呈现品牌方的"预估初始投资"：例如巴黎贝甜 72.7 万至 182.5 万美元，功夫茶 16.9 万至 37.8 万美元。投资者在估算所需资金时，往往以这些数字为锚。</span>
+    </p>
+
+    <p>
+      <span class="en-text">The problem: <strong>the high end of the range is not a worst-case ceiling</strong>. It reflects what existing franchisees have spent in average locations under average conditions. In premium real estate (NYC, LA, SF Bay Area, Miami) — exactly where many Chinese investors want to operate — actual buildout regularly exceeds Item 7's high end by 20–40%.</span>
+      <span class="cn-text">问题在于：<strong>区间的高端不是最坏情况的天花板</strong>。它反映的是现有加盟商在普通选址下的平均花费。但在高端商圈（纽约、洛杉矶、湾区、迈阿密）——也正是很多华人投资者想开店的地方——实际装修和落地成本通常会比第七项的高端再多 20–40%。</span>
+    </p>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">+20-40%</div>
+        <div class="stat-label">Premium Markets · 一线商圈溢价</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3-6 mo</div>
+        <div class="stat-label">Working Capital · 运营储备</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$50K+</div>
+        <div class="stat-label">Surprise Costs · 意外开支</div>
+      </div>
+    </div>
+
+    <p>
+      <span class="en-text">Always add <strong>3 to 6 months of operating capital</strong> on top of Item 7's high number. This buffer is what separates franchisees who survive their first 18 months from those who close.</span>
+      <span class="cn-text">在第七项高端数字之上，永远要再加上<strong>3 至 6 个月的运营储备金</strong>。这笔缓冲资金，正是熬过头 18 个月的加盟商和被迫关店的加盟商之间的分水岭。</span>
+    </p>
+  </div>
+
+  <!-- POINT 4 -->
+  <div class="point">
+    <span class="point-num">04</span>
+    <div class="point-label">Item 12 · Territory · 第十二项</div>
+    <h2>
+      <span class="en-text">"Exclusive Territory" Often <em>Isn't</em></span>
+      <span class="cn-text">"独家区域"<em>常常不独家</em></span>
+    </h2>
+
+    <p>
+      <span class="en-text">Item 12 defines the geographic protection you receive. Many brands advertise "protected territory" or "exclusive area" in marketing materials. The actual FDD language is almost always more limited.</span>
+      <span class="cn-text">第十二项定义你能获得的地理保护。许多品牌在营销材料中宣传"保护区域"或"独家区域"，但 FDD 中的真实条款几乎总是更受限。</span>
+    </p>
+
+    <p>
+      <span class="en-text">Common carveouts that strip your protection:</span>
+      <span class="cn-text">常见的"豁免条款"，会让你的保护形同虚设：</span>
+    </p>
+
+    <ul class="checklist">
+      <li><span class="en-text">Non-traditional venues (airports, stadiums, university campuses, military bases) are <strong>excluded</strong> from your territory — the brand can place a competitor location 200 meters away inside a mall food court</span><span class="cn-text">非传统场所（机场、体育场、大学校园、军事基地）不计入你的保护区——品牌方可以在 200 米外的商场美食广场再开一家</span></li>
+      <li><span class="en-text">The brand reserves the right to sell its products through grocery retail, e-commerce (Amazon, DoorDash ghost kitchens), and corporate catering inside your territory</span><span class="cn-text">品牌方保留通过超市零售、电商（Amazon、DoorDash 幽灵厨房）、企业团餐在你区域内销售产品的权利</span></li>
+      <li><span class="en-text">"Exclusive" may simply mean "we won't sell another franchise to a third party" — but the brand can still open <strong>company-owned stores</strong> next door</span><span class="cn-text">所谓"独家"可能只是"我们不会把加盟权卖给第三方"——但品牌方仍可在你旁边开<strong>直营店</strong></span></li>
+      <li><span class="en-text">Territory shrinks based on population thresholds — once your county adds 50,000 residents, your protected radius cuts in half</span><span class="cn-text">保护区随人口增长缩小——县人口每增加 5 万，保护半径自动减半</span></li>
+    </ul>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>Practical test:</strong> Read Item 12 and circle every "except," "however," "provided that," and "subject to." Each one is a hole in your protection. If there are more than five, your territory is decorative, not exclusive.</span>
+        <span class="cn-text"><strong>实操方法：</strong>读第十二项时，把每一个"except""however""provided that""subject to"全圈出来。每一个都是你保护区上的一个洞。超过五个，你的"独家区域"就只是装饰品，不是真保护。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- POINT 5 -->
+  <div class="point">
+    <span class="point-num">05</span>
+    <div class="point-label">Item 17 · Renewal & Termination · 第十七项</div>
+    <h2>
+      <span class="en-text">The Exit Door <em>Has More Locks</em> Than the Entry Door</span>
+      <span class="cn-text">退场的门<em>比入场的门</em>还难开</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Item 17 covers what happens when the relationship ends — through expiration, sale, default, or your decision to walk away. It is the section that determines whether your investment is an asset you can ever realize, or a 10-year operating obligation.</span>
+      <span class="cn-text">第十七项规定了合作关系结束时的安排——无论是合同到期、转让、违约，还是你主动退出。这一项决定了你的投资到底是一项可变现的资产，还是一份 10 年的经营义务。</span>
+    </p>
+
+    <p>
+      <span class="en-text">Five points to verify:</span>
+      <span class="cn-text">必须核实的五个要点：</span>
+    </p>
+
+    <ul class="checklist">
+      <li><span class="en-text"><strong>Renewal is not automatic.</strong> At the end of your 10-year term, the brand can refuse to renew or impose new conditions (current royalty rate, new marketing fund, mandatory remodel)</span><span class="cn-text"><strong>续约不是自动的。</strong>10 年合约到期，品牌方可以拒绝续约，或施加新条款（按现行权利金率、新增市场基金、强制翻新装修）</span></li>
+      <li><span class="en-text"><strong>Mandatory remodels at renewal</strong> typically cost $80,000 to $200,000 — non-optional if you want to continue</span><span class="cn-text"><strong>续约时的强制翻新</strong>通常 8 万至 20 万美元——想续约就必须做</span></li>
+      <li><span class="en-text"><strong>Non-compete clauses post-termination</strong> usually prohibit you from operating any similar business within 25 miles for 2 years. For a Chinese investor in F&B, this can effectively end your industry career in the region</span><span class="cn-text"><strong>终止后的竞业禁止条款</strong>通常禁止你在 25 英里范围内、2 年内经营任何同类业务。对于在餐饮业的华人投资者来说，这等于把你在该区域的行业生涯封死</span></li>
+      <li><span class="en-text"><strong>Right of first refusal:</strong> If you want to sell your store, the brand has 30–60 days to match any third-party offer at the same price — discouraging competitive bids</span><span class="cn-text"><strong>优先购买权：</strong>若你想出售门店，品牌方有 30–60 天以相同价格匹配任何第三方报价——这会打消竞买者的积极性</span></li>
+      <li><span class="en-text"><strong>Liquidated damages on termination:</strong> Typically calculated as 24 months of average royalty payments — for a $1M store, that is $120,000 to $168,000 owed simply for early exit</span><span class="cn-text"><strong>提前终止违约金：</strong>通常按 24 个月平均权利金计算——一家年营收 100 万美元的门店，提前终止需赔偿 12 万至 16.8 万美元</span></li>
+    </ul>
+  </div>
+
+  <!-- POINT 6 -->
+  <div class="point">
+    <span class="point-num">06</span>
+    <div class="point-label">Item 19 · Financial Performance · 第十九项</div>
+    <h2>
+      <span class="en-text">If Item 19 Is <em>Empty or Vague</em>, Be Suspicious</span>
+      <span class="cn-text">第十九项<em>空白或模糊</em>，就要警惕</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Item 19, the "Financial Performance Representations," is where the franchisor can disclose actual sales, profit, or cost data from existing locations. It is also <strong>optional</strong>. Brands that make no Item 19 representations are not breaking the law — they are simply choosing not to share.</span>
+      <span class="cn-text">第十九项即"财务表现声明"，是品牌方可以披露现有门店实际销售、利润或成本数据的地方。这一项是<strong>可选的</strong>。不做第十九项声明的品牌并未违法——只是选择不公开。</span>
+    </p>
+
+    <p>
+      <span class="en-text">Industry data tells us why: brands with strong unit economics almost always disclose Item 19 because it sells the franchise. Brands with weak or inconsistent unit economics often leave Item 19 blank or include only top-line revenue figures without cost breakdowns.</span>
+      <span class="cn-text">行业数据告诉我们原因：单店经济模型强的品牌几乎都会披露第十九项，因为这是最有力的招商素材。单店模型弱或波动大的品牌则常常留白，或只给出毛销售额，不披露成本结构。</span>
+    </p>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>What to demand:</strong> If Item 19 only shows AUV (average unit volume), ask for the median, the bottom quartile, and a P&L breakdown. If the brand cannot or will not provide this verbally to a serious investor, that is a meaningful signal.</span>
+        <span class="cn-text"><strong>必须追问：</strong>若第十九项只给 AUV（平均单店营收），要追问中位数、下四分位数、完整损益表（P&L）。如果品牌方在面对认真意向的投资者时仍然拿不出或不愿提供这些数据，这是一个重要的信号。</span>
+      </p>
+    </div>
+
+    <p>
+      <span class="en-text">A useful benchmark: in the food and beverage segment, healthy unit economics typically show <strong>15–22% store-level EBITDA</strong> after royalties, marketing fund, and all operating costs. Below 10% suggests fragility; below 5% suggests the model only works for the franchisor.</span>
+      <span class="cn-text">一个有用的参考基准：在餐饮品类中，健康的单店经济模型在扣除权利金、市场基金和所有运营成本后，<strong>店面级 EBITDA 应在 15–22%</strong>。低于 10% 说明模型脆弱；低于 5% 说明这门生意只对品牌方挣钱，对加盟商不挣钱。</span>
+    </p>
+  </div>
+
+  <!-- POINT 7 -->
+  <div class="point">
+    <span class="point-num">07</span>
+    <div class="point-label">Item 20 · Outlets & Turnover · 第二十项</div>
+    <h2>
+      <span class="en-text">The <em>Closure & Turnover Table</em> Tells the Real Story</span>
+      <span class="cn-text"><em>关店与流失表</em>，才是真相</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Item 20 is the most overlooked diagnostic in the entire FDD. It contains tables showing, year by year for the past three years: how many franchised stores opened, how many closed, how many were terminated, how many were transferred (sold by the franchisee, often at distress), and how many were taken back by the franchisor.</span>
+      <span class="cn-text">第二十项是整份 FDD 中最被忽视的诊断工具。它列出了过去三年逐年数据：加盟店新开多少家、关闭多少家、被终止多少家、被转让多少家（被加盟商出售，通常是低价甩卖）、被品牌方收回多少家。</span>
+    </p>
+
+    <p>
+      <span class="en-text">The math you should run:</span>
+      <span class="cn-text">你应该计算的指标：</span>
+    </p>
+
+    <ul class="checklist">
+      <li><span class="en-text"><strong>Closure rate:</strong> Closures + terminations divided by total stores at start of year. Healthy systems run 2–5%. Above 8% is a red flag</span><span class="cn-text"><strong>关店率：</strong>（关闭数 + 终止数）÷ 年初总店数。健康品牌为 2–5%。超过 8% 是危险信号</span></li>
+      <li><span class="en-text"><strong>Transfer rate:</strong> If many franchisees are selling their stores, ask why. A 10%+ transfer rate often indicates franchisees are exiting because the unit economics don't work</span><span class="cn-text"><strong>转让率：</strong>若大量加盟商在转让门店，要追问原因。转让率超过 10% 通常意味着加盟商因单店模型不挣钱而退出</span></li>
+      <li><span class="en-text"><strong>Net unit growth:</strong> Total open at year-end minus total open at year-start. Negative or flat growth in a brand that markets aggressively is a dangerous sign</span><span class="cn-text"><strong>净增门店：</strong>年末总店数 − 年初总店数。一个营销激进的品牌却出现负增长或停滞，是危险信号</span></li>
+    </ul>
+
+    <p>
+      <span class="en-text">Item 20 also lists every existing franchisee with contact information. <strong>Call them.</strong> This is the most underused tool in due diligence. Most franchisees, when called by a fellow investor (especially in Mandarin), will speak honestly about what they wish they had known.</span>
+      <span class="cn-text">第二十项还列出了所有现有加盟商及其联系方式。<strong>打给他们。</strong>这是尽职调查中最被低估的工具。大多数加盟商在接到同行投资者（尤其是讲中文的）的电话时，会诚实地告诉你"早知道就好了"的那些事。</span>
+    </p>
+  </div>
+
+  <div class="section-divider"><span class="en-text">In Closing</span><span class="cn-text">写在最后</span></div>
+
+  <p>
+    <span class="en-text">The FDD exists because the U.S. franchise industry — alone among most retail and service sectors — recognized that the information asymmetry between brand and investor was so severe that federal law had to mandate disclosure. The document is a gift. Use it.</span>
+    <span class="cn-text">FDD 之所以存在，是因为美国加盟行业——这在大多数零售和服务业中是独一份的——认识到品牌方与投资者之间的信息不对称严重到必须由联邦法律强制披露。这份文件本身就是一份礼物，要好好利用。</span>
+  </p>
+
+  <p>
+    <span class="en-text">Most Chinese investors who lose money in U.S. franchises do not lose because the brand defrauded them. They lose because the truth was disclosed in the FDD, but never read in time. A weekend with a translated FDD and a pen, before signing, can save $300,000 in mistakes.</span>
+    <span class="cn-text">大多数在美国加盟中亏钱的华人投资者，并不是被品牌方欺诈。他们亏钱的原因是真相全写在 FDD 里，只是没人在签字前认真读过。在签约前，花一个周末配一支笔、配一份中译本好好读一遍 FDD，可以避免 30 万美元的错误。</span>
+  </p>
+
+  <p>
+    <span class="en-text">If reading 200 pages of legal text in your second language sounds impossible, that is precisely the gap BizchainChina exists to close.</span>
+    <span class="cn-text">如果用第二语言读 200 页法律文本听起来不可能完成——这正是 BizchainChina 存在的意义。</span>
+  </p>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-content">
+      <div class="cta-eyebrow">
+        <span class="en-text">Free FDD Review · BizchainChina Service</span>
+        <span class="cn-text">免费 FDD 审阅服务</span>
+      </div>
+      <h3>
+        <span class="en-text">Have an FDD on your desk? <em>We'll read it with you.</em></span>
+        <span class="cn-text">手上有一份 FDD？<em>我们陪你一起读。</em></span>
+      </h3>
+      <p>
+        <span class="en-text">BizchainChina offers complimentary first-pass FDD reviews for serious Chinese investors. We translate the seven sections above, flag the red items, and connect you with our network of 1,000+ vetted franchisees for reference calls — at no cost.</span>
+        <span class="cn-text">BizchainChina 为认真意向的华人投资者提供免费的 FDD 首轮审阅。我们翻译以上七个章节、标出风险条款、并对接我们 1,000+ 经审核加盟商网络帮你做参考调查——全部免费。</span>
+      </p>
+      <a href="https://bizchainchina.com/franchise-assessment.html" class="cta-btn">
+        <span class="en-text">Request a Review</span>
+        <span class="cn-text">申请审阅</span>
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-brand">BIZCHAINCHINA</div>
+  <div class="footer-tag">
+    <span class="en-text">U.S.–China Franchise Growth Partner</span>
+    <span class="cn-text">中美加盟连锁增长伙伴</span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#insights">Insights</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 BizchainChina · info@bizchainchina.com</div>
+</footer>
+
+<script>
+// Language toggle
+const buttons = document.querySelectorAll('.lang-toggle button');
+const body = document.body;
+
+function setLang(lang) {
+  body.classList.remove('lang-en', 'lang-cn');
+  body.classList.add('lang-' + lang);
+  buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  localStorage.setItem('bizchain-lang', lang);
+  document.documentElement.lang = lang === 'cn' ? 'zh-CN' : 'en';
+}
+
+buttons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+// Initialize
+const saved = localStorage.getItem('bizchain-lang');
+const browserLang = (navigator.language || 'en').toLowerCase().startsWith('zh') ? 'cn' : 'en';
+setLang(saved || browserLang);
+
+// 阅读进度条 + 导航滚动状态
+const progress = document.getElementById('progress');
+const navEl = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  progress.style.width = scrolled + '%';
+  if (navEl) navEl.classList.toggle('scrolled', h.scrollTop > 80);
+});
+</script>
+
+</body>
+</html>
