@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BizchainChina – U.S.–China Franchise Growth Partner</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Franklin:wght@200;300;400;500&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #F8F7F3;
@@ -20,7 +20,7 @@
   --ink-muted: rgba(15,15,13,0.55);
   --rule: rgba(15,15,13,0.12);
   --serif: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
-  --sans: 'Libre Franklin', 'Noto Sans SC', sans-serif;
+  --sans: 'Inter', 'Noto Sans SC', sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -91,8 +91,8 @@ nav.scrolled{
   color:var(--gold);letter-spacing:0.38em;text-decoration:none;
   text-transform:uppercase;
 }
-.nav-right{display:flex;align-items:center;gap:1rem}
-.nav-links{display:flex;gap:2.8rem;align-items:center}
+.nav-right{display:flex;align-items:center;gap:1rem;min-width:0}
+.nav-links{display:flex;gap:1.8rem;align-items:center;flex-wrap:nowrap}
 .nav-links a{
   color:var(--ink-soft);text-decoration:none;
   font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
@@ -116,7 +116,7 @@ nav.scrolled{
   text-transform:uppercase;
   font-weight:500;
 }
-.lang-sw{display:flex;gap:0;border:1px solid rgba(15,15,13,.15);margin-left:.5rem}
+.lang-sw{display:flex;gap:0;border:1px solid rgba(15,15,13,.15);margin-left:.5rem;flex-shrink:0}
 .lang-b{
   padding:.38rem .75rem;font-size:.62rem;letter-spacing:.1em;
   background:transparent;color:var(--ink-muted);border:none;
@@ -727,6 +727,17 @@ footer{
 .rv.vis{opacity:1;transform:translateY(0)}
 
 /* ===== RESPONSIVE ===== */
+/* 中等桌面：导航开始挤时，先隐藏重复的 Apply Now（Hero 区已有 Apply 按钮） */
+@media(max-width:1280px){
+  nav{padding:1.1rem 3vw}
+  .nav-links{gap:1.4rem}
+  .nav-apply{display:none}
+}
+@media(max-width:1100px){
+  .nav-links{gap:1.1rem}
+  .nav-links a{font-size:.68rem;letter-spacing:.14em}
+  .nav-cta-link{padding:.5rem 1.1rem}
+}
 @media(max-width:1024px){
   .sec{padding:6rem 5vw}
   .about-wrap,.why-sec{grid-template-columns:1fr;gap:0}
@@ -913,7 +924,7 @@ body.lang-cn .insights-title{font-family:'Noto Serif SC',serif;font-size:1.3rem;
       <a href="#why"><span data-en>Why Us</span><span data-cn>优势</span></a>
       <a href="#insights"><span data-en>Insights</span><span data-cn>洞察</span></a>
       <a href="#contact" class="nav-cta-link"><span data-en>Contact</span><span data-cn>联系</span></a>
-      <a href="/franchise-assessment.html" class="nav-cta-link nav-apply"><span data-en>Apply Now</span><span data-cn>立即申请</span></a>
+      <a href="https://bizchainchina.com/franchise-assessment.html" class="nav-cta-link nav-apply"><span data-en>Apply Now</span><span data-cn>立即申请</span></a>
     </div>
     <div class="lang-sw">
       <button class="lang-b" data-lang="en" onclick="setLang('en')">EN</button>
@@ -944,7 +955,7 @@ body.lang-cn .insights-title{font-family:'Noto Serif SC',serif;font-size:1.3rem;
     <div class="hero-actions">
       <a href="#services" class="btn-gold"><span data-en>Explore Services</span><span data-cn>探索服务</span></a>
       <a href="#about" class="btn-ghost"><span data-en>Our Story</span><span data-cn>了解我们</span></a>
-      <a href="/franchise-assessment.html" class="btn-ghost"><span data-en>Apply to Franchise</span><span data-cn>加盟申请</span></a>
+      <a href="https://bizchainchina.com/franchise-assessment.html" class="btn-ghost"><span data-en>Apply to Franchise</span><span data-cn>加盟申请</span></a>
     </div>
   </div>
   <div class="hero-vertical">
@@ -1277,36 +1288,67 @@ body.lang-cn .insights-title{font-family:'Noto Serif SC',serif;font-size:1.3rem;
         </div>
       </a>
 
-      <!-- Card 2: Coming soon -->
-      <article class="insights-card is-soon rv">
+      <!-- Card 2: FDD 7 Points (live) -->
+      <a class="insights-card is-link rv" href="fdd-7-points.html" target="_blank" rel="noopener">
         <div class="insights-cover">
-          <div class="insights-cover-art" style="background:linear-gradient(135deg,#EEECE5 0%,#E8E5DC 100%)">
+          <div class="insights-cover-art" style="background:radial-gradient(ellipse at 50% 38%,#F2EAD5 0%,#E0D4B5 60%,#BFAE85 100%)">
             <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <g stroke="#8B6A38" stroke-opacity="0.3" stroke-width="1" fill="none">
-                <path d="M40 200 L120 130 L180 165 L260 80 L360 120"/>
-                <circle cx="120" cy="130" r="3" fill="#8B6A38" fill-opacity="0.5"/>
-                <circle cx="180" cy="165" r="3" fill="#8B6A38" fill-opacity="0.5"/>
-                <circle cx="260" cy="80" r="3" fill="#8B6A38" fill-opacity="0.5"/>
+              <defs>
+                <linearGradient id="fddGold" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#A88536"/>
+                  <stop offset="55%" stop-color="#8B6A38"/>
+                  <stop offset="100%" stop-color="#5C4318"/>
+                </linearGradient>
+                <linearGradient id="parchShine" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/>
+                  <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- 双层细金边框，文档版面感 -->
+              <rect x="48" y="32" width="304" height="186" fill="none" stroke="#7A5F1A" stroke-opacity="0.22" stroke-width="0.8"/>
+              <rect x="54" y="38" width="292" height="174" fill="none" stroke="#7A5F1A" stroke-opacity="0.13" stroke-width="0.6"/>
+              <!-- 罗马数字 VII -->
+              <text x="200" y="158" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="106" font-weight="400" fill="url(#fddGold)" letter-spacing="3">VII</text>
+              <!-- 细金线 + 7 个等分刻度 -->
+              <line x1="130" y1="186" x2="270" y2="186" stroke="#7A5F1A" stroke-opacity="0.42" stroke-width="0.7"/>
+              <g stroke="#7A5F1A" stroke-opacity="0.62" stroke-width="0.8" stroke-linecap="round">
+                <line x1="130" y1="182" x2="130" y2="190"/>
+                <line x1="153.3" y1="183" x2="153.3" y2="189"/>
+                <line x1="176.6" y1="183" x2="176.6" y2="189"/>
+                <line x1="200" y1="181" x2="200" y2="191"/>
+                <line x1="223.3" y1="183" x2="223.3" y2="189"/>
+                <line x1="246.6" y1="183" x2="246.6" y2="189"/>
+                <line x1="270" y1="182" x2="270" y2="190"/>
               </g>
-              <line x1="40" y1="220" x2="360" y2="220" stroke="#8B6A38" stroke-opacity="0.18"/>
+              <!-- 顶部高光 -->
+              <rect x="0" y="0" width="400" height="250" fill="url(#parchShine)"/>
             </svg>
           </div>
-          <span class="insights-cover-tag"><span data-en>Coming Soon</span><span data-cn>敬请期待</span></span>
+          <div class="insights-cover-overlay"></div>
+          <span class="insights-cover-tag"><span data-en>Field Note</span><span data-cn>深度解析</span></span>
         </div>
         <div class="insights-body">
           <div class="insights-meta">
-            <span><span data-en>Market Report</span><span data-cn>市场报告</span></span>
+            <span><span data-en>May 2026</span><span data-cn>2026 年 5 月</span></span>
+            <span class="insights-meta-dot"></span>
+            <span><span data-en>8 min read</span><span data-cn>8 分钟阅读</span></span>
           </div>
           <h3 class="insights-title">
-            <span data-en>China F&amp;B Franchise <em>Outlook</em></span>
-            <span data-cn>中国餐饮加盟<em>展望</em></span>
+            <span data-en>The FDD <em>7 Points</em></span>
+            <span data-cn>FDD <em>七大重点</em></span>
           </h3>
           <p class="insights-excerpt">
-            <span data-en>A first-half 2026 read on category momentum, tier-city demand, and where U.S. concepts fit in.</span>
-            <span data-cn>2026 上半年品类动态、城市分级需求与美国品牌的进入机会。</span>
+            <span data-en>A 200-page legal document decides the fate of your $300K–$2M investment. We break down the 7 clauses Chinese investors most often miss.</span>
+            <span data-cn>一份 200 页的法律文件，决定你 30–200 万美元投资的命运——华人投资者最容易踩雷的 7 个核心条款全解析。</span>
           </p>
+          <span class="insights-cta">
+            <span data-en>Read the Analysis</span><span data-cn>阅读全文</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7"></path><path d="M8 7h9v9"></path>
+            </svg>
+          </span>
         </div>
-      </article>
+      </a>
 
       <!-- Card 3: Coming soon -->
       <article class="insights-card is-soon rv">
@@ -1560,9 +1602,15 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
+    const href=a.getAttribute('href');
     e.preventDefault();
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t)t.scrollIntoView({behavior:'smooth'});
+    // href 是 "#" 时滚动到顶部，否则定位到锚点
+    if(href==='#'||href===''){
+      window.scrollTo({top:0,behavior:'smooth'});
+    }else{
+      const t=document.querySelector(href);
+      if(t)t.scrollIntoView({behavior:'smooth'});
+    }
     document.getElementById('navLinks').classList.remove('open');
   });
 });
@@ -1912,7 +1960,7 @@ initSvcCanvas('svcInvCanvas',function(ctx,W,H,t){
   });
   ctx.setLineDash([6,5]);ctx.strokeStyle='rgba(139,106,56,0.08)';ctx.lineWidth=0.8;
   ctx.beginPath();ctx.moveTo(ox+cw*0.02,oy-ch*0.05);ctx.lineTo(ox+cw*0.98,oy-ch*0.96);ctx.stroke();ctx.setLineDash([]);
-  ctx.fillStyle='rgba(139,106,56,0.15)';ctx.font='9px "Libre Franklin",sans-serif';ctx.textAlign='right';
+  ctx.fillStyle='rgba(139,106,56,0.15)';ctx.font='9px "Inter",sans-serif';ctx.textAlign='right';
   ctx.fillText('25%',ox-8,oy-ch*0.25+3);ctx.fillText('50%',ox-8,oy-ch*0.5+3);ctx.fillText('75%',ox-8,oy-ch*0.75+3);
   ctx.font='10px "Cormorant Garamond",serif';ctx.textAlign='center';ctx.fillStyle='rgba(139,106,56,0.18)';
   const lastP=pts[pts.length-1];ctx.fillText('ROI ↑',ox+cw*lastP.x,oy-ch*lastP.y-20);
