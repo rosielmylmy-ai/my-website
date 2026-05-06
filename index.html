@@ -1350,35 +1350,62 @@ body.lang-cn .insights-title{font-family:'Noto Serif SC',serif;font-size:1.3rem;
         </div>
       </a>
 
-      <!-- Card 3: Coming soon -->
-      <article class="insights-card is-soon rv">
+      <!-- Card 3: AI Source Hierarchy (live) -->
+      <a class="insights-card is-link rv" href="ai-source-hierarchy.html" target="_blank" rel="noopener">
         <div class="insights-cover">
-          <div class="insights-cover-art" style="background:linear-gradient(135deg,#F8F7F3 0%,#EEECE5 100%)">
+          <div class="insights-cover-art" style="background:radial-gradient(ellipse at 50% 65%,#1F1B14 0%,#0F0F0D 70%)">
             <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <g stroke="#8B6A38" stroke-opacity="0.32" stroke-width="1" fill="none">
-                <rect x="80" y="70" width="100" height="120"/>
-                <rect x="220" y="100" width="100" height="90"/>
-                <line x1="80" y1="190" x2="320" y2="190"/>
+              <defs>
+                <linearGradient id="aiTier" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#F8F7F3" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#8B6A38" stop-opacity="0.55"/>
+                </linearGradient>
+                <linearGradient id="aiShine" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#F8F7F3" stop-opacity="0.10"/>
+                  <stop offset="100%" stop-color="#F8F7F3" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- 信源等级金字塔：5 层 -->
+              <g fill="none" stroke="url(#aiTier)" stroke-width="0.9">
+                <polygon points="200,52 218,82 182,82" fill="#F8F7F3" fill-opacity="0.92"/>
+                <polygon points="178,86 222,86 234,116 166,116" fill="#D4B574" fill-opacity="0.55"/>
+                <polygon points="162,120 238,120 250,150 150,150" fill="#8B6A38" fill-opacity="0.45"/>
+                <polygon points="146,154 254,154 266,184 134,184" fill="#5C4318" fill-opacity="0.42"/>
+                <polygon points="130,188 270,188 282,218 118,218" fill="#2B2A26" fill-opacity="0.55"/>
               </g>
-              <text x="200" y="50" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#8B6A38" fill-opacity="0.55" letter-spacing="3">CASE</text>
+              <!-- 顶部光点 -->
+              <circle cx="200" cy="40" r="3" fill="#F8F7F3" fill-opacity="0.85"/>
+              <line x1="200" y1="44" x2="200" y2="52" stroke="#F8F7F3" stroke-opacity="0.45" stroke-width="0.7"/>
+              <!-- 标识文字 -->
+              <text x="200" y="240" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" fill="#F8F7F3" fill-opacity="0.55" letter-spacing="3">SOURCE HIERARCHY</text>
+              <rect x="0" y="0" width="400" height="250" fill="url(#aiShine)"/>
             </svg>
           </div>
-          <span class="insights-cover-tag"><span data-en>Coming Soon</span><span data-cn>敬请期待</span></span>
+          <div class="insights-cover-overlay"></div>
+          <span class="insights-cover-tag"><span data-en>Field Note</span><span data-cn>深度解析</span></span>
         </div>
         <div class="insights-body">
           <div class="insights-meta">
-            <span><span data-en>Case Study</span><span data-cn>案例研究</span></span>
+            <span><span data-en>May 2026</span><span data-cn>2026 年 5 月</span></span>
+            <span class="insights-meta-dot"></span>
+            <span><span data-en>10 min read</span><span data-cn>10 分钟阅读</span></span>
           </div>
           <h3 class="insights-title">
-            <span data-en>From Brooklyn to <em>Shanghai</em></span>
-            <span data-cn>从布鲁克林到<em>上海</em></span>
+            <span data-en>The AI <em>Source Hierarchy</em></span>
+            <span data-cn>AI <em>信源等级</em></span>
           </h3>
           <p class="insights-excerpt">
-            <span data-en>Inside a U.S. brand's first 18 months in China — partner selection, store rollout, and lessons learned.</span>
-            <span data-cn>美国品牌进入中国的最初 18 个月——伙伴筛选、门店落地与经验教训。</span>
+            <span data-en>ChatGPT, Perplexity, Claude decide who to recommend through a clear source hierarchy. Before a Chinese brand enters the U.S. market, it must understand who AI is listening to.</span>
+            <span data-cn>不是品牌不够好，是 AI 听不见你。中国品牌出海前必须看懂的信源等级体系——5 个层级，决定 AI 是否推荐你。</span>
           </p>
+          <span class="insights-cta">
+            <span data-en>Read the Field Note</span><span data-cn>阅读全文</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7"></path><path d="M8 7h9v9"></path>
+            </svg>
+          </span>
         </div>
-      </article>
+      </a>
     </div>
   </div>
 </section>
