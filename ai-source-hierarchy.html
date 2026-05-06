@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 凭什么推荐你的品牌？信源等级的 5 个层级 | BizchainChina Field Notes</title>
+<meta name="description" content="ChatGPT、Perplexity、Claude 决定推荐谁，背后是一套清晰的信源等级体系。中国品牌进美国市场，必须先理解 AI 在听谁说话。BizchainChina 跨境加盟实战洞察。">
+<meta name="keywords" content="GEO, 生成引擎优化, AI 推荐, 信源等级, 中国品牌出海, 美国加盟, Generative Engine Optimization, BizchainChina">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI 凭什么推荐你的品牌？信源等级的 5 个层级">
+<meta property="og:description" content="不是品牌不够好，是 AI 听不见你。中国品牌出海前必须看懂的信源等级体系。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bizchainchina.com/insights/ai-source-hierarchy.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #F8F7F3;
+  --bg-warm: #EEECE5;
+  --ink: #0F0F0D;
+  --ink-soft: #2B2A26;
+  --ink-muted: #5C594F;
+  --gold: #8B6A38;
+  --gold-deep: #5C4318;
+  --gold-soft: #D4B574;
+  --rule: rgba(15, 15, 13, 0.12);
+  --rule-strong: rgba(15, 15, 13, 0.22);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.75;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Language toggle */
+.lang-en .cn-text { display: none; }
+.lang-cn .en-text { display: none; }
+.lang-cn body {
+  font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+  font-weight: 500;
+}
+.lang-cn .article p,
+.lang-cn .lede,
+.lang-cn .checklist li,
+.lang-cn .warning p {
+  font-weight: 500;
+}
+
+/* ===== Nav ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.1rem 5vw;
+  background: rgba(248, 247, 243, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(248, 247, 243, 0.97);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 0 4px 20px -8px rgba(15, 15, 13, 0.08);
+}
+.brand {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  color: var(--gold);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.25s ease;
+}
+.brand:hover { opacity: 0.7; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.lang-toggle {
+  display: inline-flex; border: 1px solid var(--rule-strong); border-radius: 2px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.15em; overflow: hidden;
+}
+.lang-toggle button {
+  background: transparent; border: none; cursor: pointer;
+  padding: 7px 14px; color: var(--ink-soft);
+  transition: all 0.3s ease;
+  font-family: inherit; font-size: inherit; letter-spacing: inherit;
+}
+.lang-toggle button.active { background: var(--gold-deep); color: #fff; }
+.back-link {
+  font-family: 'Inter', sans-serif; font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  transition: color 0.3s;
+}
+.back-link:hover { color: var(--gold-deep); }
+
+/* ===== Hero ===== */
+.hero {
+  padding: 180px 40px 100px;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: left;
+}
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold-deep);
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 36px;
+}
+.eyebrow::before {
+  content: ''; width: 40px; height: 1px; background: var(--gold);
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+h1 em {
+  font-style: italic;
+  color: var(--gold-deep);
+  font-weight: 400;
+}
+.cn-text h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.lede {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  line-height: 1.55;
+  color: var(--ink);
+  font-weight: 400;
+  font-style: italic;
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+.cn-text .lede {
+  font-family: 'Noto Serif SC', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.7;
+}
+.meta-row {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.meta-row span strong {
+  color: var(--ink); font-weight: 600;
+}
+
+/* ===== Article ===== */
+.article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px;
+}
+.article p {
+  margin-bottom: 28px;
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.75;
+}
+.article p strong {
+  color: var(--ink); font-weight: 700;
+}
+
+/* Section divider */
+.section-divider {
+  display: flex; align-items: center; justify-content: center;
+  margin: 80px 0 60px;
+  gap: 20px;
+}
+.section-divider::before,
+.section-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--rule);
+}
+.section-divider span {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.4em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+}
+
+/* Point block */
+.point {
+  margin: 70px 0;
+  padding-left: 0;
+  position: relative;
+}
+.point-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 90px;
+  line-height: 1;
+  color: var(--gold);
+  font-weight: 300;
+  margin-bottom: -10px;
+  display: block;
+}
+.point-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 12px;
+}
+.point h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 24px;
+  letter-spacing: -0.005em;
+}
+.cn-text .point h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 500;
+}
+.point h2 em {
+  font-style: italic;
+  color: var(--gold-deep);
+}
+
+/* Tier weight badge inside point label area */
+.tier-weight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid var(--rule-strong);
+  color: var(--gold);
+  letter-spacing: 0.2em;
+}
+.tier-weight .dots { letter-spacing: 0.15em; }
+
+/* Pull quote / warning */
+.warning {
+  margin: 28px 0;
+  padding: 28px 32px;
+  background: var(--bg-warm);
+  border-left: 3px solid var(--gold-deep);
+  position: relative;
+}
+.warning::before {
+  content: '⚠';
+  position: absolute; top: 28px; left: -14px;
+  width: 26px; height: 26px;
+  background: var(--gold-deep);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+.warning p {
+  margin: 0; padding-left: 18px;
+  font-style: italic;
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.65;
+}
+.cn-text .warning p { font-style: normal; font-weight: 500; }
+.warning p strong { color: var(--gold-deep); font-weight: 700; }
+
+/* Stat row */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--rule-strong);
+  margin: 36px 0;
+  border: 1px solid var(--rule-strong);
+}
+.stat {
+  background: var(--bg);
+  padding: 24px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px; font-weight: 500;
+  color: var(--gold-deep);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Pull quote (large italic) */
+.pullquote {
+  margin: 60px 0;
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.pullquote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(24px, 3.2vw, 32px);
+  line-height: 1.35;
+  color: var(--gold-deep);
+  margin: 0;
+  font-weight: 400;
+  max-width: 600px;
+  margin-left: auto; margin-right: auto;
+}
+.cn-text .pullquote p {
+  font-family: 'Noto Serif SC', serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+}
+.checklist li {
+  position: relative;
+  padding: 16px 0 16px 36px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.6;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: '';
+  position: absolute; left: 0; top: 22px;
+  width: 18px; height: 1px;
+  background: var(--gold);
+}
+
+/* CTA Block */
+.cta-block {
+  margin: 100px -40px 40px;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #1A1612 0%, #2A2218 100%);
+  color: #FAF7F2;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-block::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -10%;
+  width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.15) 0%, transparent 60%);
+}
+.cta-block::after {
+  content: '';
+  position: absolute;
+  bottom: -50%; right: -10%;
+  width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.1) 0%, transparent 60%);
+}
+.cta-content { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+.cta-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.cta-block h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.cn-text .cta-block h3 { font-family: 'Noto Serif SC', serif; }
+.cta-block h3 em { color: var(--gold-soft); font-style: italic; }
+.cta-block p {
+  color: rgba(250, 247, 242, 0.92);
+  margin-bottom: 36px;
+  font-size: 19px;
+  line-height: 1.65;
+}
+.cn-text .cta-block p { font-weight: 500; }
+.cta-btn {
+  display: inline-block;
+  padding: 16px 38px;
+  background: var(--gold);
+  color: #1A1612;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.cta-btn:hover {
+  background: var(--gold-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(201, 168, 76, 0.3);
+}
+
+/* Footer */
+.footer {
+  padding: 60px 40px 40px;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  background: var(--bg-warm);
+  margin-top: 60px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; letter-spacing: 0.22em;
+  color: var(--gold-deep);
+  margin-bottom: 12px;
+}
+.footer-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.footer-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin: 0 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.footer-links a:hover { color: var(--gold-deep); }
+.footer-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.15em;
+  color: var(--ink-muted);
+  margin-top: 30px;
+}
+
+@media (max-width: 720px) {
+  body { font-size: 18px; }
+  .nav { padding: 16px 20px; }
+  .brand { font-size: 18px; letter-spacing: 0.18em; }
+  .back-link { display: none; }
+  .hero { padding: 120px 24px 60px; }
+  .article { padding: 20px 24px; }
+  .article p { font-size: 18px; line-height: 1.7; }
+  .lede { font-size: 20px; }
+  .cn-text .lede { font-size: 18px; }
+  .checklist li { font-size: 17px; }
+  .warning p { font-size: 17px; }
+  .point-num { font-size: 70px; }
+  .cta-block { margin: 60px -24px 20px; padding: 60px 24px; }
+  .meta-row { gap: 18px; font-size: 11px; }
+  .tier-weight { display: block; margin: 6px 0 0 0; padding: 0; border-left: none; }
+}
+
+/* Reading progress bar */
+.progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px;
+  background: var(--gold);
+  z-index: 200;
+  transition: width 0.1s ease;
+  width: 0%;
+}
+</style>
+</head>
+
+<body class="lang-en">
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav">
+  <a href="index.html" class="brand">BizchainChina</a>
+  <div class="nav-right">
+    <a href="index.html#insights" class="back-link">
+      <span class="en-text">← Back to Insights</span>
+      <span class="cn-text">← 返回洞察</span>
+    </a>
+    <div class="lang-toggle">
+      <button class="active" data-lang="en">EN</button>
+      <button data-lang="cn">中</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">
+    <span class="en-text">Field Guide · Insights</span>
+    <span class="cn-text">实战指南 · 行业洞察</span>
+  </div>
+
+  <h1>
+    <span class="en-text">Why Does AI <em>Recommend</em> Your Brand?<br>The 5 Tiers of Source Hierarchy</span>
+    <span class="cn-text">AI 凭什么<em>推荐</em>你的品牌？<br>信源等级的 5 个层级</span>
+  </h1>
+
+  <p class="lede">
+    <span class="en-text">A growing share of prospective franchisees skip Google entirely and ask AI directly. ChatGPT returns a curated shortlist. If your brand is not on it, every marketing dollar that follows is paying to reach an audience that has already decided. The real question isn't how AI ranks — it's who AI listens to.</span>
+    <span class="cn-text">越来越多的潜在加盟商不再去 Google，而是直接问 AI。ChatGPT 给出一份精炼的名单。你的品牌如果不在上面，之后每一分营销预算，都是在向已经做完决定的人投放。问题的关键不是"AI 如何排序"，而是 AI 在听谁说话。</span>
+  </p>
+
+  <div class="meta-row">
+    <span class="en-text"><strong>May 2026</strong></span>
+    <span class="cn-text"><strong>2026 年 5 月</strong></span>
+    <span class="en-text"><strong>10 min read</strong></span>
+    <span class="cn-text"><strong>10 分钟阅读</strong></span>
+    <span class="en-text"><strong>BizchainChina</strong> Field Notes</span>
+    <span class="cn-text"><strong>BizchainChina</strong> 实战洞察</span>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <p>
+    <span class="en-text">Search engines play their hand openly. PageRank, E-E-A-T, keyword density, backlink weight — what you do, and what you get back, is traceable. SEO has been an engineering problem for the past decade: structure the site correctly, place the keywords correctly, build enough links, watch rankings rise.</span>
+    <span class="cn-text">搜索引擎有一套明牌的算法。Google 的 PageRank、E-E-A-T、关键词密度、外链权重——你做了什么、它给你什么排名，有迹可循。过去十年的 SEO，本质上是个工程问题：把网站结构调对、关键词布对、外链做够，排名自然就上来。</span>
+  </p>
+
+  <p>
+    <span class="en-text"><strong>AI does not work that way.</strong> When ChatGPT, Claude, or Perplexity answers "What are the most established Chinese restaurant franchises in the U.S.?", there is no pre-ranked list to consult. What it does is closer to associative recall — across everything it has read, which brand names repeatedly co-occur within the semantic fields of "U.S. / Chinese cuisine / franchise"? Which brands have been mentioned, in approving terms, by independent and credible sources? The stronger the association, the higher the probability your name surfaces.</span>
+    <span class="cn-text"><strong>AI 不是这样工作的。</strong>当 ChatGPT、Claude、Perplexity 回答"美国最值得加盟的中餐品牌有哪些"时，它没有一份排好序的清单可以查。它做的事情更接近"联想"——在它读过的所有文本里，有哪些品牌名在"美国 / 中餐 / 加盟"这三个语义场里反复一起出现？哪些品牌被独立的、可信的来源以肯定的语气提到过？关联越强、印证越多，你被"想起来"的概率越高。</span>
+  </p>
+
+  <p>
+    <span class="en-text">This is a probability problem, not a ranking problem. AI doesn't tell you that you're number eight. It either mentions you, or it doesn't. The logic of GEO (Generative Engine Optimization) is fundamentally different from SEO: you're not competing for a slot. You're <strong>continuously feeding evidence</strong> to the model, so that when it thinks about your category, your name surfaces naturally.</span>
+    <span class="cn-text">这是一个概率问题，不是排名问题。AI 不会告诉你"你排第八名"，它要么提到你，要么不提。GEO（Generative Engine Optimization，生成引擎优化）的逻辑跟 SEO 完全不同：你不是在抢一个位置，你是在<strong>不断给 AI 喂证据</strong>，让它在思考你这个品类时，自然把你的名字写出来。</span>
+  </p>
+
+  <p>
+    <span class="en-text">Which raises the question: what kind of "evidence" actually counts? Not all mentions carry equal weight. After auditing dozens of brand visibility reports across major AI platforms, we have identified <strong>five tiers</strong> that determine how AI evaluates source credibility. This hierarchy is not formally published by any company — it is distilled from research and direct testing — but the behavior of every major AI model conforms to its logic.</span>
+    <span class="cn-text">问题来了：什么样的"证据"算数？不是所有提及都同等重要。在审阅过数十份覆盖主流 AI 平台的品牌可见度报告之后，我们总结出 AI 用来判断信源可信度的<strong>五个层级</strong>。这个层级不是哪家公司明文发布的——它是从行业研究和实测里归纳出来的——但所有主流 AI 模型的行为模式，都符合这个规律。</span>
+  </p>
+
+  <div class="section-divider"><span class="en-text">The Five Tiers</span><span class="cn-text">五个层级</span></div>
+
+  <!-- TIER 1 -->
+  <div class="point">
+    <span class="point-num">01</span>
+    <div class="point-label"><span class="en-text">Tier I · Authoritative Media</span><span class="cn-text">第一级 · 权威媒体</span><span class="tier-weight"><span class="dots">●●●●●</span></span></div>
+    <h2>
+      <span class="en-text">Editorial Coverage Is the <em>Highest-Weighted</em> Signal</span>
+      <span class="cn-text">编辑部署名报道，是<em>最高权重</em>的信号</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Tier I includes editorial coverage, feature analysis, and bylined interviews from major business and trade publications: Forbes, Bloomberg, the Wall Street Journal, Entrepreneur, QSR Magazine, Nation's Restaurant News, FRANdata reports. AI treats this tier as "citable fact." When a Forbes article identifies you as a leader in a category, that single sentence carries more weight than a hundred mentions on your own website.</span>
+      <span class="cn-text">第一级包括来自主流财经和行业媒体的编辑部署名报道、专题分析、深度访谈：Forbes、Bloomberg、Wall Street Journal、Entrepreneur、QSR Magazine、Nation's Restaurant News、FRANdata 行业报告等。AI 把这一级当作"可被引用的事实"。当 Forbes 的一篇文章把你列为某个品类的领跑者，这一句话的权重，超过你自己网站上一百次"行业领先"。</span>
+    </p>
+
+    <p>
+      <span class="en-text">The reason is structural. AI models are trained on massive text corpora and then run retrieval-augmented searches against indexed content. Major publications appear in both — they are over-represented in training data because they have decades of archival content, and they are heavily indexed by RAG systems because they are continuously updated by editors with verified facts.</span>
+      <span class="cn-text">原因是结构性的。AI 模型既在海量文本语料上训练，也通过 RAG（检索增强生成）系统对索引内容做实时检索。主流媒体在两个层面都过度代表——它们因为有几十年的存档内容在训练数据中权重很高，又因为编辑部持续输出经核实的内容而被 RAG 系统密集索引。</span>
+    </p>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>What counts:</strong> Bylined editorial only. A self-distributed press release on PR Newswire is not Tier I — AI weights syndicated PR significantly lower than reporter-authored coverage. The signal AI looks for is journalistic editorial judgment, not paid distribution.</span>
+        <span class="cn-text"><strong>注意：</strong>只有署名编辑部内容才算。自发到 PR Newswire 的英文新闻稿不算第一级——AI 对自发新闻稿的权重打分，远低于记者署名报道。AI 寻找的信号是"编辑部判断"，不是"付费分发"。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- TIER 2 -->
+  <div class="point">
+    <span class="point-num">02</span>
+    <div class="point-label"><span class="en-text">Tier II · Databases & Directories</span><span class="cn-text">第二级 · 数据库目录</span><span class="tier-weight"><span class="dots">●●●●○</span></span></div>
+    <h2>
+      <span class="en-text">Industry Databases Are <em>Structured Truth</em></span>
+      <span class="cn-text">行业数据库，是<em>结构化的真相</em></span>
+    </h2>
+
+    <p>
+      <span class="en-text">Tier II covers franchise industry directories, government and regulatory databases, and Wikipedia: Franchise Direct, Entrepreneur Franchise 500, FRANdata, the FTC's franchise registry, state FDD databases, and Wikipedia entries. AI models treat structured data as more reliable than narrative content because the format itself signals editorial review.</span>
+      <span class="cn-text">第二级覆盖加盟行业目录、政府/监管数据库、Wikipedia 词条：Franchise Direct、Entrepreneur Franchise 500、FRANdata、FTC 加盟登记数据库、各州 FDD 备案库、Wikipedia 等。AI 模型把结构化数据视为比叙述性内容更可靠的来源——因为这个格式本身就意味着经过审核。</span>
+    </p>
+
+    <p>
+      <span class="en-text">For Chinese brands entering the U.S., this tier is often the easiest to build but the most overlooked. Submitting your brand to Franchise Direct or Entrepreneur Franchise 500 is paid but inexpensive ($1,500 to $5,000 per directory). Wikipedia is free but requires meeting notability standards — which means having Tier I coverage to cite. The two tiers reinforce each other.</span>
+      <span class="cn-text">对中国品牌出海来说，这一级最容易做、却最容易被忽略。把品牌提交到 Franchise Direct 或 Entrepreneur Franchise 500 是付费的，但价格不高（每个目录 1,500 至 5,000 美元）。Wikipedia 是免费的，但需要满足"知名度"标准——这反过来又要求你有第一级的报道作为引用来源。两个层级互相印证。</span>
+    </p>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>The Wikipedia leverage:</strong> A brand with a well-sourced Wikipedia entry receives compounding visibility. AI models reference Wikipedia heavily for company background, and the entry itself becomes a citation source for downstream content. One Wikipedia page is worth more than ten directory listings.</span>
+        <span class="cn-text"><strong>Wikipedia 的杠杆效应：</strong>有一个写得规范、引用充分的 Wikipedia 词条，会带来复利式的可见度。AI 模型在介绍公司背景时大量引用 Wikipedia，而这个词条本身又成为下游内容的引用来源。一个 Wikipedia 页面的价值，超过十个目录收录。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- TIER 3 -->
+  <div class="point">
+    <span class="point-num">03</span>
+    <div class="point-label"><span class="en-text">Tier III · Practitioner Voices</span><span class="cn-text">第三级 · 从业者发声</span><span class="tier-weight"><span class="dots">●●●○○</span></span></div>
+    <h2>
+      <span class="en-text">Signed Expert Analysis Beats <em>Anonymous SEO</em></span>
+      <span class="cn-text">署名专家分析，胜过<em>匿名 SEO 内容</em></span>
+    </h2>
+
+    <p>
+      <span class="en-text">Tier III consists of long-form analysis from franchise attorneys, industry consultants, and verified practitioners — content published on LinkedIn long-form, Substack, Medium, or law firm blogs. The signal AI weighs here is professional accountability: the author has a name, a credential, and a reputation that depends on accuracy.</span>
+      <span class="cn-text">第三级包括加盟律师、行业咨询顾问、经过验证的从业者所撰写的长文——发表在 LinkedIn 长文、Substack、Medium、律所博客上的内容。AI 在这一级看重的信号是"职业问责"：作者有名字、有职业背景、有需要靠准确性维护的声誉。</span>
+    </p>
+
+    <p>
+      <span class="en-text">For a Chinese brand with limited English-language profile, Tier III is often the most realistic starting point above the brand's own content. Commissioning a U.S. franchise attorney to publish a signed analysis of your brand's market entry — in their voice, on their platform — creates a credible third-party voucher that AI will pick up. This kind of content carries a full weight class above self-published marketing.</span>
+      <span class="cn-text">对于英文公开形象有限的中国品牌来说，第三级常常是高于自有内容的最现实起点。委托一位美国加盟律师以他自己的口吻、在他自己的平台上发表一篇关于你品牌进入美国市场的署名分析——这就形成了一份 AI 会捕捉到的可信第三方背书。这类内容的权重，比自发广告高出整整一个量级。</span>
+    </p>
+  </div>
+
+  <!-- TIER 4 -->
+  <div class="point">
+    <span class="point-num">04</span>
+    <div class="point-label"><span class="en-text">Tier IV · Community Discussion</span><span class="cn-text">第四级 · 社区讨论</span><span class="tier-weight"><span class="dots">●●○○○</span></span></div>
+    <h2>
+      <span class="en-text">Reddit and Reviews Are <em>User-Side Evidence</em></span>
+      <span class="cn-text">Reddit 与评论，是<em>用户端的实证</em></span>
+    </h2>
+
+    <p>
+      <span class="en-text">Tier IV is authentic discussion on Reddit (r/franchise, r/smallbusiness), Quora, Trustpilot, Glassdoor, and Yelp. The mechanism here is different from the upper tiers — AI does not weight any single Reddit comment heavily, but it does weight <strong>volume and consistency</strong> of independent users discussing a brand. Twenty franchisees mentioning your name across 24 months is a strong signal. Two posts in three years is noise.</span>
+      <span class="cn-text">第四级是 Reddit（r/franchise、r/smallbusiness）、Quora、Trustpilot、Glassdoor、Yelp 上的真实讨论。这一级的机制和上面几级不同——AI 不会给任何单条 Reddit 评论高权重，但它会看重独立用户讨论品牌的<strong>数量和一致性</strong>。24 个月内 20 个加盟商提到你的品牌，是强信号；三年里只有两条帖子，是噪音。</span>
+    </p>
+
+    <p>
+      <span class="en-text">Recency matters acutely at this tier. Research on RAG-based AI systems indicates content within 13 weeks carries the highest weight in real-time retrieval. A brand that generated buzz two years ago but has gone quiet recently will lose Tier IV signal even if Tiers I and II remain strong.</span>
+      <span class="cn-text">这一级尤其看重新鲜度。关于 RAG 系统的研究表明，13 周内的内容在实时检索中权重最高。一个两年前热闹过、但最近沉寂的品牌，即使第一级和第二级的信号仍然强，第四级的信号也会衰减。</span>
+    </p>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>What does not work:</strong> Manufactured Reddit posts and astroturfed reviews. AI models have become measurably better at detecting coordinated inauthentic content, and platforms like Reddit aggressively shadowban suspicious accounts. The only sustainable Tier IV strategy is helping real franchisees and customers tell real stories.</span>
+        <span class="cn-text"><strong>不要做：</strong>编造 Reddit 帖子、刷虚假评论。AI 模型识别协同造假内容的能力已经显著提升，Reddit 等平台也会激进地隐藏可疑账号。第四级唯一可持续的策略，是帮助真实加盟商和真实顾客讲真实的故事。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- TIER 5 -->
+  <div class="point">
+    <span class="point-num">05</span>
+    <div class="point-label"><span class="en-text">Tier V · Owned Channels</span><span class="cn-text">第五级 · 自有渠道</span><span class="tier-weight"><span class="dots">●○○○○</span></span></div>
+    <h2>
+      <span class="en-text">Your Website Is the <em>Foundation</em>, Not the Strategy</span>
+      <span class="cn-text">官网是<em>地基</em>，不是策略</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Tier V is your website, brand blog, owned social channels, and English press releases. AI knows this is you talking about yourself. The weight is the lowest — but the tier is <strong>necessary</strong>. Without owned content, no amount of upper-tier mention can resolve into a recognizable entity. AI needs an anchor page where your brand name, category, location, and value proposition are clearly stated and consistent.</span>
+      <span class="cn-text">第五级是你的官网、品牌博客、自有社交账号、英文新闻稿。AI 知道这是你"自己说自己"，权重最低——但这一级是<strong>必要</strong>的。没有自有内容，上层再多的提及也无法兑现成可识别的实体。AI 需要一个"锚定页面"，让你的品牌名、品类、地点、价值主张被清晰一致地写出来。</span>
+    </p>
+
+    <p>
+      <span class="en-text">The mistake we see most often is brands investing exclusively in Tier V — pouring resources into website, LinkedIn, WeChat, Medium, English press releases — assuming wider distribution equals stronger presence. What AI sees is one voice amplified through five megaphones. It does not increase trust. It signals missing external validation, and AI quietly drops the brand from its synthesized answer.</span>
+      <span class="cn-text">我们见过最常见的错误，是品牌只投资第五级——把资源全部砸到官网、LinkedIn、微信公众号、Medium、英文新闻稿上，以为铺得越广越好。AI 看到的画面是：同一个声音在五个不同的扩音器里重复。这不会增加信任，反而会暴露"缺乏外部验证"的问题，AI 会悄悄把品牌从最终的合成答案里剔除。</span>
+    </p>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>The structural insight:</strong> These five tiers do not substitute for one another — they stack. Tier V alone is monologue. Tiers I and II without V leave AI without an anchor page. What actually drives recommendation is presence across all five tiers, with each tier corroborating the others.</span>
+        <span class="cn-text"><strong>结构性洞察：</strong>这五级不是替代关系，而是叠加关系。只做第五级是自言自语。只做一、二级而没有第五级，AI 找不到"主页"来落地。真正能带来推荐的，是五级同时存在、彼此印证。</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="en-text">Cross-Source Corroboration</span><span class="cn-text">跨源印证</span></div>
+
+  <p>
+    <span class="en-text">Recent research on AI citation mechanics has surfaced a severely underrated signal: <strong>cross-source corroboration</strong>. When three independent, credible sources say the same thing, AI treats it as industry consensus and quotes it confidently. When only your own website says it, AI flags it as potential self-promotion and discounts the claim accordingly.</span>
+    <span class="cn-text">最近一份关于 AI 内容引用机制的研究，指出了一个被严重低估的信号：<strong>跨源印证</strong>（cross-source corroboration）。当三个独立、可信的来源都这么写时，AI 会把它当作"行业共识"并自信地引用。当只有你自己的网站这么写时，AI 会判定为"潜在的自我营销"，相应降低权重。</span>
+  </p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">3+</div>
+      <div class="stat-label"><span class="en-text">Independent Sources</span><span class="cn-text">独立可信来源</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">13<span style="font-size:24px;"> wks</span></div>
+      <div class="stat-label"><span class="en-text">Recency Window</span><span class="cn-text">新鲜度窗口</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">≤2</div>
+      <div class="stat-label"><span class="en-text">Sources Per Answer</span><span class="cn-text">每答引用来源数</span></div>
+    </div>
+  </div>
+
+  <p>
+    <span class="en-text">Three numbers worth committing to memory. Three independent credible sources is the minimum threshold for AI to form a "consensus impression." Thirteen weeks is the recency window RAG-based systems prioritize. And in any given AI answer, only one or two sources are typically referenced — meaning if you're not in those one or two, you might as well be at zero.</span>
+    <span class="cn-text">三个数字值得记住。三个独立可信来源，是 AI 形成"共识印象"的最低门槛。13 周，是 RAG 系统优先采用的新鲜度窗口。在任何一个 AI 答案中，通常只引用一到两个来源——这意味着你不在那一两个里，就等于零。</span>
+  </p>
+
+  <div class="pullquote">
+    <p>
+      <span class="en-text">A hundred mentions of "industry leader"<br>on your own site are worth less<br>than one in Forbes.</span>
+      <span class="cn-text">在自己网站上写一百次"行业领先"，<br>不如 Forbes 说一次。</span>
+    </p>
+  </div>
+
+  <div class="section-divider"><span class="en-text">A Real Scenario</span><span class="cn-text">一个真实场景</span></div>
+
+  <p>
+    <span class="en-text">A Chinese restaurant brand with over a decade of operation and more than 3,000 locations across China was preparing to enter North America. The website was beautifully done — bilingual, brand story, franchise process, SEO-optimized, searchable on Google.</span>
+    <span class="cn-text">一家在中国经营了十几年、有三千多家门店的中式餐饮品牌，准备进军北美市场。官网做得很漂亮——双语、品牌故事、加盟流程一应俱全，SEO 也做了，Google 上能搜到。</span>
+  </p>
+
+  <p>
+    <span class="en-text">We opened ChatGPT, Perplexity, and Claude side by side and asked each: <strong>"What are the most established Chinese restaurant franchises looking for franchisees in the U.S.?"</strong></span>
+    <span class="cn-text">我们当场打开 ChatGPT、Perplexity、Claude，各问了一遍：<strong>"What are the most established Chinese restaurant franchises looking for franchisees in the US?"</strong></span>
+  </p>
+
+  <p>
+    <span class="en-text">Three AIs returned three different lists. The brand appeared on none of them. Not because it wasn't strong enough — but because it was effectively absent from Tiers I through IV. No English-language editorial coverage. Not in the FRANdata database. No franchise attorney had written about it. Nothing on Reddit. All it had was Tier V, owned content. <strong>To AI, it had not spoken.</strong></span>
+    <span class="cn-text">三个 AI 给了三份名单。这个品牌一次都没被提到。原因不是品牌不够好，是它在第一到第四级的信源里几乎完全不存在——没有英文媒体写过它，没有进入 FRANdata 数据库，没有加盟律师在博客里讨论过它，Reddit 上也搜不到。它有的只有第五级，自有内容。<strong>对 AI 来说，它没说话。</strong></span>
+  </p>
+
+  <div class="section-divider"><span class="en-text">Why Chinese Brands Are Especially Vulnerable</span><span class="cn-text">为什么中国品牌特别吃亏</span></div>
+
+  <p>
+    <span class="en-text">This is not a brand strength problem. It is a <strong>source structure problem</strong>. The Chinese-language ecosystem in which a domestic brand has built its reputation, and the English-language source ecosystem AI prioritizes during training, are two largely non-overlapping worlds.</span>
+    <span class="cn-text">这不是品牌实力的问题，是<strong>信源结构的问题</strong>。中国品牌在国内建立声誉的中文传播体系，和 AI 训练时优先采纳的英文信源体系，是两套几乎不重合的世界。</span>
+  </p>
+
+  <ul class="checklist">
+    <li>
+      <span class="en-text"><strong>Domestic sources don't transfer.</strong> Coverage on Xiaohongshu, Douyin, WeChat, 36Kr, or Huxiu is essentially invisible to English-trained AI. A category leader at home can register as a complete unknown in AI's English knowledge base.</span>
+      <span class="cn-text"><strong>母国信源进不来。</strong>小红书、抖音、公众号、36 氪、虎嗅上的报道，在英文 AI 的世界里基本不存在。你在国内是头部，在 AI 的英文知识库里可能完全是新品牌。</span>
+    </li>
+    <li>
+      <span class="en-text"><strong>Severe deficit in English coverage.</strong> The vast majority of Chinese outbound brands have zero coverage in Forbes, Entrepreneur, QSR Magazine, or Nation's Restaurant News. Self-distributed English press releases on PR Newswire don't close the gap.</span>
+      <span class="cn-text"><strong>英文报道严重缺位。</strong>绝大多数中国出海品牌，在 Forbes、Entrepreneur、QSR Magazine、Nation's Restaurant News 这类媒体上完全没有报道。自发的英文新闻稿无法弥补这个缺口。</span>
+    </li>
+    <li>
+      <span class="en-text"><strong>Category context isn't established.</strong> AI doesn't recommend brands in isolation — it recommends "the representative of a category." If your brand name hasn't repeatedly co-occurred with category contexts (Chinese cuisine, bubble tea, hot pot) in authoritative English sources, you won't be in the candidate pool.</span>
+      <span class="cn-text"><strong>品类语境没有建立。</strong>AI 不是孤立推荐品牌的，它推荐的是"某个品类的代表"。如果你的品牌名没有反复和品类语境（中餐、奶茶、火锅）在权威英文信源里一起出现，AI 就不会把你纳入候选池。</span>
+    </li>
+  </ul>
+
+  <div class="section-divider"><span class="en-text">The Source Pyramid · Build Order</span><span class="cn-text">信源金字塔 · 建设序列</span></div>
+
+  <p>
+    <span class="en-text">Once the hierarchy is clear, the action path follows. Building source presence for a Chinese brand entering the U.S. is a systematic project — not solvable by a few SEO articles, but also not requiring a decade. The execution sequence we recommend, ordered by leverage:</span>
+    <span class="cn-text">理解了层级，行动路径就清楚了。中国品牌进美国市场的信源建设，是一项系统工程——不是几篇 SEO 文章能解决的，但也不需要等十年。我们建议的执行序列，按杠杆从大到小排列：</span>
+  </p>
+
+  <ul class="checklist">
+    <li>
+      <span class="en-text"><strong>Get Tier V right first.</strong> English website, About page, franchise process, fee structure, real case studies, FAQ. Not bloat — clear, structured content that AI can parse. This is the anchor page that lets every upper-tier mention resolve into a recognizable entity.</span>
+      <span class="cn-text"><strong>先把第五级做到位。</strong>英文官网、About 页、加盟流程、费用结构、真实案例、FAQ。不是堆砌，是清晰、可被 AI 解析的结构化内容。这是所有上层提及能落地的"主页"。</span>
+    </li>
+    <li>
+      <span class="en-text"><strong>Establish Tier II directory presence.</strong> Get listed in Franchise Direct, Entrepreneur Franchise 500, FRANdata, and similar databases. These are the first sources AI consults for category queries.</span>
+      <span class="cn-text"><strong>建立第二级的目录存在感。</strong>提交到 Franchise Direct、Entrepreneur Franchise 500、FRANdata 等专业数据库。AI 在做品类查询时，第一个会去抓取的就是这些来源。</span>
+    </li>
+    <li>
+      <span class="en-text"><strong>Generate Tier III practitioner discussion.</strong> Partner with U.S. franchise attorneys and consultants to publish signed analysis of your brand's U.S. market entry. This content carries a full weight-class higher than self-published marketing.</span>
+      <span class="cn-text"><strong>制造第三级的从业者讨论。</strong>与美国本地的加盟律师、咨询顾问合作，请他们撰写关于你品牌进入美国市场的署名分析。这种内容的权重，比自媒体广告高出一个量级。</span>
+    </li>
+    <li>
+      <span class="en-text"><strong>Pursue Tier I media coverage.</strong> Not press releases — real PR. Pitch reporters at Forbes, Entrepreneur, QSR Magazine with a story that has data, conflict, and characters. The hardest step, but the highest-weighted.</span>
+      <span class="cn-text"><strong>谋求第一级的媒体报道。</strong>不是发新闻稿，是真正的 PR——主动给 Forbes、Entrepreneur、QSR Magazine 的记者发新闻线索，讲一个有数据、有冲突、有人物的真实故事。这是最难、但权重最高的一步。</span>
+    </li>
+    <li>
+      <span class="en-text"><strong>Sustain authentic Tier IV signal.</strong> Encourage real franchisees to leave authentic feedback on Reddit and Trustpilot. Recency matters acutely — content within 13 weeks carries the most signal.</span>
+      <span class="cn-text"><strong>持续制造第四级的真实声音。</strong>鼓励真实加盟商在 Reddit、Trustpilot 留下真实反馈。新鲜度尤其重要——13 周内的内容权重最高。</span>
+    </li>
+    <li>
+      <span class="en-text"><strong>Maintain cross-source consistency.</strong> Wherever your brand appears — name spelling, category positioning, key numbers, value proposition — must be tightly consistent. Contradictory descriptions across sources reduce AI's overall confidence in you.</span>
+      <span class="cn-text"><strong>保持跨源信息一致性。</strong>任何出现你品牌的地方——名字写法、品类定位、关键数据、价值主张——必须保持高度一致。AI 看到矛盾的描述，会降低对你整体的置信度。</span>
+    </li>
+  </ul>
+
+  <p>
+    <span class="en-text">The logic of this sequence: start with what you control at the lowest tier, then build upward. Don't chase Forbes on day one — Forbes won't write about a brand without a proper website or any database listing. But once you've built density across V, II, III, and IV, Tier I tends to follow on its own. Reporters source stories through AI and databases too.</span>
+    <span class="cn-text">这个序列的逻辑是：从你能控制的、起点最低的层级开始，逐级向上构建。不要一开始就追 Forbes——Forbes 不会写一个连官网都没建好、连数据库都没收录的品牌。但当你把第五、二、三、四级都铺到一定密度，第一级的报道会自然到来——记者也通过 AI 和数据库找选题。</span>
+  </p>
+
+  <div class="section-divider"><span class="en-text">In Closing</span><span class="cn-text">写在最后</span></div>
+
+  <p>
+    <span class="en-text">Over the past three years, the biggest blind spot for Chinese outbound brands has not been product, supply chain, or capital. It has been this: <strong>in AI's English-language world, the brand exists without a name.</strong></span>
+    <span class="cn-text">过去三年，中国品牌出海最大的盲区，不是产品力、不是供应链、不是资金，而是这一点：<strong>在 AI 的英文世界里，你是一个未被命名的存在。</strong></span>
+  </p>
+
+  <p>
+    <span class="en-text">A brand's U.S. market entry doesn't begin when the first store opens. It begins when the first prospective franchisee opens ChatGPT, asks a question, and receives a list. Whether your name is on that list determines the effective cost of every action that follows.</span>
+    <span class="cn-text">品牌进美国，不是把店开起来那一刻才开始的。它开始于美国市场第一批潜在加盟商打开 ChatGPT、问出第一个问题、得到一份名单的那一刻。你的名字在不在那份名单上，决定了之后一切动作的有效成本。</span>
+  </p>
+
+  <p>
+    <span class="en-text">Understanding source hierarchy is not about gaming AI. It is about letting AI see you fairly. You have done real things — real stores, real franchisees, real cash flow. Those facts deserve to be recorded, distributed, and retold by AI. But this does not happen on its own. It has to be made to happen.</span>
+    <span class="cn-text">理解信源等级，不是为了操纵 AI，而是为了让 AI 公平地看到你。你做了真实的事——真实的店、真实的加盟商、真实的现金流——这些事实理应被记录、被传播、被 AI 复述。但这件事不会自然发生，需要主动去做。</span>
+  </p>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-content">
+      <div class="cta-eyebrow">
+        <span class="en-text">Free Visibility Audit · BizchainChina Service</span>
+        <span class="cn-text">免费可见度体检 · BizchainChina 服务</span>
+      </div>
+      <h3>
+        <span class="en-text">Ready to enter the U.S. market? <em>Find out where AI sees you first.</em></span>
+        <span class="cn-text">准备进入美国市场？<em>先看看 AI 眼里的你在哪一级。</em></span>
+      </h3>
+      <p>
+        <span class="en-text">BizchainChina offers complimentary AI visibility audits for serious Chinese brands considering U.S. franchise expansion. We test your brand across ChatGPT, Perplexity, and Claude, map your current source hierarchy, identify the gap to category competitors, and recommend a build sequence — at no cost.</span>
+        <span class="cn-text">BizchainChina 为认真考虑赴美加盟扩张的中国品牌，提供免费的 AI 可见度体检。我们在 ChatGPT、Perplexity、Claude 三个主流 AI 上测试你的品牌，绘制当前信源等级地图，识别与同品类竞品的差距，并提供建设序列建议——全部免费。</span>
+      </p>
+      <a href="https://bizchainchina.com/franchise-assessment.html" class="cta-btn">
+        <span class="en-text">Request an Audit</span>
+        <span class="cn-text">申请体检</span>
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-brand">BIZCHAINCHINA</div>
+  <div class="footer-tag">
+    <span class="en-text">U.S.–China Franchise Growth Partner</span>
+    <span class="cn-text">中美加盟连锁增长伙伴</span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#insights">Insights</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="bizchain-feasibility-v6.html"><span class="en-text">Questionnaire</span><span class="cn-text">问卷调查</span></a>
+  </div>
+  <div class="footer-copy">© 2026 BizchainChina · info@bizchainchina.com</div>
+</footer>
+
+<script>
+// Language toggle
+const buttons = document.querySelectorAll('.lang-toggle button');
+const body = document.body;
+
+function setLang(lang) {
+  body.classList.remove('lang-en', 'lang-cn');
+  body.classList.add('lang-' + lang);
+  buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  localStorage.setItem('bizchain-lang', lang);
+  document.documentElement.lang = lang === 'cn' ? 'zh-CN' : 'en';
+}
+
+buttons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+// Initialize
+const saved = localStorage.getItem('bizchain-lang');
+const browserLang = (navigator.language || 'en').toLowerCase().startsWith('zh') ? 'cn' : 'en';
+setLang(saved || browserLang);
+
+// 阅读进度条 + 导航滚动状态
+const progress = document.getElementById('progress');
+const navEl = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  progress.style.width = scrolled + '%';
+  if (navEl) navEl.classList.toggle('scrolled', h.scrollTop > 80);
+});
+</script>
+
+</body>
+</html>
