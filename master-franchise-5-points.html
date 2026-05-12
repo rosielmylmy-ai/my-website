@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S.–China Master Franchise: 5 Points Brands Cannot Afford to Skip | BizchainChina Field Notes</title>
+<meta name="description" content="美国品牌进入中国市场的 Master Franchise 协议，最常死在第三个月——而 term sheet 从未写明的 5 个结构性问题。BizchainChina 二十年跨境加盟实战提炼。">
+<meta name="keywords" content="Master Franchise, MOFCOM, 商业特许经营备案, 2+1 rule, China franchise entry, BizchainChina, 跨境加盟">
+
+<!-- Open Graph -->
+<meta property="og:title" content="U.S.–China Master Franchise: 5 Structural Points Brands Cannot Afford to Skip">
+<meta property="og:description" content="一份 12 年期的 Master Franchise 协议，决定你的中国扩张是复利增长还是原地停滞。BizchainChina 拆解最常崩盘的 5 个结构性原因。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bizchainchina.com/insights/master-franchise-5-points.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #F8F7F3;
+  --bg-warm: #EEECE5;
+  --ink: #0F0F0D;
+  --ink-soft: #2B2A26;
+  --ink-muted: #5C594F;
+  --gold: #8B6A38;
+  --gold-deep: #5C4318;
+  --gold-soft: #D4B574;
+  --rule: rgba(15, 15, 13, 0.12);
+  --rule-strong: rgba(15, 15, 13, 0.22);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.75;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Language toggle */
+.lang-en .cn-text { display: none; }
+.lang-cn .en-text { display: none; }
+.lang-cn body {
+  font-family: 'Noto Serif SC', 'Cormorant Garamond', serif;
+  font-weight: 500;
+}
+.lang-cn .article p,
+.lang-cn .lede,
+.lang-cn .checklist li,
+.lang-cn .warning p {
+  font-weight: 500;
+}
+
+/* ===== Nav ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.1rem 5vw;
+  background: rgba(248, 247, 243, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(248, 247, 243, 0.97);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 0 4px 20px -8px rgba(15, 15, 13, 0.08);
+}
+.brand {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  color: var(--gold);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.25s ease;
+}
+.brand:hover { opacity: 0.7; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.lang-toggle {
+  display: inline-flex; border: 1px solid var(--rule-strong); border-radius: 2px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.15em; overflow: hidden;
+}
+.lang-toggle button {
+  background: transparent; border: none; cursor: pointer;
+  padding: 7px 14px; color: var(--ink-soft);
+  transition: all 0.3s ease;
+  font-family: inherit; font-size: inherit; letter-spacing: inherit;
+}
+.lang-toggle button.active { background: var(--gold-deep); color: #fff; }
+.back-link {
+  font-family: 'Inter', sans-serif; font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  transition: color 0.3s;
+}
+.back-link:hover { color: var(--gold-deep); }
+
+/* ===== Hero ===== */
+.hero {
+  padding: 180px 40px 100px;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: left;
+}
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--gold-deep);
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 36px;
+}
+.eyebrow::before {
+  content: ''; width: 40px; height: 1px; background: var(--gold);
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+h1 em {
+  font-style: italic;
+  color: var(--gold-deep);
+  font-weight: 400;
+}
+.cn-text h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.lede {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  line-height: 1.55;
+  color: var(--ink);
+  font-weight: 400;
+  font-style: italic;
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+.cn-text .lede {
+  font-family: 'Noto Serif SC', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.7;
+}
+.meta-row {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.meta-row span strong {
+  color: var(--ink); font-weight: 600;
+}
+
+/* ===== Article ===== */
+.article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px;
+}
+.article p {
+  margin-bottom: 28px;
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.75;
+}
+.article p strong {
+  color: var(--ink); font-weight: 700;
+}
+
+/* Section divider */
+.section-divider {
+  display: flex; align-items: center; justify-content: center;
+  margin: 80px 0 60px;
+  gap: 20px;
+}
+.section-divider::before,
+.section-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--rule);
+}
+.section-divider span {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.4em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+}
+
+/* Point block */
+.point {
+  margin: 70px 0;
+  padding-left: 0;
+  position: relative;
+}
+.point-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 90px;
+  line-height: 1;
+  color: var(--gold);
+  font-weight: 300;
+  margin-bottom: -10px;
+  display: block;
+}
+.point-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 12px;
+}
+.point h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 24px;
+  letter-spacing: -0.005em;
+}
+.cn-text .point h2 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 500;
+}
+.point h2 em {
+  font-style: italic;
+  color: var(--gold-deep);
+}
+
+/* Pull quote / warning */
+.warning {
+  margin: 28px 0;
+  padding: 28px 32px;
+  background: var(--bg-warm);
+  border-left: 3px solid var(--gold-deep);
+  position: relative;
+}
+.warning::before {
+  content: '⚠';
+  position: absolute; top: 28px; left: -14px;
+  width: 26px; height: 26px;
+  background: var(--gold-deep);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+.warning p {
+  margin: 0; padding-left: 18px;
+  font-style: italic;
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.65;
+}
+.cn-text .warning p { font-style: normal; font-weight: 500; }
+.warning p strong { color: var(--gold-deep); font-weight: 700; }
+
+/* Stat row */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--rule-strong);
+  margin: 36px 0;
+  border: 1px solid var(--rule-strong);
+}
+.stat {
+  background: var(--bg);
+  padding: 24px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px; font-weight: 500;
+  color: var(--gold-deep);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+}
+.checklist li {
+  position: relative;
+  padding: 16px 0 16px 36px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.6;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: '';
+  position: absolute; left: 0; top: 22px;
+  width: 18px; height: 1px;
+  background: var(--gold);
+}
+
+/* CTA Block */
+.cta-block {
+  margin: 100px -40px 40px;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #1A1612 0%, #2A2218 100%);
+  color: #FAF7F2;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-block::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -10%;
+  width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.15) 0%, transparent 60%);
+}
+.cta-block::after {
+  content: '';
+  position: absolute;
+  bottom: -50%; right: -10%;
+  width: 60%; height: 200%;
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.1) 0%, transparent 60%);
+}
+.cta-content { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+.cta-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.cta-block h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.cn-text .cta-block h3 { font-family: 'Noto Serif SC', serif; }
+.cta-block h3 em { color: var(--gold-soft); font-style: italic; }
+.cta-block p {
+  color: rgba(250, 247, 242, 0.92);
+  margin-bottom: 36px;
+  font-size: 19px;
+  line-height: 1.65;
+}
+.cn-text .cta-block p { font-weight: 500; }
+.cta-btn {
+  display: inline-block;
+  padding: 16px 38px;
+  background: var(--gold);
+  color: #1A1612;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.cta-btn:hover {
+  background: var(--gold-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(201, 168, 76, 0.3);
+}
+
+/* Footer */
+.footer {
+  padding: 60px 40px 40px;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  background: var(--bg-warm);
+  margin-top: 60px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; letter-spacing: 0.22em;
+  color: var(--gold-deep);
+  margin-bottom: 12px;
+}
+.footer-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+}
+.footer-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin: 0 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.footer-links a:hover { color: var(--gold-deep); }
+.footer-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: 0.15em;
+  color: var(--ink-muted);
+  margin-top: 30px;
+}
+
+@media (max-width: 720px) {
+  body { font-size: 18px; }
+  .nav { padding: 16px 20px; }
+  .brand { font-size: 18px; letter-spacing: 0.18em; }
+  .back-link { display: none; }
+  .hero { padding: 120px 24px 60px; }
+  .article { padding: 20px 24px; }
+  .article p { font-size: 18px; line-height: 1.7; }
+  .lede { font-size: 20px; }
+  .cn-text .lede { font-size: 18px; }
+  .checklist li { font-size: 17px; }
+  .warning p { font-size: 17px; }
+  .point-num { font-size: 70px; }
+  .cta-block { margin: 60px -24px 20px; padding: 60px 24px; }
+  .meta-row { gap: 18px; font-size: 11px; }
+}
+
+/* Reading progress bar */
+.progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px;
+  background: var(--gold);
+  z-index: 200;
+  transition: width 0.1s ease;
+  width: 0%;
+}
+</style>
+</head>
+
+<body class="lang-en">
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav">
+  <a href="index.html" class="brand">BizchainChina</a>
+  <div class="nav-right">
+    <a href="index.html#insights" class="back-link">
+      <span class="en-text">← Back to Insights</span>
+      <span class="cn-text">← 返回洞察</span>
+    </a>
+    <div class="lang-toggle">
+      <button class="active" data-lang="en">EN</button>
+      <button data-lang="cn">中</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">
+    <span class="en-text">Field Guide · Insights</span>
+    <span class="cn-text">实战指南 · 行业洞察</span>
+  </div>
+
+  <h1>
+    <span class="en-text">Why Do U.S.–China Master Franchise Deals <em>Break</em>?<br>5 Structural Points No Term Sheet Names</span>
+    <span class="cn-text">中美区域总加盟为什么<em>谈不下去</em>？<br>条款清单从不写明的 5 个结构性原因</span>
+  </h1>
+
+  <p class="lede">
+    <span class="en-text">A 12-year, multi-million-dollar Master Franchise agreement decides whether your China expansion compounds or stalls. Most cross-border deals do not die over money or chemistry — they die at month three, on five structural questions the term sheet never named. Here is what BizchainChina has learned in two decades of cross-border franchise practice.</span>
+    <span class="cn-text">一份 12 年期、数百万美元起步的区域总加盟协议，决定了你的中国扩张是复利增长还是原地停滞。大多数跨境交易不死在钱上、也不死在彼此关系上——而是死在第三个月，死在条款清单从一开始就没写明的五个结构性问题上。这是 BizchainChina 二十年跨境加盟实战的提炼。</span>
+  </p>
+
+  <div class="meta-row">
+    <span><strong>May 2026</strong> · 2026 年 5 月</span>
+    <span><strong>12 min read</strong> · 12 分钟阅读</span>
+    <span><strong>BizchainChina</strong> Field Notes</span>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <p>
+    <span class="en-text">In China, every commercial franchise activity is governed by the <strong>Regulation on the Administration of Commercial Franchises</strong> (2007), together with two MOFCOM rules — the <strong>Filing Measures</strong> (most recently revised effective 29 December 2023) and the <strong>Information Disclosure Measures</strong> (2012). What looks deceptively simple in summary becomes the structural spine of every cross-border deal.</span>
+    <span class="cn-text">在中国，所有商业特许经营活动都受 2007 年<strong>《商业特许经营管理条例》</strong>及商务部两部部门规章——<strong>《商业特许经营备案管理办法》</strong>（最近一次修订于 2023 年 12 月 29 日生效）和<strong>《商业特许经营信息披露管理办法》</strong>（2012）——共同约束。摘要看起来很简单，落到每一笔跨境交易里，却是整个结构的脊柱。</span>
+  </p>
+
+  <p>
+    <span class="en-text">For U.S. brands evaluating China entry, the Master Franchise agreement is both the highest-leverage and the highest-risk path. One signature delegates development, sub-franchising, and operations across a population of 1.4 billion to a single counterparty for a decade or more. Every fee, every territorial right, every termination condition — the truth lives in the structure. Yet language barriers, cross-jurisdictional law, and sheer document volume mean that most brand-side teams rely on the chemistry of the founder meeting rather than the binding text they are about to sign.</span>
+    <span class="cn-text">对评估中国市场的美国品牌来说，区域总加盟既是杠杆最大的路径，也是风险最大的路径。一个签字，就把开发权、再特许权、14 亿人口范围内的运营权，在一个十年以上的窗口里，交给了一个对家。所有费用、领土权、终止条款——真相全部写在结构里。但语言障碍、跨法域法律、文件体量，让多数品牌方团队最终靠创始人会面时的感觉做判断，而不是去读自己即将签下的法律文本。</span>
+  </p>
+
+  <p>
+    <span class="en-text">The result is predictable: brands discover at month three that the MOFCOM filing pathway carries tax consequences they never modeled, or find themselves locked in a control structure that cannot survive the China expansion pace agreed to in the MOU. Founders quietly step off the calls. By month seven, both sides start looking for new counterparties.</span>
+    <span class="cn-text">结果可以预期：品牌方在第三个月才发现商务部备案路径带着他们从没建模过的税务后果，或者发现自己签下的控制结构根本撑不住合作意向书里写明的中国扩张速度。创始人悄悄退出电话会议。第七个月，双方都开始另找对家。</span>
+  </p>
+
+  <p>
+    <span class="en-text">After working across more than a decade of cross-border franchise deals, we have identified <strong>five structural points</strong> where U.S. brands most often miss the implications. These are the points to align on first, in writing, before the term sheet is signed.</span>
+    <span class="cn-text">在十几年跨境加盟实战之后，我们总结出美国品牌方最容易忽视后果的<strong>五个结构性要点</strong>。这五点，必须在条款清单签字之前，白纸黑字先对齐。</span>
+  </p>
+
+  <div class="section-divider"><span class="en-text">The Five Points</span><span class="cn-text">五个结构性要点</span></div>
+
+  <!-- POINT 1 -->
+  <div class="point">
+    <span class="point-num">01</span>
+    <div class="point-label">Contracting Entity · 签约主体结构</div>
+    <h2>
+      <span class="en-text">The Question No MOU <em>Wants to Name</em> Is Which Entity Signs</span>
+      <span class="cn-text">大多数合作意向书 <em>不愿意问</em>的那个问题：到底哪个实体签字</span>
+    </h2>
+
+    <p>
+      <span class="en-text">A Master Franchise agreement looks like a contract between two parties. Structurally, it is a contract between two <em>chosen</em> parties — and the U.S. side has three credible choices for who that party is. Most MOUs we have reviewed leave the choice unstated, defaulting silently to Option A because it requires the fewest immediate decisions. The cost of that silence is paid in month three.</span>
+      <span class="cn-text">区域总加盟协议看起来是两方之间的合同。从结构上说，它是一份两个<em>被选择</em>的主体之间的合同——而美国一方有三个站得住脚的选项。我们见过的大多数合作意向书都没把这件事写出来，默认让方案甲沉默胜出——因为它要求的即时决策最少。这份沉默的代价，会在第三个月付清。</span>
+    </p>
+
+    <ul class="checklist">
+      <li><span class="en-text"><strong>Option A — U.S. parent signs directly.</strong> No China entity. All royalties remit cross-border. Cleanest from a brand-control perspective. But: <strong>6% VAT</strong> on outbound royalties, <strong>10% withholding tax</strong> (unless reduced by the U.S.–China treaty), MOFCOM filing handled by the U.S. parent at the Beijing bureau, and all disclosure liability sits on the U.S. parent's balance sheet</span><span class="cn-text"><strong>方案甲——美国母公司直接签约。</strong>不在中国设实体，品牌使用费跨境汇回。从品牌控制角度最干净。但是：跨境品牌使用费 <strong>6% 增值税</strong>、<strong>10% 预提所得税</strong>（除非中美税收协定降低）、备案要由美国母公司亲自到北京商务部办理、披露责任全部压在美国母公司的资产负债表上</span></li>
+      <li><span class="en-text"><strong>Option B — Set up a foreign-invested Chinese entity</strong> (former WFOE structure, now governed by the unified Company Law). The Chinese entity is the contracting franchisor and MOFCOM filing applicant. Royalties flow to the Chinese entity (much lower withholding friction), and brand control sits inside a structure the U.S. parent owns 100%. The 2+1 rule, however, must now be proven against this new entity</span><span class="cn-text"><strong>方案乙——在中国设立外商投资企业</strong>（过去叫外商独资企业，现在统一适用《公司法》）。由这家中国实体作为签约特许人和备案申请人。品牌使用费流向中国实体（预提税摩擦小得多），品牌控制由一家美国母公司 100% 持有的实体承载。但 2+1 规则要重新对这家新实体证明</span></li>
+      <li><span class="en-text"><strong>Option C — Joint venture with the Master Franchisee.</strong> The Master Franchisee co-owns the contracting entity. Fastest path to local 2+1 satisfaction, fastest path to operational ground truth, lowest royalty friction. But brand control becomes a governance problem inside the JV cap table, not a clause in the franchise contract</span><span class="cn-text"><strong>方案丙——与区域总加盟商合资设立中国实体。</strong>区域总加盟商共同持股签约主体。最快满足本地 2+1、最快接触本土运营实情、品牌使用费摩擦最小。但品牌控制此时从特许经营合同里的一条条款，变成了合资公司股权结构里的治理问题</span></li>
+    </ul>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>Watch for:</strong> Whether the MOU names the chosen structure or a decision date with a clear default. Silence equals Option A — and Option A's tax and disclosure profile is what most brand-side CFOs flinch at when they finally see the modeled cash flow. The right time for that conversation is term-sheet stage, not month three.</span>
+        <span class="cn-text"><strong>注意：</strong>合作意向书里是否写明了选定的结构，或者一个明确默认方案的决策截止日。沉默 = 方案甲——而方案甲的税务和披露画像，正是多数品牌方首席财务官在最终看到现金流模型时往后撤的那一个。讨论这件事的正确时机是条款清单阶段，不是第三个月。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- POINT 2 -->
+  <div class="point">
+    <span class="point-num">02</span>
+    <div class="point-label">MOFCOM Filing · 商务部备案的三个时钟</div>
+    <h2>
+      <span class="en-text">Three Clocks Start the Moment You <em>Sign in China</em></span>
+      <span class="cn-text">三个时钟，在你<em>在中国签字</em>的那一刻同时启动</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Most U.S. brand-side teams treat MOFCOM filing as paperwork — something the Chinese partner handles after signing. It is not paperwork. It is the gate that determines whether the franchise contract is enforceable in China at all, and the gate quietly imposes prerequisites that reach back into Point 1's entity choice.</span>
+      <span class="cn-text">大多数美国品牌方把商务部备案当成走流程——觉得是中国合作方签完合同之后的纸面工作。它不是纸面工作。它是决定特许经营合同在中国能否强制执行的闸门，而这道闸门悄悄回头给方案甲/B/C 的选择施加前置条件。</span>
+    </p>
+
+    <p>
+      <span class="en-text">Three time-bound rules define the gate:</span>
+      <span class="cn-text">三条带时间约束的规则，共同定义了这道闸门：</span>
+    </p>
+
+    <ul class="checklist">
+      <li><span class="en-text"><strong>The 2+1 rule.</strong> Under Article 7 of the Regulation, a franchisor must have operated <strong>at least two directly-owned outlets for more than one year</strong> before it may legally franchise in China. The rule applies to <em>the contracting franchisor entity</em>. If the U.S. parent is the contracting party, U.S. outlets count — but proving this in a Beijing MOFCOM filing with notarised, legalised, Chinese-translated evidence is non-trivial</span><span class="cn-text"><strong>2+1 规则。</strong>根据《条例》第七条，特许人必须先<strong>拥有至少两家直营店并经营满一年</strong>，才能在中国合法开展特许经营。这条规则约束的是<em>签约的特许人主体</em>。如果美国母公司是签约方，美国本土直营店是算数的——但要把这件事在北京商务部备案中证明清楚，需要经公证、领事认证、翻成中文的完整证据链，绝非走流程</span></li>
+      <li><span class="en-text"><strong>The 15-day post-signing filing window.</strong> Once the first franchise contract is signed in China, the franchisor has <strong>15 days</strong> to file with MOFCOM. International franchisors file in <em>Beijing</em>, not at local bureaus. Any change to the filed information must be lodged within 30 days. Failure to file does not automatically void the contract, but it exposes the franchisor to administrative fines and weakens its position in dispute</span><span class="cn-text"><strong>签约后 15 天备案窗口。</strong>第一份特许经营合同在中国签订后，特许人必须在 <strong>15 天内</strong>向商务部备案。国际特许人去<em>北京</em>备案，不是地方商务部门。备案信息一旦变更，须在 30 日内补报。未备案不会让合同自动无效，但会让特许人承担行政罚款，争议中执行层面的位置会明显变弱</span></li>
+      <li><span class="en-text"><strong>30-day pre-contractual disclosure.</strong> The franchisor must deliver a Chinese-language disclosure document to the prospective franchisee at least <strong>30 days before signing</strong> — and this document is <em>independent</em> of the U.S. FDD, not satisfied by translation. Material misstatement here is one of the most common grounds Chinese courts use to rule for franchisees</span><span class="cn-text"><strong>签约前 30 天信息披露义务。</strong>特许人须在签约前至少 <strong>30 天</strong>向潜在被特许人交付一份中文披露文件——这份文件<em>独立于</em>美国美国披露文件，把美国披露文件翻成中文不算履行义务。这份文件中的重大不实陈述，是中国法院在特许经营争议中判被特许人胜诉最常用的依据之一</span></li>
+    </ul>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">2 + 1</div>
+        <div class="stat-label">Direct Outlets + Years · 直营店 + 经营年限</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">15 days</div>
+        <div class="stat-label">Post-Signing Filing · 签约后备案窗口</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">30 days</div>
+        <div class="stat-label">Pre-Signing Disclosure · 签约前披露</div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>Practical test:</strong> Ask your prospective Master Franchisee to map all three clocks against your MOU's signing date — on paper. If they cannot tell you which Beijing-based franchise counsel will file, who is preparing the Chinese disclosure document, and how 2+1 is being demonstrated for your chosen contracting entity, the deal is being structured by hope, not by plan.</span>
+        <span class="cn-text"><strong>实操方法：</strong>让你潜在的区域总加盟商把三个时钟对照合作意向书的签约日期画一张时间轴出来——白纸黑字。如果他们说不出哪家北京特许经营律所负责备案、谁在起草中文披露文件、你选定的签约主体如何证明 2+1，那么这单生意是靠"希望"在推进，不是靠"计划"。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- POINT 3 -->
+  <div class="point">
+    <span class="point-num">03</span>
+    <div class="point-label">Mandatory PRC Application · 强制涉外管辖</div>
+    <h2>
+      <span class="en-text">Choosing <em>New York Law</em> Does Not Exempt You from Chinese Franchise Rules</span>
+      <span class="cn-text">选择<em>纽约州法</em>，救不了你在中国的特许经营义务</span>
+    </h2>
+
+    <p>
+      <span class="en-text">A reflex in nearly every U.S. brand-side draft is to specify New York or Delaware law and either New York courts or arbitration in Hong Kong, Singapore, or under ICC rules. The intent is to keep dispute resolution on familiar terrain. The mistake is assuming this choice exempts on-the-ground operations in China from the PRC franchise framework. It does not.</span>
+      <span class="cn-text">几乎每一份美国品牌方起草的合同，本能反应都是选纽约州或特拉华州法，以及纽约法院、或者香港、新加坡、国际商会仲裁。意图是让争议解决留在熟悉的地形上。错误在于：这个选择并不能让在中国本土的运营豁免于中国特许经营法律框架。它救不了。</span>
+    </p>
+
+    <p>
+      <span class="en-text">Chinese law treats commercial franchise regulation as <strong>mandatorily applicable</strong> within China — meaning regardless of what the contract's governing-law clause says, the disclosure obligation, the MOFCOM filing requirement, the 2+1 rule, and the franchisee-protective provisions of the Regulation apply to franchise operations on Chinese soil.</span>
+      <span class="cn-text">中国法律把商业特许经营监管视为<strong>强制性涉外适用</strong>——也就是说，无论合同里的法律适用条款怎么写，信息披露义务、商务部备案义务、2+1 规则、《条例》中对被特许人的保护条款，都会适用于在中国境内的特许经营运营。</span>
+    </p>
+
+    <ul class="checklist">
+      <li><span class="en-text"><strong>What governing-law works for:</strong> contractual interpretation between the parties, choice of dispute forum, damages calculation methodology, allocation of legal fees</span><span class="cn-text"><strong>法律选择条款能做到的：</strong>当事人之间的合同解释、争议管辖地选择、损害赔偿计算方法、律师费分配</span></li>
+      <li><span class="en-text"><strong>What it cannot do:</strong> exempt your China operations from MOFCOM filing, eliminate the 30-day Chinese-disclosure obligation, override the 2+1 eligibility rule, or strip franchisee protections embedded in PRC law from sub-franchise relationships in China</span><span class="cn-text"><strong>法律选择条款做不到的：</strong>让你的中国运营豁免于商务部备案、取消 30 天中文披露义务、推翻 2+1 资格规则、剥夺中国法律赋予被特许人的、嵌入在中国境内再特许关系中的保护</span></li>
+      <li><span class="en-text"><strong>What this means in practice:</strong> dual-layer compliance. The contract operates under the chosen foreign law for its commercial terms; the franchise operations in China simultaneously satisfy PRC mandatory rules. Drafting around this duality is what experienced cross-border franchise counsel actually do</span><span class="cn-text"><strong>实操含义：</strong>双层合规。合同的商业条款按所选外国法运行；中国境内的特许经营运营同时满足中国强制性规则。围绕这一双层结构起草，正是有经验的跨境特许经营律师在做的事</span></li>
+    </ul>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>Watch for:</strong> A draft Master Franchise agreement that addresses only one layer. If the contract elegantly resolves U.S.-law disputes but never mentions MOFCOM filing, Chinese disclosure, or 2+1 — your counsel has drafted half the deal. The half on Chinese soil is the half that determines whether the franchise can be enforced at all.</span>
+        <span class="cn-text"><strong>注意：</strong>一份只处理单层的区域总加盟草稿。如果合同优雅地解决了美国法下的争议，但全篇不提商务部备案、中文披露、2+1——你的律师只起草了一半交易。落在中国本土的那一半，才是决定特许经营能不能被强制执行的那一半。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- POINT 4 -->
+  <div class="point">
+    <span class="point-num">04</span>
+    <div class="point-label">Operational Autonomy · 运营自主权边界</div>
+    <h2>
+      <span class="en-text">Where Brand Control <em>Ends</em> and Local Judgment <em>Begins</em></span>
+      <span class="cn-text">品牌控制在哪里<em>收手</em>，本土判断从哪里<em>开始</em></span>
+    </h2>
+
+    <p>
+      <span class="en-text">A Master Franchise agreement is, structurally, a delegation of authority. The U.S. brand delegates the right to develop, sub-franchise, and operate within a defined territory to a Chinese counterparty in exchange for a fee structure and a performance schedule. The deceptive part: "authority" looks unitary in the term sheet but fragments into dozens of operational decisions in practice.</span>
+      <span class="cn-text">区域总加盟协议在结构上是一次权限委托。美国品牌方把指定区域内的开发权、再特许权、运营权，委托给中国对方，换取费用结构和业绩进度。骗人的地方："权限"在条款清单里看起来是一整块，落到运营里却会碎成几十个具体决定。</span>
+    </p>
+
+    <p>
+      <span class="en-text">The pattern that works: <strong>brand retains the framework; Master Franchisee owns the moves within the framework.</strong> Framework violations trigger remedy mechanisms. Moves within the framework do not require approval. The instinct to approve each individual move feels like brand stewardship, but functions, in the China context, as operational paralysis. Six decision categories define the boundary:</span>
+      <span class="cn-text">能跑通的模式：<strong>品牌保留框架，区域总加盟商拥有框架内的具体动作。</strong>违反框架触发救济机制，框架内的动作不需审批。"逐个动作都要审"的本能感觉像品牌负责，在中国语境下的实际功能是运营瘫痪。六类决定共同定义了这条边界：</span>
+    </p>
+
+    <ul class="checklist">
+      <li><span class="en-text"><strong>Menu / SKU localization.</strong> Brand retains core recipes, signature items, brand-defining specs. MF owns a 15–25% localization slot for regional items, seasonal LTOs, category extensions fitting China retail rhythm</span><span class="cn-text"><strong>菜单 / 单品本地化。</strong>品牌保留核心配方、招牌产品、定义品牌的产品规格。区域总加盟商拥有 15–25% 的本地化空间，用于做地域性产品、季节性限时单品、契合中国零售节奏的品类延伸</span></li>
+      <li><span class="en-text"><strong>Pricing.</strong> Brand sets the pricing band (floor and ceiling) and positioning tier. MF sets actual price points, promotional pricing, channel-specific pricing (delivery vs dine-in, Meituan vs Douyin Local). Importing U.S. price points directly is the most common autonomy-boundary mistake we see</span><span class="cn-text"><strong>定价。</strong>品牌设定价格带上下限与定位档次。区域总加盟商设定实际价格点位、促销价、渠道差异化定价（外卖与堂食、美团与抖音本地生活）。把美国本土价格点位直接平移到中国，是我们见过最常见的自主权边界错误</span></li>
+      <li><span class="en-text"><strong>Site selection and store format.</strong> Brand approves city tier, neighborhood class, store format taxonomy. MF selects sites within approved tiers, mall partnerships (the 50+ mall operators we work with are precisely where deals are won), and which format goes where</span><span class="cn-text"><strong>选址与店型。</strong>品牌核准城市级别、商圈等级、店型分类。区域总加盟商选定核准区间内的具体点位、商场合作（我们合作的 50+ 商场运营方正是交易发生的地方）、哪种店型放在哪里</span></li>
+      <li><span class="en-text"><strong>Marketing and content.</strong> Brand owns visual identity, brand voice principles, prohibited claims. MF owns content production, KOL partnerships, platform-specific creative (Xiaohongshu, Douyin, Weibo, WeChat each have their own grammar)</span><span class="cn-text"><strong>营销与内容。</strong>品牌拥有视觉识别、品牌语气原则、禁用表述。区域总加盟商拥有内容生产、达人合作、平台差异化创意（小红书、抖音、微博、公众号各有不同语法）</span></li>
+      <li><span class="en-text"><strong>Supply chain.</strong> Brand specifies ingredient/material standards, quality benchmarks, approved supplier categories. MF selects suppliers within approved categories. Insisting on imports from U.S. suppliers when functionally equivalent China supply exists is the second most common mistake</span><span class="cn-text"><strong>供应链。</strong>品牌指定原料 / 物料标准、品质基准、可选供应商类别。区域总加盟商选定类别范围内的具体供应商。在中国本地有功能等价供应时仍坚持从美国进口，是第二常见错误</span></li>
+      <li><span class="en-text"><strong>Sub-franchise selection.</strong> Brand sets financial and operational qualification criteria. MF runs vetting, contracting, training, ongoing management. Brand leverage sits in the criteria, not case-by-case approval</span><span class="cn-text"><strong>再特许甄选。</strong>品牌设定财务与运营资格标准。区域总加盟商执行审核、签约、培训、持续管理。品牌杠杆在"标准"上，不在"逐个候选人审批"</span></li>
+    </ul>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>Practical test:</strong> Put each of the six categories on the table with three concrete examples per category. Decide together where each example lands — brand framework, MF move, or shared. The exercise of using examples (not abstractions) surfaces 80% of the month-three landmines while founders are still on the call.</span>
+        <span class="cn-text"><strong>实操方法：</strong>把六类决定每一类配三个具体例子摆上桌。一起决定每个例子落在哪里——品牌框架、区域总加盟商动作、还是共享。用例子而不是抽象表述，这个动作本身会在创始人还在电话会议上的时候，先把 80% 的第三个月地雷扫出来。</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- POINT 5 -->
+  <div class="point">
+    <span class="point-num">05</span>
+    <div class="point-label">Remedy Ladder & Exit · 救济阶梯与退出</div>
+    <h2>
+      <span class="en-text">The Exit Door <em>Has More Locks</em> Than the Entry Door</span>
+      <span class="cn-text">退场的门<em>比入场的门</em>还难开</span>
+    </h2>
+
+    <p>
+      <span class="en-text">Termination, brand IP retrieval, and dispute remedy are the items term sheets most often punt to "to be drafted by counsel." That punt is exactly why so many cross-border Master Franchise relationships end up in a stalemate neither side can escape — both sides know the exit door exists, neither side knows what walking through it costs.</span>
+      <span class="cn-text">终止、品牌品牌资产回收、争议救济，是条款清单最常推给"留待律师起草"的几件事。正是这个"留待"，让大量跨境区域总加盟关系陷入双方都逃不出去的僵局——双方都知道退出门存在，但没有一方知道走出去要付什么代价。</span>
+    </p>
+
+    <p>
+      <span class="en-text">Five elements the term sheet must at least sketch:</span>
+      <span class="cn-text">条款清单阶段至少要画出骨架的五件事：</span>
+    </p>
+
+    <ul class="checklist">
+      <li><span class="en-text"><strong>Framework-violation definition.</strong> Specify what constitutes a violation by reference to the Point 4 framework — not abstract phrases like "material breach." Concrete examples: unauthorized SKU launches outside the localization slot, pricing below floor for 30+ consecutive days, opening a store outside approved city tiers without consent</span><span class="cn-text"><strong>框架违约定义。</strong>引用第四点的框架来定义违约——不是"重大违约"这种抽象短语。具体例子：在本地化空间之外擅自上单品、连续 30 天以上低于价格带下限定价、未经同意在核准城市级别之外开店</span></li>
+      <li><span class="en-text"><strong>Cure period.</strong> Typically 30 to 90 days depending on violation type. Reputational and IP-misuse violations: shorter (10–30 days). Operational drift: longer (60–90 days, with a corrective plan). No cure period = brand has a hair-trigger; perpetual cure = MF has impunity</span><span class="cn-text"><strong>补救期。</strong>按违约类型通常 30 至 90 天。声誉和品牌资产滥用类：较短（10–30 天）。运营漂移类：较长（60–90 天，配整改计划）。无补救期 = 品牌随时可扣扳机；永久补救期 = 区域总加盟商永不受罚</span></li>
+      <li><span class="en-text"><strong>Step-up consequences.</strong> First violation: written notice + cure. Second within 12 months: financial penalty + cure. Third: contract-defined material breach triggering termination right. The ladder gives both sides predictability — without it, every dispute escalates to existential</span><span class="cn-text"><strong>逐级升级后果。</strong>首次违约：书面通知 + 补救。12 个月内第二次：经济处罚 + 补救。第三次：合同定义的重大违约，触发终止权。这个阶梯给双方可预期性——没有它，每次争议都会升级到"生死存亡"</span></li>
+      <li><span class="en-text"><strong>Termination conditions.</strong> Beyond uncured material breach: insolvency, change of control of the MF, sustained failure of minimum development schedule (typically 24 months below 70% of target). Each needs a notice mechanism and a wind-down period</span><span class="cn-text"><strong>终止条件。</strong>除未补救的重大违约外：破产、区域总加盟商控制权变更、最低开店进度持续不达标（通常指 24 个月低于目标的 70%）。每个条件都需要通知机制和过渡期</span></li>
+      <li><span class="en-text"><strong>Post-termination IP retrieval.</strong> The most overlooked clause in cross-border Master Franchise agreements. On termination: who owns the trademark filings made under the MF in China? Who controls the WeChat / Douyin / Xiaohongshu accounts built under the brand name? What happens to sub-franchisees mid-term? Without explicit retrieval mechanisms, brands routinely lose <em>de facto</em> control of their China brand assets</span><span class="cn-text"><strong>终止后品牌资产回收。</strong>跨境区域总加盟协议中最被忽视的一条。终止时：区域总加盟商名下在中国注册的商标谁拥有？以品牌名建立的微信 / 抖音 / 小红书账号谁控制？合约期中的再特许加盟商如何处置？如果不写明回收机制，品牌方在法律上退出区域总加盟商关系之后，常常仍然<em>实际</em>失去对中国品牌资产的控制</span></li>
+    </ul>
+
+    <div class="warning">
+      <p>
+        <span class="en-text"><strong>Watch for:</strong> A draft that handles termination but skips post-termination IP retrieval. This gap turns a legally clean exit into a de facto loss of your China brand for the next 5–10 years. Trademark registrations, social platform accounts, key supplier contracts, sub-franchisee relationships — each needs a named retrieval pathway. The cost of writing this in at term-sheet stage is hours of counsel time; the cost of not writing it in is your China brand.</span>
+        <span class="cn-text"><strong>注意：</strong>一份处理了"终止"但跳过"终止后品牌资产回收"的草稿。这个缺口会把法律上干净的退出，变成事实上未来 5–10 年失去中国品牌的下场。商标注册、社交平台账号、关键供应商合同、再特许加盟商关系——每一项都需要明确的回收路径。在条款清单阶段写进去的成本是几小时律师工时；不写进去的成本，是你的中国品牌。</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="en-text">In Closing</span><span class="cn-text">写在最后</span></div>
+
+  <p>
+    <span class="en-text">The U.S. side of a Master Franchise negotiation tends to treat the term sheet as a document — a thing to ship, get signed, and hand to lawyers. The Chinese side, in our experience, treats it as a conversation — a record of what was actually understood across the table. When the two read the same document with two different theories of what it is, month three is when the gap becomes visible.</span>
+    <span class="cn-text">美国一方在区域总加盟谈判中，通常把条款清单当文件——一个要交付、要签字、然后递给律师的东西。我们的经验里，中国一方把它当一场对话——一份关于桌面两侧到底就什么达成了共识的记录。当两边用两种不同的"它是什么"理论读同一份文件时，第三个月就是这道缝被看见的时刻。</span>
+  </p>
+
+  <p>
+    <span class="en-text">The five points in this field note — contracting entity, MOFCOM filing clocks, mandatory PRC application, operational autonomy, and the remedy ladder — are where that gap most often opens. They are not the only places. But naming them before signing addresses the structural majority of cross-border Master Franchise failures we have seen.</span>
+    <span class="cn-text">这篇实战笔记里的五个要点——签约主体结构、商务部备案的三个时钟、强制涉外管辖、运营自主权、救济阶梯——是这道缝最常张开的几个地方。它们不是唯一的地方。但在签字之前把它们写明白，就处理了我们见过的跨境区域总加盟失败里结构性占多数的那一类。</span>
+  </p>
+
+  <p>
+    <span class="en-text">A franchise relationship that begins with both sides agreeing to be specific is a relationship that survives the moment one side has to push back. A franchise relationship that begins with both sides agreeing to be polite is a relationship that breaks on the first push.</span>
+    <span class="cn-text">一段"双方同意把话说具体"的特许经营关系，能撑住其中一方必须推回去的那一刻。一段"双方同意先客气一点"的特许经营关系，会在第一次推回去时就崩。</span>
+  </p>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-content">
+      <div class="cta-eyebrow">
+        <span class="en-text">Free Structure Review · BizchainChina Service</span>
+        <span class="cn-text">免费结构审阅服务</span>
+      </div>
+      <h3>
+        <span class="en-text">Considering China? <em>We'll pressure-test the structure with you.</em></span>
+        <span class="cn-text">在考虑中国市场？<em>我们陪你把结构压一遍。</em></span>
+      </h3>
+      <p>
+        <span class="en-text">BizchainChina offers complimentary structural reviews for U.S. franchise brands evaluating China market entry. We walk through entity structure options, MOFCOM filing pathway, autonomy boundary mapping for your category, and the remedy ladder — and surface the questions your term sheet has not yet asked. Under NDA, at no cost.</span>
+        <span class="cn-text">BizchainChina 为认真评估中国市场进入的美国连锁品牌，提供免费的结构审阅服务。我们与你一起走过签约主体结构选项、商务部备案路径、针对你品类的自主权边界映射、救济阶梯，并把那些条款清单还没问到的问题摆上桌面。签保密协议进行，全部免费。</span>
+      </p>
+      <a href="https://bizchainchina.com/franchise-assessment.html" class="cta-btn">
+        <span class="en-text">Request a Review</span>
+        <span class="cn-text">申请审阅</span>
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<footer class="footer">
+  <div class="footer-brand">BIZCHAINCHINA</div>
+  <div class="footer-tag">
+    <span class="en-text">U.S.–China Franchise Growth Partner</span>
+    <span class="cn-text">中美加盟连锁增长伙伴</span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#insights">Insights</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 BizchainChina · info@bizchainchina.com</div>
+</footer>
+
+<script>
+// Language toggle
+const buttons = document.querySelectorAll('.lang-toggle button');
+const body = document.body;
+
+function setLang(lang) {
+  body.classList.remove('lang-en', 'lang-cn');
+  body.classList.add('lang-' + lang);
+  buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  localStorage.setItem('bizchain-lang', lang);
+  document.documentElement.lang = lang === 'cn' ? 'zh-CN' : 'en';
+}
+
+buttons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+// Initialize
+const saved = localStorage.getItem('bizchain-lang');
+const browserLang = (navigator.language || 'en').toLowerCase().startsWith('zh') ? 'cn' : 'en';
+setLang(saved || browserLang);
+
+// 阅读进度条 + 导航滚动状态
+const progress = document.getElementById('progress');
+const navEl = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  progress.style.width = scrolled + '%';
+  if (navEl) navEl.classList.toggle('scrolled', h.scrollTop > 80);
+});
+</script>
+
+</body>
+</html>
