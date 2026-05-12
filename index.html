@@ -803,12 +803,39 @@ footer{
   font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;
   color:var(--gold-dim);font-weight:400;
 }
+.insights-head-right{display:flex;flex-direction:column;align-items:flex-end;gap:1.2rem}
+.insights-nav{display:flex;align-items:center;gap:.8rem}
+.insights-nav-btn{
+  width:36px;height:36px;
+  border:1px solid var(--rule);
+  background:transparent;
+  color:var(--ink);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .3s,background .3s,color .3s;
+  flex-shrink:0;padding:0;
+}
+.insights-nav-btn:hover:not(:disabled){
+  border-color:var(--gold-dim);
+  background:var(--bg2);
+  color:var(--gold);
+}
+.insights-nav-btn:disabled{opacity:.28;cursor:default}
+.insights-nav-count{
+  font-family:var(--sans);
+  font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-muted);min-width:4em;text-align:center;
+}
+.insights-carousel-wrap{overflow:hidden;position:relative}
 .insights-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+  display:flex;
   gap:1.8rem;
+  transition:transform .65s cubic-bezier(.16,1,.3,1);
+  will-change:transform;
 }
 .insights-card{
+  flex:0 0 calc(33.333% - 1.2rem);
+  min-width:0;
   position:relative;
   display:flex;flex-direction:column;
   background:var(--bg);
@@ -890,14 +917,15 @@ body.lang-cn .insights-title{font-family:'Noto Serif SC',serif;font-size:1.3rem;
 .insights-card.is-link:hover .insights-cta svg{transform:translate(3px,-3px)}
 
 @media (max-width:1024px){
-  .insights-grid{grid-template-columns:repeat(2,1fr)}
+  .insights-card{flex:0 0 calc(50% - 0.9rem)}
   .insights-card.is-soon:last-child{display:none}
 }
 @media (max-width:680px){
   .insights-sec{padding:6rem 5vw 5rem}
   .insights-sec::before{height:40px}
   .insights-head{margin-bottom:3rem}
-  .insights-grid{grid-template-columns:1fr;gap:1.4rem}
+  .insights-grid{gap:1.4rem}
+  .insights-card{flex:0 0 100%}
   .insights-card.is-soon{display:none}
   .insights-body{padding:1.4rem 1.4rem 1.6rem}
   .insights-title{font-size:1.3rem}
@@ -1238,12 +1266,24 @@ body.lang-cn .insights-title{font-family:'Noto Serif SC',serif;font-size:1.3rem;
           <span data-cn>市场<em style="font-style:italic;color:var(--gold)">洞察</em></span>
         </h2>
       </div>
-      <div class="insights-head-meta rv">
-        <span data-en>Updated · 2026 Spring</span><span data-cn>更新 · 2026 春季</span>
+      <div class="insights-head-right rv">
+        <div class="insights-head-meta">
+          <span data-en>Updated · 2026 Spring</span><span data-cn>更新 · 2026 春季</span>
+        </div>
+        <div class="insights-nav">
+          <button class="insights-nav-btn" id="insightsPrev" aria-label="Previous" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <span class="insights-nav-count" id="insightsCount">01 / 04</span>
+          <button class="insights-nav-btn" id="insightsNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="insights-grid">
+    <div class="insights-carousel-wrap">
+    <div class="insights-grid" id="insightsTrack">
       <!-- Card 1: Investor Pitch (live) -->
       <a class="insights-card is-link rv" href="bizchainchina_pitch.html" target="_blank" rel="noopener">
         <div class="insights-cover">
@@ -1406,6 +1446,66 @@ body.lang-cn .insights-title{font-family:'Noto Serif SC',serif;font-size:1.3rem;
           </span>
         </div>
       </a>
+      <!-- Card 4: Master Franchise 5 Points (live) -->
+      <a class="insights-card is-link rv" href="master-franchise-5-points.html" target="_blank" rel="noopener">
+        <div class="insights-cover">
+          <div class="insights-cover-art" style="background:radial-gradient(ellipse at 50% 38%,#F2EAD5 0%,#D6C99A 60%,#A89060 100%)">
+            <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="mfGold" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#A88536"/>
+                  <stop offset="55%" stop-color="#8B6A38"/>
+                  <stop offset="100%" stop-color="#5C4318"/>
+                </linearGradient>
+                <linearGradient id="mfShine" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/>
+                  <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- 双层细金边框 -->
+              <rect x="48" y="32" width="304" height="186" fill="none" stroke="#7A5F1A" stroke-opacity="0.22" stroke-width="0.8"/>
+              <rect x="54" y="38" width="292" height="174" fill="none" stroke="#7A5F1A" stroke-opacity="0.13" stroke-width="0.6"/>
+              <!-- 罗马数字 V -->
+              <text x="200" y="162" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="110" font-weight="400" fill="url(#mfGold)" letter-spacing="3">V</text>
+              <!-- 细金线 + 5 个等分刻度 -->
+              <line x1="140" y1="186" x2="260" y2="186" stroke="#7A5F1A" stroke-opacity="0.42" stroke-width="0.7"/>
+              <g stroke="#7A5F1A" stroke-opacity="0.62" stroke-width="0.8" stroke-linecap="round">
+                <line x1="140" y1="182" x2="140" y2="190"/>
+                <line x1="170" y1="183" x2="170" y2="189"/>
+                <line x1="200" y1="181" x2="200" y2="191"/>
+                <line x1="230" y1="183" x2="230" y2="189"/>
+                <line x1="260" y1="182" x2="260" y2="190"/>
+              </g>
+              <!-- 顶部高光 -->
+              <rect x="0" y="0" width="400" height="250" fill="url(#mfShine)"/>
+            </svg>
+          </div>
+          <div class="insights-cover-overlay"></div>
+          <span class="insights-cover-tag"><span data-en>Field Note</span><span data-cn>深度解析</span></span>
+        </div>
+        <div class="insights-body">
+          <div class="insights-meta">
+            <span><span data-en>May 2026</span><span data-cn>2026 年 5 月</span></span>
+            <span class="insights-meta-dot"></span>
+            <span><span data-en>12 min read</span><span data-cn>12 分钟阅读</span></span>
+          </div>
+          <h3 class="insights-title">
+            <span data-en>Master Franchise <em>5 Points</em></span>
+            <span data-cn>区域总加盟 <em>五大要点</em></span>
+          </h3>
+          <p class="insights-excerpt">
+            <span data-en>A 12-year, multi-million-dollar Master Franchise deal decides whether your China expansion compounds or stalls. Most cross-border deals die at month three — on 5 structural questions the term sheet never named.</span>
+            <span data-cn>一份 12 年期区域总加盟协议，决定你的中国扩张是复利增长还是原地停滞。大多数跨境交易死在第三个月——死在条款清单从未写明的 5 个结构性问题上。</span>
+          </p>
+          <span class="insights-cta">
+            <span data-en>Read the Analysis</span><span data-cn>阅读全文</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7"></path><path d="M8 7h9v9"></path>
+            </svg>
+          </span>
+        </div>
+      </a>
+    </div>
     </div>
   </div>
 </section>
@@ -2051,6 +2151,47 @@ if(fnx)fnx.value=window.location.href;
       setTimeout(closeModal,3000);
     });
   });
+})();
+
+// ===== INSIGHTS CAROUSEL =====
+(function(){
+  var track = document.getElementById('insightsTrack');
+  if(!track) return;
+  var cards = Array.from(track.querySelectorAll('.insights-card'));
+  var prevBtn = document.getElementById('insightsPrev');
+  var nextBtn = document.getElementById('insightsNext');
+  var countEl = document.getElementById('insightsCount');
+  var cur = 0;
+
+  function perView(){
+    return window.innerWidth < 700 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  }
+  function maxIdx(){
+    return Math.max(0, cards.length - perView());
+  }
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+
+  function update(){
+    var offset = cur === 0 ? 0 : cards[cur].offsetLeft;
+    track.style.transform = 'translateX(-' + offset + 'px)';
+    prevBtn.disabled = cur === 0;
+    nextBtn.disabled = cur >= maxIdx();
+    countEl.textContent = pad(cur+1) + ' / ' + pad(cards.length);
+  }
+
+  prevBtn.addEventListener('click', function(){ if(cur>0){cur--;update();} });
+  nextBtn.addEventListener('click', function(){ if(cur<maxIdx()){cur++;update();} });
+
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      cur = Math.min(cur, maxIdx());
+      update();
+    }, 100);
+  });
+
+  update();
 })();
 </script>
 </body>
